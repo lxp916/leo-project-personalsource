@@ -519,7 +519,7 @@ Private Function Decode_Manual_Trigger(ByVal pPortID As Integer, ByVal pCommand 
             strMsg = Check_TFT_CF_PanelID(typPANEL_INFO.PANELID)
             If strMsg = "" Then
                 'Check MES Data
-                strMsg = Check_MES_Data(pubCST_INFO, typPANEL_INFO, typJOB_INFO)
+                strMsg = Check_MES_Data(pubCST_INFO, pubPANEL_INFO, typJOB_INFO)
                 If strMsg <> "" Then
                     Call Show_Message("Abnormal MES Data", strMsg)
                 End If

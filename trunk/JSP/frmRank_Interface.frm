@@ -818,8 +818,8 @@ Private Sub cmdRegist_Click()
             Me.txtAccumulation.Text = ""
             Me.cmbAddress_Count.Text = ""
   '============Leo 2012.05.22 Add Rank Level Start
-        For intIndex = 0 To UBound(txtRank)
-            txtRank(txtRank).Text = ""
+        For intIndex = 0 To UBound(RankLevel)
+            txtRank(intIndex).Text = ""
         Next intIndex
       '============Leo 2012.05.22 Add Rank Level End
             Me.txtPriority.Text = ""
@@ -1474,5 +1474,4 @@ Private Sub Add_Grade_Grid(ByVal pGrade As String)
     End With
 
 End Sub
-
 

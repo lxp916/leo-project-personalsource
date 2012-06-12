@@ -570,7 +570,8 @@ Public Sub Set_MES_Data(pCST_INFO As CST_INFO_ELEMENTS, pPNL_INFO As PANEL_INFO_
     End With
     frmMain.lblPre_Judge.Caption = frmMain.flxMES_Data.TextMatrix(18, 1)
     frmMain.lblPre_Loss_Code.Caption = frmMain.flxMES_Data.TextMatrix(19, 1)
-    
+    frmMain.Repair.Caption = frmMain.flxMES_Data.TextMatrix(30, 1)
+    frmJudge.Repair.Caption = frmMain.flxMES_Data.TextMatrix(30, 1)
 End Sub
 
 Public Sub Set_RUN_Data()
@@ -1551,7 +1552,7 @@ On Error GoTo ErrorHandler
                         intLoop_Count = intIndex
                         
                         strQuery = "INSERT INTO ABNORMAL_MES_DATA VALUES ("
-                        For intIndex = 1 To intLoop_Count - 2
+                        For intIndex = 1 To (intLoop_Count - 1)
                             strQuery = strQuery & "'" & arrDATA(intIndex) & "', "
                         Next intIndex
                         strQuery = strQuery & "'" & arrDATA(intIndex) & "')"
@@ -3322,7 +3323,7 @@ Public Sub Read_Rank_Data(ByVal pDB_FileName As String)
                             With typGRADE_DATA(intArray_Index)
                                 .DEFECT_CODE = typRANK_DATA.DEFECT_CODE
                                 .GRADE = arrGrade(intArray_Index)
-                                .Rank = Left(strTemp, intPos - 1)
+                                .RANK = Left(strTemp, intPos - 1)
                                 .RANK_DIVISION = typRANK_DATA.RANK_DIVISION
                             End With
                             strTemp = Mid(strTemp, intPos + 1)
@@ -3332,7 +3333,7 @@ Public Sub Read_Rank_Data(ByVal pDB_FileName As String)
                         With typGRADE_DATA(intArray_Index)
                             .DEFECT_CODE = typRANK_DATA.DEFECT_CODE
                             .GRADE = arrGrade(intArray_Index)
-                            .Rank = strTemp
+                            .RANK = strTemp
                             .RANK_DIVISION = typRANK_DATA.RANK_DIVISION
                         End With
                         Call Insert_Rank_Data(typRANK_DATA, typGRADE_DATA, intArray_Index)
@@ -3443,7 +3444,7 @@ Private Sub Insert_Rank_Data(pRANK_DATA As RANK_DATA_STRUCTURE, pGRADE_DATA() As
                 strQuery = strQuery & "'" & .RANK_DIVISION & "', "
                 strQuery = strQuery & "'" & .DEFECT_CODE & "', "
                 strQuery = strQuery & "'" & .GRADE & "', "
-                strQuery = strQuery & "'" & .Rank & "')"
+                strQuery = strQuery & "'" & .RANK & "')"
             End With
             dbMyDB.Execute (strQuery)
         Next intIndex
@@ -3688,7 +3689,8 @@ If SourceName <> "" Then
                  Call Get_File_From_Host_by_Path(strRemote_Path, strDB_Path, SourceName)
                  Call Read_Source_Defect_File(pPANEL_INFO, strDB_Path, SourceName)
 End If
-        
+
+frmJudge.Polarizor.Caption = pPANEL_INFO.POLARIZER_REWORK_COUNT
         
 '    Else
 '        If frmMain.flxEQ_Information.TextMatrix(3, 1) = "Operator" Then         'The equipment is CATST and operation mode is operator mode
@@ -3986,7 +3988,7 @@ While Not EOF(intFileNum)
      End If
   
    Wend
-
+   
    Close #intFileNum
 
 End If
@@ -5409,17 +5411,17 @@ Public Function Decode_CATST_Before_Block_Contact(ByVal pCommand As String) As I
     '        Call Decode_PANEL_Information_Elements(pCommand, typPANEL_INFO)
             Call Set_MES_Data(pubCST_INFO, typPANEL_INFO, typJOB_INFO, typSHARE_INFO)
         
-                'TFT, CF Panel ID Check
-            strMsg = Check_TFT_CF_PanelID(typPANEL_INFO.PANELID)
-            If strMsg = "" Then
-                'Check MES Data
-                strMsg = Check_MES_Data(pubCST_INFO, typPANEL_INFO, typJOB_INFO)
-                If strMsg <> "" Then
-                    Call Show_Message("Abnormal MES Data", strMsg)
-                End If
-            Else
-                Call Show_Message("Abnormal Panel ID", strMsg)
-            End If
+'                'TFT, CF Panel ID Check
+'            strMsg = Check_TFT_CF_PanelID(typPANEL_INFO.PANELID)
+'            If strMsg = "" Then
+'                'Check MES Data
+'                strMsg = Check_MES_Data(pubCST_INFO, typPANEL_INFO, typJOB_INFO)
+'                If strMsg <> "" Then
+'                    Call Show_Message("Abnormal MES Data", strMsg)
+'                End If
+'            Else
+'                Call Show_Message("Abnormal Panel ID", strMsg)
+'            End If
         Case "N":               'MES DATA enable & data not exist
         Case "D":               'MES DATA disable
         Case "S":               'In 1st inline light on
@@ -5631,19 +5633,19 @@ Public Function Decode_CALOI_Before_Block_Contact(ByVal pCommand As String) As I
             End If
             
     '        Call Decode_PANEL_Information_Elements(pCommand, typPANEL_INFO)
-            Call Set_MES_Data(pubCST_INFO, typPANEL_INFO, typJOB_INFO, typSHARE_INFO)
-        
-                'TFT, CF Panel ID Check
-            strMsg = Check_TFT_CF_PanelID(typPANEL_INFO.PANELID)
-            If strMsg = "" Then
-                'Check MES Data
-                strMsg = Check_MES_Data(pubCST_INFO, typPANEL_INFO, typJOB_INFO)
-                If strMsg <> "" Then
-                    Call Show_Message("Abnormal MES Data", strMsg)
-                End If
-            Else
-                Call Show_Message("Abnormal Panel ID", strMsg)
-            End If
+'            Call Set_MES_Data(pubCST_INFO, typPANEL_INFO, typJOB_INFO, typSHARE_INFO)
+'
+'                'TFT, CF Panel ID Check
+'            strMsg = Check_TFT_CF_PanelID(typPANEL_INFO.PANELID)
+'            If strMsg = "" Then
+'                'Check MES Data
+'                strMsg = Check_MES_Data(pubCST_INFO, typPANEL_INFO, typJOB_INFO)
+'                If strMsg <> "" Then
+'                    Call Show_Message("Abnormal MES Data", strMsg)
+'                End If
+'            Else
+'                Call Show_Message("Abnormal Panel ID", strMsg)
+'            End If
         Case "N":               'MES DATA enable & data not exist
         Case "D":               'MES DATA disable
         Case "S":               'In 1st inline light on
@@ -5662,6 +5664,11 @@ End Function
 Public Sub Decode_CATST_After_Block_Contact(ByVal pCommand As String)
 
     Dim typDEFECT_DATA()        As DEFECT_DATA_STRUCTURE
+    Dim typCST_INFO             As CST_INFO_ELEMENTS
+    Dim typPANEL_INFO           As PANEL_INFO_ELEMENTS
+    Dim typJOB_INFO             As JOB_DATA_STRUCTURE
+    Dim typSHARE_INFO           As SHARE_DATA_STRUCTURE
+    Dim typPANEL_DATA           As PANEL_DATA
 
     Dim strPanelID              As String
     Dim strMESDataExistFlag     As String
@@ -5815,7 +5822,7 @@ Public Sub Decode_CATST_After_Block_Contact(ByVal pCommand As String)
                     For intIndex = 1 To intDefect_Count
                         With typDEFECT_DATA(intIndex)
                             If RANK_OBJ.Get_DEFECT_DATA_by_Index(intIndex, .PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, _
-                                                                 .GATE_ADDRESS, .GRADE, .Rank, .COLOR, .GRAY_LEVEL, .ACCUMULATION) = False Then
+                                                                 .GATE_ADDRESS, .GRADE, .RANK, .COLOR, .GRAY_LEVEL, .ACCUMULATION) = False Then
                                 Call SaveLog("Decode_CATST_After_Block_Contact", "Defect Data loading fail. Index : " & intIndex)
                             End If
                         End With
@@ -5826,6 +5833,21 @@ Public Sub Decode_CATST_After_Block_Contact(ByVal pCommand As String)
     '            Load frmJudge
                 Call Power_On_PG
                 frmJudge.Show
+ 'Lucas Ver0.9.29 2012.05.22---Show Alarm Msg after Block Contact
+            'TFT, CF Panel ID Check
+            strMsg = Check_TFT_CF_PanelID(pubPANEL_INFO.PANELID)
+            If strMsg = "" Then
+                'Check MES Data
+                strMsg = Check_MES_Data(pubCST_INFO, pubPANEL_INFO, typJOB_INFO)
+                If strMsg <> "" Then
+                    Call Show_Message("Abnormal MES Data", strMsg)
+                End If
+            Else
+                Call Show_Message("Abnormal Panel ID", strMsg)
+            End If
+                                
+  'Lucas Ver0.9.29 2012.05.22---Show Alarm Msg after Block Contact
+  
 '            End If
         End If
       End If
@@ -5847,6 +5869,11 @@ End Sub
 Public Sub Decode_CALOI_After_Block_Contact(ByVal pCommand As String)
 
     Dim typDEFECT_DATA()        As DEFECT_DATA_STRUCTURE
+    Dim typCST_INFO             As CST_INFO_ELEMENTS
+    Dim typPANEL_INFO           As PANEL_INFO_ELEMENTS
+    Dim typJOB_INFO             As JOB_DATA_STRUCTURE
+    Dim typSHARE_INFO           As SHARE_DATA_STRUCTURE
+    Dim typPANEL_DATA           As PANEL_DATA
 
     Dim strPanelID              As String
     Dim strMESDataExistFlag     As String
@@ -5964,7 +5991,7 @@ Public Sub Decode_CALOI_After_Block_Contact(ByVal pCommand As String)
             If strGrade <> "" Then
                 Call SaveLog("Decode_CALOI_After_Block_Contact", "Assign Grade : " & strGrade)
                 frmMain.lblPost_Judge.Caption = strGrade
-                frmMain.flxMES_Data.TextMatrix(18, 1) = strGrade
+'                frmMain.flxMES_Data.TextMatrix(18, 1) = strGrade
                 intRow = frmMain.flxJudge_History.Rows - 1
                 frmMain.flxJudge_History.TextMatrix(intRow, 3) = strGrade
                 frmMain.flxJudge_History.TextMatrix(intRow, 6) = Format(TIME, "HH:MM:SS")
@@ -5979,7 +6006,7 @@ Public Sub Decode_CALOI_After_Block_Contact(ByVal pCommand As String)
                     For intIndex = 1 To intDefect_Count
                         With typDEFECT_DATA(intIndex)
                             If RANK_OBJ.Get_DEFECT_DATA_by_Index(intIndex, .PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
-                                                                 .GRADE, .Rank, .COLOR, .GRAY_LEVEL, .ACCUMULATION) = False Then
+                                                                 .GRADE, .RANK, .COLOR, .GRAY_LEVEL, .ACCUMULATION) = False Then
                                 Call SaveLog("Decode_CALOI_After_Block_Contact", "Defect Data loading fail. Index : " & intIndex)
                             End If
                         End With
@@ -5990,8 +6017,24 @@ Public Sub Decode_CALOI_After_Block_Contact(ByVal pCommand As String)
     '            Load frmJudge
                 Call Power_On_PG
                 frmJudge.Show
+'Lucas Ver0.9.29 2012.05.22---Show Alarm Msg after Block Contact
+            'TFT, CF Panel ID Check
+            strMsg = Check_TFT_CF_PanelID(pubPANEL_INFO.PANELID)
+            If strMsg = "" Then
+                'Check MES Data
+                strMsg = Check_MES_Data(pubCST_INFO, pubPANEL_INFO, typJOB_INFO)
+                If strMsg <> "" Then
+                    Call Show_Message("Abnormal MES Data", strMsg)
+                End If
+            Else
+                Call Show_Message("Abnormal Panel ID", strMsg)
+            End If
+                                
+  'Lucas Ver0.9.29 2012.05.22---Show Alarm Msg after Block Contact
+                
             End If
         End If
+   
         
 '        intPortNo = EQP.Get_PG_PortID
 '        If intPortNo > 0 Then
@@ -6076,7 +6119,7 @@ Public Sub Decode_Auto_Alarm()
                     strTemp = Mid(strTemp, intPos + 1)
                     
                     intPos = InStr(strTemp, ",")
-                    .Rank = Left(strTemp, intPos - 1)
+                    .RANK = Left(strTemp, intPos - 1)
                     strTemp = Mid(strTemp, intPos + 1)
                     
                     intPos = InStr(strTemp, ",")
@@ -6084,7 +6127,7 @@ Public Sub Decode_Auto_Alarm()
                     strTemp = Mid(strTemp, intPos + 1)
                     
                     intPos = InStr(strTemp, ",")
-                    .Count = CInt(Left(strTemp, intPos - 1))
+                    .COUNT = CInt(Left(strTemp, intPos - 1))
                     strTemp = Mid(strTemp, intPos + 1)
                     
                     .ALARM_TEXT = strTemp
@@ -6096,9 +6139,9 @@ Public Sub Decode_Auto_Alarm()
                     strQuery = strQuery & "'" & .PROCESS_NUM & "', "
                     strQuery = strQuery & "'" & .PFCD & "', "
                     strQuery = strQuery & "'" & .DEFECT_CODE & "', "
-                    strQuery = strQuery & "'" & .Rank & "', "
+                    strQuery = strQuery & "'" & .RANK & "', "
                     strQuery = strQuery & .COUNT_TIME & ", "
-                    strQuery = strQuery & .Count & ", "
+                    strQuery = strQuery & .COUNT & ", "
                     strQuery = strQuery & "'" & .ALARM_TEXT & "', "
                     strQuery = strQuery & "0, "
                     strQuery = strQuery & .EXPIRY_DATE & ", "
@@ -6165,9 +6208,9 @@ Public Sub Check_Auto_Alarm()
                     .PROCESS_NUM = lstRecord.Fields("PROCESS_NUM")
                     .PFCD = lstRecord.Fields("PFCD")
                     .DEFECT_CODE = lstRecord.Fields("DEFECT_CODE")
-                    .Rank = lstRecord.Fields("RANK")
+                    .RANK = lstRecord.Fields("RANK")
                     .COUNT_TIME = lstRecord.Fields("COUNT_TIME")
-                    .Count = lstRecord.Fields("COUNT")
+                    .COUNT = lstRecord.Fields("COUNT")
                     .ALARM_TEXT = lstRecord.Fields("ALARM_TEXT")
                     .CURRENT_COUNT = lstRecord.Fields("CURRENT_COUNT")
                     .EXPIRY_DATE = lstRecord.Fields("EXPIRY_DATE")
@@ -6176,7 +6219,7 @@ Public Sub Check_Auto_Alarm()
                     lstRecord.Close
                     
                     .CURRENT_COUNT = .CURRENT_COUNT + 1
-                    If .CURRENT_COUNT = .Count Then
+                    If .CURRENT_COUNT = .COUNT Then
                         Load frmAuto_Alarm
 '                        frmAuto_Alarm.lblTitle.Caption = "Common defect occurred. DEFECT CODE : " & .DEFECT_CODE & ", RANK : " & .RANK
                         frmAuto_Alarm.lblTitle.Caption = .ALARM_TEXT
