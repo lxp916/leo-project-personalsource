@@ -1,0 +1,252 @@
+[Main 2012-05-25 15:11:17]  JPS program start.
+[Open_Session 2012-05-25 15:11:38]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:11:38]  FTP Connect Succeed
+[Remote_Change_Directory 2012-05-25 15:11:38]  strPathFromRoot : \
+[Get_Current_Directory 2012-05-25 15:11:38]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:11:38]  Directory change success. Current directory : /c:/CELL/
+[Remote_Change_Directory 2012-05-25 15:11:38]  strPathFromRoot : EQ_Config\JPS\Readonly\Table\
+[Get_Current_Directory 2012-05-25 15:11:38]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:11:38]  Directory change success. Current directory : /c:/CELL/EQ_Config/JPS/Readonly/Table/
+[FTP_Get_FileList 2012-05-25 15:11:38]  Path.csv does not exist.
+[Remote_Change_Directory 2012-05-25 15:11:38]  strPathFromRoot : EQ_Config\JPS\Readonly\Table\
+[Get_Current_Directory 2012-05-25 15:11:38]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:11:38]  Directory change success. Current directory : /c:/CELL/EQ_Config/JPS/Readonly/Table/
+[Get_File_From_Host 2012-05-25 15:11:38]  Path.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:11:38]  FTP Disconnect
+[Open_Session 2012-05-25 15:11:47]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:11:47]  FTP Connect Succeed
+[Remote_Change_Directory 2012-05-25 15:11:47]  strPathFromRoot : \
+[Get_Current_Directory 2012-05-25 15:11:47]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:11:47]  Directory change success. Current directory : /c:/CELL/
+[Remote_Change_Directory 2012-05-25 15:12:12]  strPathFromRoot : EQ_Config\JPS\Readonly\User\
+[Get_Current_Directory 2012-05-25 15:12:12]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:12:12]  Directory change success. Current directory : /c:/CELL/EQ_Config/JPS/Readonly/User/
+[Remote_Change_Directory 2012-05-25 15:12:12]  strPathFromRoot : EQ_Config\JPS\Readonly\User\
+[Get_Current_Directory 2012-05-25 15:12:12]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:12:12]  Directory change success. Current directory : /c:/CELL/EQ_Config/JPS/Readonly/User/
+[Get_File_From_Host 2012-05-25 15:12:12]  User.csv download success.
+[Disconnect_FTP_Client 2012-05-25 15:12:14]  FTP Disconnect
+[Open_Session 2012-05-25 15:12:14]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:12:14]  FTP Connect Succeed
+[Remote_Change_Directory 2012-05-25 15:12:14]  strPathFromRoot : \
+[Get_Current_Directory 2012-05-25 15:12:14]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:12:14]  Directory change success. Current directory : /c:/CELL/
+[Remote_Change_Directory 2012-05-25 15:12:14]  strPathFromRoot : EQ_Config\JPS\Readonly\Table\
+[Get_Current_Directory 2012-05-25 15:12:14]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:12:14]  Directory change success. Current directory : /c:/CELL/EQ_Config/JPS/Readonly/Table/
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  Control.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkTFTPanelID1.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkTFTPanelID2.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkTFTPanelID3.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkTFTPanelID4.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkTFTPanelID5.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkTFTPanelID6.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkTFTPanelID7.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkTFTPanelID8.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkTFTPanelID9.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkTFTPanelID10.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkCFPanelID1.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkCFPanelID2.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkCFPanelID3.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  checkCFPanelID4.csv download success.
+[FTP_Get_File_from_List 2012-05-25 15:12:14]  ChangeGrade.csv download success.
+[tmrCommand_Timer 2012-05-25 15:12:25]  Command Queue Message : @RONT20110601103432SB22V513222222ONCATST161LUCASCAS00,
+[Open_Session 2012-05-25 15:12:25]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:12:25]  FTP Connect Succeed
+[Remote_Change_Directory 2012-05-25 15:12:25]  strPathFromRoot : \
+[Get_Current_Directory 2012-05-25 15:12:25]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:12:25]  Directory change success. Current directory : /c:/CELL/
+[Remote_Change_Directory 2012-05-25 15:12:25]  strPathFromRoot : \EQ_Config\JPS\Version\
+[Get_Current_Directory 2012-05-25 15:12:25]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:12:25]  Directory change success. Current directory : /c:/CELL/EQ_Config/JPS/Version/
+[FTP_PUT_File 2012-05-25 15:12:25]  FTP File Write succeed. File Name : Version_CAJPS161.dat
+[Disconnect_FTP_Client 2012-05-25 15:12:25]  FTP Disconnect
+[tmrCommand_Timer 2012-05-25 15:12:44]  Command Queue Message : @RBBCTA1A0140AK02EEE198CAB204  CA31502AAA00Prod460001                                                                                                                                                                        13156  TA1A0140AK02                                                B31501221801                                 CA31501AAA05RESD      0740072000056Y  MKTA220067AV05    11223344112345672637                       194TA220067AV05PCA31501AAA05  4650P3150-07T001                            MODULE    FA1CF985CDTA220067N00TA220067AV                                                                B31501221801      TA220067AV05TA220067AV05,
+[Open_Session 2012-05-25 15:12:54]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:12:54]  FTP Connect Succeed
+[Remote_Change_Directory 2012-05-25 15:12:54]  strPathFromRoot : \
+[Get_Current_Directory 2012-05-25 15:12:54]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:12:54]  Directory change success. Current directory : /c:/CELL/
+[Remote_Change_Directory 2012-05-25 15:12:54]  strPathFromRoot : LINK\CATST\31501\TA1A0\TA1A0140\TA1A0140AK02\
+[Get_Current_Directory 2012-05-25 15:12:54]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:12:54]  Directory change success. Current directory : /c:/CELL/LINK/CATST/31501/TA1A0/TA1A0140/TA1A0140AK02/
+[FTP_Get_FileList 2012-05-25 15:12:54]  TA1A0140AK02.csv does not exist.
+[Remote_Change_Directory 2012-05-25 15:12:54]  strPathFromRoot : LINK\CATST\31501\TA1A0\TA1A0140\TA1A0140AK02\
+[Get_Current_Directory 2012-05-25 15:12:54]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:12:54]  Directory change success. Current directory : /c:/CELL/LINK/CATST/31501/TA1A0/TA1A0140/TA1A0140AK02/
+[Get_File_From_Host 2012-05-25 15:12:54]  TA1A0140AK02.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:12:54]  FTP Disconnect
+[Open_Session 2012-05-25 15:12:58]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:12:58]  FTP Connect Succeed
+[Remote_Change_Directory 2012-05-25 15:12:58]  strPathFromRoot : \
+[Get_Current_Directory 2012-05-25 15:12:58]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:12:58]  Directory change success. Current directory : /c:/CELL/
+[Remote_Change_Directory 2012-05-25 15:13:12]  strPathFromRoot : EQ_Config\JPS\Readonly\Pattern\
+[Get_Current_Directory 2012-05-25 15:13:12]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:13:12]  Directory change success. Current directory : /c:/CELL/EQ_Config/JPS/Readonly/Pattern/
+[Remote_Change_Directory 2012-05-25 15:13:12]  strPathFromRoot : EQ_Config\JPS\Readonly\Pattern\
+[Get_Current_Directory 2012-05-25 15:13:12]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:13:12]  Directory change success. Current directory : /c:/CELL/EQ_Config/JPS/Readonly/Pattern/
+[Get_File_From_Host 2012-05-25 15:13:12]  P315024600.csv download success.
+[Disconnect_FTP_Client 2012-05-25 15:13:12]  FTP Disconnect
+[Open_Session 2012-05-25 15:13:12]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:13:12]  FTP Connect Succeed
+[Remote_Change_Directory 2012-05-25 15:13:12]  strPathFromRoot : \
+[Get_Current_Directory 2012-05-25 15:13:12]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:13:12]  Directory change success. Current directory : /c:/CELL/
+[Remote_Change_Directory 2012-05-25 15:13:12]  strPathFromRoot : Link\CATST\31501\TA1A0\TA1A0140\TA1A0140AK02\
+[Get_Current_Directory 2012-05-25 15:13:12]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:13:12]  Directory change success. Current directory : /c:/CELL/Link/CATST/31501/TA1A0/TA1A0140/TA1A0140AK02/
+[FTP_Get_FileList 2012-05-25 15:13:12]  TA1A0140AK02.csv does not exist.
+[Remote_Change_Directory 2012-05-25 15:13:12]  strPathFromRoot : Link\CATST\31501\TA1A0\TA1A0140\TA1A0140AK02\
+[Get_Current_Directory 2012-05-25 15:13:12]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:13:12]  Directory change success. Current directory : /c:/CELL/Link/CATST/31501/TA1A0/TA1A0140/TA1A0140AK02/
+[Get_File_From_Host 2012-05-25 15:13:12]  TA1A0140AK02.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:13:12]  FTP Disconnect
+[Open_Session 2012-05-25 15:13:12]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:13:12]  FTP Connect Succeed
+[Remote_Change_Directory 2012-05-25 15:13:12]  strPathFromRoot : \
+[Get_Current_Directory 2012-05-25 15:13:12]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:13:12]  Directory change success. Current directory : /c:/CELL/
+[Remote_Change_Directory 2012-05-25 15:13:12]  strPathFromRoot : CATST\CA31501AAA00\TA1A0\TA1A0140\TA1A0140AK02\BACKUP\
+[Get_Current_Directory 2012-05-25 15:13:12]  Current Directory : /c:/CELL
+[Remote_Change_Directory 2012-05-25 15:13:12]  Directory change success. Current directory : /c:/CELL/CATST/CA31501AAA00/TA1A0/TA1A0140/TA1A0140AK02/BACKUP/
+[tmrCommand_Timer 2012-05-25 15:14:06]  Command Queue Message : @RABCTA1A0140AK02EEE198CAB204  CA31502AAA00Prod460001                                                                                                                                                                        13156  TA1A0140AK02                                                B31501221801                                 CA31501AAA05RESD      0740072000056Y  MKTA220067AV05    11223344112345672637                       194TA220067AV05PCA31501AAA05  4650P3150-07T001                            MODULE    FA1CF985CDTA220067N00TA220067AV                                                                B31501221801      TA220067AV05TA220067AV05,
+[Main 2012-05-25 15:52:01]  JPS program start.
+[Open_Session 2012-05-25 15:52:02]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:52:02]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:52:02]  Path.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:52:02]  FTP Disconnect
+[Open_Session 2012-05-25 15:52:02]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:52:03]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:52:03]  User.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:52:03]  FTP Disconnect
+[Open_Session 2012-05-25 15:52:03]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:52:03]  FTP Connect Fail
+[Disconnect_FTP_Client 2012-05-25 15:52:03]  FTP Disconnect
+[Read_Assign_Grade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\AssignGrade1.csv is not found.
+[Read_Assign_Grade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\AssignGrade2.csv is not found.
+[Read_Assign_Grade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\AssignGrade3.csv is not found.
+[Read_Assign_Grade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\AssignGrade4.csv is not found.
+[Read_Assign_Grade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\AssignGrade5.csv is not found.
+[Read_PreJudgeGradeChange1 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PreJudgeGradeChange1.csv is not found.
+[Read_PreJudgeGradeChange2 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PreJudgeGradeChange2.csv is not found.
+[Read_PreJudgeGradeChange3 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PreJudgeGradeChange3.csv is not found.
+[Read_PostJudgeOtherRule1 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PostJudgeOtherRule1.csv is not found.
+[Read_PostJudgeOtherRule2 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PostJudgeOtherRule2.csv is not found.
+[Read_PostJudgeOtherRule3 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PostJudgeOtherRule3.csv is not found.
+[Read_PostJudgeGradeChange1 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PostJudgeGradeChange1.csv is not found.
+[Read_PostJudgeGradeChange2 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PostJudgeGradeChange2.csv is not found.
+[Read_CheckPanelIDChangeGrade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\CheckPanelIDChangeGrade1.csv is not found.
+[Read_CheckPanelIDChangeGrade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\CheckPanelIDChangeGrade2.csv is not found.
+[Read_CheckPanelIDChangeGrade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\CheckPanelIDChangeGrade3.csv is not found.
+[Read_CheckPanelIDChangeGrade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\CheckPanelIDChangeGrade4.csv is not found.
+[Read_CheckPanelIDChangeGrade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\CheckPanelIDChangeGrade5.csv is not found.
+[Read_ChangeGrade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\ChangeGrade.csv is not found.
+[Read_ChangeGradeByDefectCode 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\ChangeGradeByDefectCode.csv is not found.
+[Read_RepairPointTimes 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\RepairPointTimes.csv is not found.
+[Read_FlagChangeGrade 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\FlagChangeGrade.csv is not found.
+[Read_SKChange 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\SKchange.csv is not found.
+[Decode_Auto_Alarm 2012-05-25 15:52:03]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\Standard_Info\Auto alarm.csv does not exist.
+[tmrCommand_Timer 2012-05-25 15:52:20]  Command Queue Message : @RONT20110601103432SB22V513222222ONCATST161LUCASCAS00,
+[Open_Session 2012-05-25 15:52:20]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:52:20]  FTP Connect Fail
+[Defect_File_Upload 2012-05-25 15:52:20]  Version_CAJPS161.dat upload fail. Remote path : \EQ_Config\JPS\Version
+[Disconnect_FTP_Client 2012-05-25 15:52:20]  FTP Disconnect
+[tmrCommand_Timer 2012-05-25 15:52:26]  Command Queue Message : @RBBCTA1A0140AK02EEE198CAB204  CA31502AAA00Prod460001                                                                                                                                                                        13156  TA1A0140AK02                                                B31501221801                                 CA31501AAA05RESD      0740072000056Y  MKTA220067AV05    11223344112345672637                       194TA220067AV05PCA31501AAA05  4650P3150-07T001                            MODULE    FA1CF985CDTA220067N00TA220067AV                                                                B31501221801      TA220067AV05TA220067AV05,
+[Open_Session 2012-05-25 15:52:41]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:52:41]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:52:41]  TA1A0140AK02.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:52:41]  FTP Disconnect
+[Open_Session 2012-05-25 15:52:41]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:52:41]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:52:41]  P315024600.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:52:41]  FTP Disconnect
+[Open_Session 2012-05-25 15:52:41]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:52:42]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:52:42]  TA1A0140AK02.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:52:42]  FTP Disconnect
+[Open_Session 2012-05-25 15:52:42]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:52:42]  FTP Connect Fail
+[Remote_Change_Directory 2012-05-25 15:52:42]  strPathFromRoot : CATST\CA31501AAA00\TA1A0\TA1A0140\TA1A0140AK02\BACKUP\
+[Get_Current_Directory 2012-05-25 15:52:42]  FtpGetCurrentDirectory funciton execute failed.
+[FTP_Get_FileList 2012-05-25 15:52:42]  FTP Connectin fail.
+[Disconnect_FTP_Client 2012-05-25 15:52:42]  FTP Disconnect
+[Decode_CATST_Before_Block_Contact 2012-05-25 15:52:42]  TA1A0140AK02 data base create success.
+[Open_Session 2012-05-25 15:52:42]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:52:42]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:52:42]  PFCD.PID download fail.
+[Disconnect_FTP_Client 2012-05-25 15:52:42]  FTP Disconnect
+[Open_Session 2012-05-25 15:52:42]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:52:42]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:52:42]  31502_address.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:52:42]  FTP Disconnect
+[Main 2012-05-25 15:53:21]  JPS program start.
+[Open_Session 2012-05-25 15:53:22]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:53:22]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:56:59]  Path.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:56:59]  FTP Disconnect
+[Open_Session 2012-05-25 15:56:59]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:56:59]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:57:08]  User.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:57:08]  FTP Disconnect
+[Open_Session 2012-05-25 15:57:08]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:57:08]  FTP Connect Fail
+[Disconnect_FTP_Client 2012-05-25 15:57:08]  FTP Disconnect
+[Read_Assign_Grade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\AssignGrade1.csv is not found.
+[Read_Assign_Grade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\AssignGrade2.csv is not found.
+[Read_Assign_Grade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\AssignGrade3.csv is not found.
+[Read_Assign_Grade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\AssignGrade4.csv is not found.
+[Read_Assign_Grade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\AssignGrade5.csv is not found.
+[Read_PreJudgeGradeChange1 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PreJudgeGradeChange1.csv is not found.
+[Read_PreJudgeGradeChange2 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PreJudgeGradeChange2.csv is not found.
+[Read_PreJudgeGradeChange3 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PreJudgeGradeChange3.csv is not found.
+[Read_PostJudgeOtherRule1 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PostJudgeOtherRule1.csv is not found.
+[Read_PostJudgeOtherRule2 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PostJudgeOtherRule2.csv is not found.
+[Read_PostJudgeOtherRule3 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PostJudgeOtherRule3.csv is not found.
+[Read_PostJudgeGradeChange1 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PostJudgeGradeChange1.csv is not found.
+[Read_PostJudgeGradeChange2 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\PostJudgeGradeChange2.csv is not found.
+[Read_CheckPanelIDChangeGrade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\CheckPanelIDChangeGrade1.csv is not found.
+[Read_CheckPanelIDChangeGrade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\CheckPanelIDChangeGrade2.csv is not found.
+[Read_CheckPanelIDChangeGrade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\CheckPanelIDChangeGrade3.csv is not found.
+[Read_CheckPanelIDChangeGrade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\CheckPanelIDChangeGrade4.csv is not found.
+[Read_CheckPanelIDChangeGrade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\CheckPanelIDChangeGrade5.csv is not found.
+[Read_ChangeGrade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\ChangeGrade.csv is not found.
+[Read_ChangeGradeByDefectCode 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\ChangeGradeByDefectCode.csv is not found.
+[Read_RepairPointTimes 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\RepairPointTimes.csv is not found.
+[Read_FlagChangeGrade 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\FlagChangeGrade.csv is not found.
+[Read_SKChange 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\STANDARD_INFO\SKchange.csv is not found.
+[Decode_Auto_Alarm 2012-05-25 15:57:08]  C:\Users\liaxiaop\Desktop\D\Work\JPS\Ver0.9.26\Env\Standard_Info\Auto alarm.csv does not exist.
+[tmrCommand_Timer 2012-05-25 15:57:17]  Command Queue Message : @RONT20110601103432SB22V513222222ONCATST161LUCASCAS00,
+[Open_Session 2012-05-25 15:57:17]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:57:17]  FTP Connect Fail
+[Defect_File_Upload 2012-05-25 15:57:17]  Version_CAJPS161.dat upload fail. Remote path : \EQ_Config\JPS\Version
+[Disconnect_FTP_Client 2012-05-25 15:57:17]  FTP Disconnect
+[tmrCommand_Timer 2012-05-25 15:57:24]  Command Queue Message : @RBBCTA1A0140AK02EEE198CAB204  CA31502AAA00Prod460001                                                                                                                                                                        13156  TA1A0140AK02                                                B31501221801                                 CA31501AAA05RESD      0740072000056Y  MKTA220067AV05    11223344112345672637                       194TA220067AV05PCA31501AAA05  4650P3150-07T001                            MODULE    FA1CF985CDTA220067N00TA220067AV                                                                B31501221801      TA220067AV05TA220067AV05,
+[Open_Session 2012-05-25 15:57:42]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:57:42]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:57:42]  TA1A0140AK02.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:57:42]  FTP Disconnect
+[Open_Session 2012-05-25 15:57:42]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:57:42]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:57:58]  P315024600.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:57:58]  FTP Disconnect
+[Open_Session 2012-05-25 15:57:58]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:57:59]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:57:59]  TA1A0140AK02.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:57:59]  FTP Disconnect
+[Open_Session 2012-05-25 15:57:59]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:57:59]  FTP Connect Fail
+[Remote_Change_Directory 2012-05-25 15:57:59]  strPathFromRoot : CATST\CA31501AAA00\TA1A0\TA1A0140\TA1A0140AK02\BACKUP\
+[Get_Current_Directory 2012-05-25 15:57:59]  FtpGetCurrentDirectory funciton execute failed.
+[FTP_Get_FileList 2012-05-25 15:57:59]  FTP Connectin fail.
+[Disconnect_FTP_Client 2012-05-25 15:57:59]  FTP Disconnect
+[Decode_CATST_Before_Block_Contact 2012-05-25 15:57:59]  TA1A0140AK02 data base create success.
+[Open_Session 2012-05-25 15:57:59]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:57:59]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:58:52]  PFCD.PID download fail.
+[Disconnect_FTP_Client 2012-05-25 15:58:54]  FTP Disconnect
+[Open_Session 2012-05-25 15:58:58]  FTP Port Open
+[Connect_FTP_Client 2012-05-25 15:58:58]  FTP Connect Fail
+[Get_File_From_Host 2012-05-25 15:59:18]  31502_address.csv download fail.
+[Disconnect_FTP_Client 2012-05-25 15:59:36]  FTP Disconnect
