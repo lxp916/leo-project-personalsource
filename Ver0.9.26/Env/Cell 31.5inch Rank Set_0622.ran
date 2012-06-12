@@ -1,0 +1,194 @@
+点类,CDRBP ,R/B-Point,红亮点,P,O,O,B,1,1,0,0,≤1,≤5,>5,O,1,YL,YL,KC,-,-,-,-,-,-,S
+,CDGBP,G/B-Point,绿亮点,P,O,O,B,1,1,0,0,≤1,≤5,>5,O,2,YL,YL,KC,-,-,-,-,-,-,S
+,CDBBP,B/B-Point,蓝亮点,P,O,O,B,1,1,0,0,≤1,≤5,>5,O,3,YL,YL,KC,-,-,-,-,-,-,S
+,CDAB2,2 Adjacent BP,2个连续亮点,P,O,O,B,2,1,0,0,0,≤2 pairs,>2 pairs,O,4,YL,YL,KC,-,-,-,-,-,-,S
+,CDAB3,3 Adjacent BP,3个连续亮点,P,O,O,B,3,1,0,0,0,≤1  pair,>1  pair,O,5,YL,YL,KC,-,-,-,-,-,-,S
+,CDABO,Over 3 Adjacent BP,3个以上连续亮点,R,O,O,B,X,1,0,0,0,≤1  pair,>1  pair,O,6,YL,YL,KC,-,-,-,-,-,-,S
+,CDBTD,BrighT Distance,亮点间距,A,O,O,LB,X,1,-,-,-,不卡,-,O,7,YL,YL,KC,-,-,-,-,-,-,S
+,CDLBP,Light Group B/P ,群亮点,P,O,X,B,X,1,0,0,0,0,亮点>5,O,8,YL,YL,KC,-,-,-,-,-,-,S
+,CDRDP ,R/D-Point,红暗点,P,O,O,D,1,1,≤3,≤7,≤8,≤15,>15,O,9,YL,YL,KC,-,-,-,-,-,-,S
+,CDGDP,G/D-Point,绿暗点,P,O,O,D,1,1,≤3,≤7,≤8,≤15,>15,O,10,YL,YL,KC,-,-,-,-,-,-,S
+,CDBDP,B/D-Point,蓝暗点,P,O,O,D,1,1,≤3,≤7,≤8,≤15,>15,O,11,YL,YL,KC,-,-,-,-,-,-,S
+,CDAD2,2 Adjacent DP,2个连续暗点,P,O,O,D,2,1,≤1 pair,≤1 pair,≤3 pairs,≤7 pairs,>7 pairs,O,12,YL,YL,KC,-,-,-,-,-,-,S
+,CDADO,Over 3 Adjacent DP,3个以上连续暗点,R,O,O,D,X,1,0,0,≤1 pair,≤5 pairs,>5 pairs,O,13,YL,YL,KC,-,-,-,-,-,-,S
+,CDDKD,DarK Distance,暗点间距,A,O,O,LD,X,1,≥15 mm,≥15 mm,不卡,不卡,-,O,14,YL,YL,KC,-,-,-,-,-,-,S
+,CDLDP,Light Group D/P ,群暗点,R,O,X,D,X,1,0,0,0,0,暗点>15,O,15,YL,YL,KC,-,-,-,-,-,-,S
+,CDLBD,Light Group BP/DP,群亮暗点,R,O,X,D,X,1,0,0,0,0,亮点>5或暗点>15,O,16,YL,YL,KC,-,-,-,-,-,-,S
+,CDWBP,Weak BP,微亮点,P,O,O,B,1,1,≤4,≤4,≤7,Ignore不卡,不报废,O,17,YL,YL,KC,-,-,-,-,-,-,S
+,CDGSB,Group Small B/P,群碎亮点,P,O,X,B,X,1,#N/A,#N/A,#N/A,#N/A,#N/A,O,18,YL,YL,KC,-,-,-,-,-,-,S
+,CDGSD,Group Small D/P,群碎暗点,P,O,X,D,X,1,#N/A,#N/A,#N/A,#N/A,#N/A,O,19,YL,YL,KC,-,-,-,-,-,-,S
+,CDSBP,Small BP,碎亮点,P,O,O,B,1,1,≤4,≤4,≤7,Ignore不卡,不报废,O,20,YL,YL,KC,-,-,-,-,-,-,S
+,CDSDP,Small DP,碎暗点,P,O,O,D,1,1,#N/A,#N/A,#N/A,#N/A,#N/A,O,21,YL,YL,KC,-,-,-,-,-,-,S
+,CDPRS,PReSs point,压面点,P,O,O,B,1,1,0,0,≤2,松开不消失≤5,松开不消失>5,O,22,YL,YL,KC,-,-,-,-,-,-,S
+,CDLFQ,Low FreQuency point,低频点,P,O,O,X,1,1,0,0,≤1,≤5,>5,O,23,YL,YL,KC,-,-,-,-,-,-,S
+,CDBDD,Bright and Dark Distance,亮暗点间距,A,O,O,L2,X,1,-,-,不卡,不卡,-,O,24,YL,YL,KC,-,-,-,-,-,-,S
+,CDBAD,BP And DP,亮暗连续,P,O,O,B,2,1,#N/A,#N/A,#N/A,#N/A,#N/A,O,25,YL,YL,KC,-,-,-,-,-,-,S
+,CDFLS,FLaSh point,闪烁点,P,O,O,B,1,1,0,0,≤1,≤5,>5,O,26,YL,YL,KC,-,-,-,-,-,-,S
+,CDLEK,Leak BP,Leak亮点,P,O,O,B,1,1,0,0,0,≤5 颗,>5 颗,O,27,YL,YL,KC,-,-,-,-,-,-,S
+,CDBTT,BrighT Total,亮点总数,A,O,O,TB,X,1,0,0,≤1,≤5,>5,O,28,YL,YL,KC,-,-,-,-,-,-,S
+,CDDKT,DarK Total,暗点总数,A,O,O,TD,X,1,≤3,≤7,≤8,≤15,>15,O,29,YL,YL,KC,-,-,-,-,-,-,S
+,CDBDT,Bright and Dark Total,亮暗点总数,A,O,O,T2,X,1,≤3,≤7,≤9,≤20,>20,O,30,YL,YL,KC,-,-,-,-,-,-,S
+,CDPBP,Pinhole BP,针孔状亮点,R,O,O,X,X,1,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,31,YL,YL,KC,-,-,-,-,-,-,S
+线类,CLDOP,Data Open line,垂直断线,R,O,O,X,X,2,不可有，送修,不可有，送修,不可有，送修,不可有，送修,不可修报废,O,1,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLGOP,Gate Open line,水平断线,R,O,O,X,X,2,不可有，送修,不可有，送修,不可有，送修,不可有，送修,不可修报废,O,2,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLDBT,Data BRighT line,垂直?线,R,O,O,X,X,2,不可有，送修,不可有，送修,不可有，送修,不可有，送修,不可修报废,O,3,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLGBT,Gate BrighT line,水平亮线,R,O,O,X,X,2,不可有，送修,不可有，送修,不可有，送修,不可有，送修,不可修报废,O,4,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLDDK,Data DarK line,垂直暗线,R,O,O,X,X,2,不可有，送修,不可有，送修,不可有，送修,不可有，送修,不可修报废,O,5,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLGDK,Gate DarK line,水平暗线,R,O,O,X,X,2,不可有，送修,不可有，送修,不可有，送修,不可有，送修,不可修报废,O,6,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLDSH,Data SHort line,垂直区块线,R,O,O,X,X,2,不可有，送修,不可有，送修,不可有，送修,不可有，送修,不可修报废,O,7,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLGSH,Gate SHort line,水平区块线,R,O,O,X,X,2,不可有，送修,不可有，送修,不可有，送修,不可有，送修,不可修报废,O,8,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLCRS,CRoSs line,十字线,R,O,O,X,X,2,不可有，送修,不可有，送修,不可有，送修,不可有，送修,不可修报废,O,9,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLDWK,Data Weak Line,垂直淡线,R,O,O,X,X,2,#N/A,#N/A,#N/A,#N/A,#N/A,O,10,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLGWK,Gate Weak Line,水平淡线,R,O,O,X,X,2,#N/A,#N/A,#N/A,#N/A,#N/A,O,11,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLDES,Data ESD line,垂直静电线,R,O,O,X,X,2,ND 10%不可见,ND 6%不可见,ND 3%不可见,ND 3%不可见,ND 4%可见,O,12,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLGES,Gate ESD line,水平静电线,R,O,O,X,X,2,ND 10%不可见,ND 6%不可见,ND 3%不可见,ND 3%不可见,ND 3%可见,O,13,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLDOT,DOT on line,线上有点,R,O,O,X,X,2,不可有,不可有,不可有,不可有,不可修报废,O,14,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLPRS,PReSs line,压面线,R,O,O,X,X,2,成像似淡线，以淡线规格判定。若为亮或暗实线，送重工,成像似淡线，以淡线规格判定。若为亮或暗实线，送重工,成像似淡线，以淡线规格判定。若为亮或暗实线，送重工,按压松开消失,按压松开不消失,O,15,Y,YLK,-,LKCS,-,-,-,-,-,-
+,CLLFQ,Low FreQuency line,低频线,R,O,O,X,X,2,不可有,不可有,不可有,不可有,不可修报废,O,16,Y,YLK,-,LKCS,-,-,-,-,-,-
+Gap类,CGINW,INside White gap,面内白Gap,R,O,O,X,X,3,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,1,YLKC,YLKC,-,-,-,-,-,-,-,S
+,CGINB,INside Black gap,面内黑Gap,R,O,O,X,X,3,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,2,YLKC,YLKC,-,-,-,-,-,-,-,S
+,CGARW,ARound White gap,周边白gap,R,O,O,X,X,3,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,3,YLKC,YLKC,-,-,-,-,-,-,-,S
+,CGARB,ARound Black gap,周边黑gap,R,O,O,X,X,3,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,4,YLKC,YLKC,-,-,-,-,-,-,-,S
+,CGHWB,H-White Band gap,水平白带gap,R,O,O,X,X,3,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,5,YLKC,YLKC,-,-,-,-,-,-,-,S
+,CGHBB,H-Black Band gap,水平黑带gap,R,O,O,X,X,3,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,6,YLKC,YLKC,-,-,-,-,-,-,-,S
+,CGVWB,V-White Band gap,垂直白带gap,R,O,O,X,X,3,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,7,YLKC,YLKC,-,-,-,-,-,-,-,S
+,CGVBB,V-Black Band gap,垂直黑带gap,R,O,O,X,X,3,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,8,YLKC,YLKC,-,-,-,-,-,-,-,S
+,CGOTS,gap OTherS,Gap其它,R,O,O,X,X,3,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,9,YLKC,YLKC,-,-,-,-,-,-,-,S
+Mura类,CMWRS,White Rotundity Spot,圆形白点,R,O,O,X,X,3,"D≤5mm,
+ND 6%不可见","D≤5mm,
+ND 3%不可见","D≤5mm,
+ND 1%不可见",Ignore不卡,不报废,O,1,YL,YLKC,-,-,-,-,KC,-,-,S
+,CMBRS,Black Rotundity Spot,圆形黑点,R,O,O,X,X,3,"D≤5mm,
+ND 6%不可见","D≤5mm,
+ND 3%不可见","D≤5mm,
+ND 1%不可见",Ignore不卡,不报废,O,2,YL,YLKC,-,-,-,-,KC,-,-,S
+,CMWCS,White Circularity Spot,环状白点,R,O,O,X,X,3,"D≤5mm,
+ND 6%不可见","D≤5mm,
+ND 3%不可见","D≤5mm,
+ND 1%不可见",Ignore不卡,不报废,O,3,YL,YLKC,-,-,-,-,KC,-,-,S
+,CMBCS,Black Circularity Spot,环状黑点,R,O,O,X,X,3,"D≤5mm,
+ND 6%不可见","D≤5mm,
+ND 3%不可见","D≤5mm,
+ND 1%不可见",Ignore不卡,不报废,O,4,YL,YLKC,-,-,-,-,KC,-,-,S
+,CMWAS,White Ambiquity Spot,不定形白点,R,O,O,X,X,3,"D≤5mm,
+ND 6%不可见","D≤5mm,
+ND 3%不可见","D≤5mm,
+ND 1%不可见",Ignore不卡,不报废,O,5,YL,YLKC,-,-,-,-,KC,-,-,S
+,CMBAS,Black Ambiquity Spot,不定形黑点,R,O,O,X,X,3,"D≤5mm,
+ND 6%不可见","D≤5mm,
+ND 3%不可见","D≤5mm,
+ND 1%不可见",Ignore不卡,不报废,O,6,YL,Y,-,-,-,-,KC,-,-,-
+,CMHWL,H-White Line,水平白线,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,7,YL,YL,-,-,-,-,KC,-,-,S
+,CMHBL,H-Black Line,水平黑线,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,8,YL,YL,-,-,-,-,KC,-,-,S
+,CMVWL,V-White Line,垂直白线,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,9,YL,YL,-,-,-,-,KC,-,-,S
+,CMVBL,V-Black Line,垂直黑线,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,10,YL,YL,-,-,-,-,KC,-,-,S
+,CMOBL,OBlique Line,斜线,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,11,YL,YL,-,-,-,-,KC,-,-,S
+,CMHWB,H-White Band,水平白带,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,12,YL,YL,-,-,-,-,KC,-,-,S
+,CMHBB,H-Black Band,水平黑带,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,13,YL,YL,-,-,-,-,KC,-,-,S
+,CMVWB,V-White Band,垂直白带,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,14,YL,YL,-,-,-,-,KC,-,-,S
+,CMVBB,V-Black Band,垂直黑带,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,15,YL,YL,-,-,-,-,KC,-,-,S
+,CMARD,Around Mura,周边Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,16,YL,YL,-,-,-,-,KC,-,-,S
+,CMDRP,DRoP Mura,滴落Mura,R,O,O,X,X,3,#N/A,#N/A,#N/A,#N/A,#N/A,O,17,YL,YL,-,-,-,-,KC,-,-,S
+,CMCRS,CRoSsboard Mura,棋盘状Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,18,YL,YL,-,-,-,-,KC,-,-,S
+,CMCLD,CLouD Mura,云状Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,19,YL,YL,-,-,-,-,KC,-,-,S
+,CMCOR,CORner Mura,角落Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,20,YL,YL,-,-,-,-,KC,-,-,S
+,CMCIR,CIRcle Mura,圈状 Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,21,YL,YL,-,-,-,-,KC,-,-,S
+,CMARC,ARC Mura,弧状Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,22,YL,YL,-,-,-,-,KC,-,-,S
+,CMWAV,WAVe Mura,波浪 Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,23,YL,YL,-,-,-,-,KC,-,-,S
+,CMWAT,WATer mark Mura,水痕Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,24,YL,YL,-,-,-,-,KC,-,-,S
+,CMFOG,black FOG Mura,黑雾Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,25,YL,YL,-,-,-,-,KC,-,-,S
+,CMSAN,SANdy Mura,沙沙状Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,26,YL,YL,-,-,-,-,KC,-,-,S
+,CMLLK,Light LeaKage,漏光,R,O,O,X,X,3,#N/A,#N/A,#N/A,#N/A,#N/A,O,27,YL,YL,-,-,-,-,KC,-,-,S
+,CMSLL,Sideview Light Leakage,侧视漏光,R,O,O,X,X,3,以ND 6%不可见,以ND 6%不可见,以ND 3%不可见,Ignore不卡,不报废,O,28,YL,YL,-,-,-,-,KC,-,-,S
+,CMALL,Around Light Leakage,周围漏光,R,O,O,X,X,3,以ND 6%不可见,以ND 6%不可见,以ND 3%不可见,Ignore不卡,不报废,O,29,YL,YL,-,-,-,-,KC,-,-,S
+,CMELL,Ear Light Leakage,耳朵漏光,R,O,O,X,X,3,以ND 6%不可见,以ND 6%不可见,以ND 3%不可见,Ignore不卡,不报废,O,30,YL,YL,-,-,-,-,KC,-,-,S
+,CMMAC,MACula Mura,黑斑Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,31,YL,YL,-,-,-,-,KC,-,-,S
+,CMRST,RuST mura,铁锈状Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,32,YL,YL,-,-,-,-,KC,-,-,S
+,CMLNS,LeNS Mura,Lens Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,33,YL,YL,-,-,-,-,KC,-,-,S
+,CMWBP,Weal BP mura,微亮点mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,34,YL,YL,-,-,-,-,KC,-,-,S
+,CMSDP,Sall DP mura,碎黑点Mura,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,35,YL,YL,-,-,-,-,KC,-,-,S
+,CMOTS,mura OTherS,Mura其它,R,O,O,X,X,3,Hold 工程师判定,Hold 工程师判定,Hold 工程师判定,Hold 工程师判定,Hold 工程师判定,O,36,Y,YL,-,-,-,-,-,LKCS,-,-
+,CMNM1,New Mura 1,新不均1,R,O,O,X,X,3,#N/A,#N/A,#N/A,#N/A,#N/A,O,37,Y,YL,-,-,-,-,LK,C,-,S
+,CMNM2,New Mura 2,新不均2,R,O,O,X,X,3,#N/A,#N/A,#N/A,#N/A,#N/A,O,38,Y,Y,-,-,-,-,LK,C,-,S
+,CMNM3,New Mura 3,新不均3,R,O,O,X,X,3,#N/A,#N/A,#N/A,#N/A,#N/A,O,39,Y,YL,-,-,-,-,LK,C,-,S
+,CMNM4,New Mura 4,新不均4,R,O,O,X,X,3,#N/A,#N/A,#N/A,#N/A,#N/A,O,40,Y,YL,-,-,-,-,LK,C,-,S
+,CMNM5,New Mura 5,新不均5,R,O,O,X,X,3,#N/A,#N/A,#N/A,#N/A,#N/A,O,41,Y,YL,-,-,-,-,LK,C,-,S
+CF类,CFRSP,R SPot ,红斑,R,O,O,X,X,3,以ND 6%不可见,以ND 6%不可见,以ND 2%不可见,Ignore不卡,不报废,O,1,YLKC,YL,-,-,-,-,-,-,-,S
+,CFGSP,G SPot,绿斑,R,O,O,X,X,3,以ND 6%不可见,以ND 6%不可见,以ND 2%不可见,Ignore不卡,不报废,O,2,YLKC,YL,-,-,-,-,-,-,-,S
+,CFBSP,B SPot ,蓝斑,R,O,O,X,X,3,以ND 6%不可见,以ND 6%不可见,以ND 2%不可见,Ignore不卡,不报废,O,3,YLKC,YL,-,-,-,-,-,-,-,S
+,CFRBD,R BanD,红带 ,R,O,O,X,X,3,以ND 10%不可见,以ND 6%不可见,以ND 2%不可见,Ignore不卡,不报废,O,4,YLKC,Y,-,-,-,-,-,-,-,S
+,CFGBD,G BanD,绿带,R,O,O,X,X,3,以ND 10%不可见,以ND 6%不可见,以ND 2%不可见,Ignore不卡,不报废,O,5,YLKC,Y,-,-,-,-,-,-,-,S
+,CFBBD,B BanD,蓝带,R,O,O,X,X,3,以ND 10%不可见,以ND 6%不可见,以ND 2%不可见,Ignore不卡,不报废,O,6,YLKC,Y,-,-,-,-,-,-,-,S
+,CFRLS,R LoSs,红色阻缺失,P,O,O,B,1,3,依点类规格判定,依点类规格判定,依点类规格判定,依点类规格判定,依点类规格判定,O,7,Y,Y,-,-,LKC,-,-,-,-,S
+,CFGLS,G LoSs,绿色阻缺失,P,O,O,B,1,3,依点类规格判定,依点类规格判定,依点类规格判定,依点类规格判定,依点类规格判定,O,8,Y,Y,-,-,LKC,-,-,-,-,S
+,CFBLS,B LoSs,蓝色阻缺失,P,O,O,B,1,3,依点类规格判定,依点类规格判定,依点类规格判定,依点类规格判定,依点类规格判定,O,9,Y,YL,-,-,LKC,-,-,-,-,S
+,CFBML,BM Loss,BM缺失,R,O,O,X,X,3,依点类规格判定,依点类规格判定,依点类规格判定,依点类规格判定,依点类规格判定,O,10,YLKC,YL,-,-,-,-,-,-,-,S
+,CFBMP,BM Pinhole,BM针孔,R,O,O,X,X,3,依点类规格判定,依点类规格判定,依点类规格判定,依点类规格判定,依点类规格判定,O,11,YLKC,YL,-,-,-,-,-,-,-,S
+,CFRM0,R Mura,红色不均,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,12,YLKC,YL,-,-,-,-,-,-,-,S
+,CFGM0,G Mura,绿色不均,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,13,YLKC,Y,-,-,-,-,-,-,-,S
+,CFGM0,B Mura,蓝色不均,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,14,YLKC,YL,-,-,-,-,-,-,-,S
+,CFCFM,CF Mura,颜色不均,R,O,O,X,X,3,以ND 6%不可见,以ND 3%不可见,以ND 2%不可见,Ignore不卡,不报废,O,15,YLKC,YL,-,-,-,-,-,-,-,S
+外观类,CASCC,CF SCratch,CF表面划伤,R,O,O,X,X,3,#N/A,#N/A,#N/A,#N/A,#N/A,O,1,Y,YL,-,-,-,LKC,-,-,-,S
+,CASCT,TFT SCratch,TFT表面划伤,R,O,O,X,X,3,#N/A,#N/A,#N/A,#N/A,#N/A,O,2,Y,YL,-,-,-,LKC,-,-,-,S
+,CACKC,CF CracK,CF裂痕,R,O,X,X,X,X,#N/A,#N/A,#N/A,#N/A,#N/A,O,3,Y,YL,-,-,-,LKC,-,-,-,S
+,CACKT,TFT CracK,TFT裂痕,R,O,X,X,X,X,#N/A,#N/A,#N/A,#N/A,#N/A,O,4,Y,YL,-,-,-,LKC,-,-,-,S
+,CABLC,CF BaLi,CF突起,R,O,X,X,X,X,#N/A,#N/A,#N/A,#N/A,#N/A,O,5,Y,YL,-,-,-,LKC,-,-,-,S
+,CABLT,TFT BaLi,TFT突起,R,O,X,X,X,X,#N/A,#N/A,#N/A,#N/A,#N/A,O,6,Y,YL,-,-,-,LKC,-,-,-,S
+,CACHC,CF CHipping,CF贝壳裂,R,O,X,X,X,X,#N/A,#N/A,#N/A,#N/A,#N/A,O,7,YLKC,YL,-,-,-,KC,-,-,-,S
+,CACHT,TFT CHipping,TFT贝壳裂,R,O,X,X,X,X,#N/A,#N/A,#N/A,#N/A,#N/A,O,8,YLKC,YL,-,-,-,KC,-,-,-,S
+,CABVL,BeVeLing abnormal,磨边不良,R,O,X,X,X,X,#N/A,#N/A,#N/A,#N/A,#N/A,O,9,Y,YL,-,-,-,KC,-,-,-,S
+,CAOTS,aspect OTherS,外观其他,R,O,X,X,X,X,#N/A,#N/A,#N/A,#N/A,#N/A,O,10,Y,YL,-,-,-,KC,-,-,-,S
+Cell类,CCPTC,ParTicle in Cell,盒内异物,R,O,O,X,X,3,"0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦2mm,
+N≦10
+ND 2%不可见",Ignore不卡,不报废,O,1,YLKC,YL,-,-,-,-,-,-,-,S
+,CCDTC,DirTy In Cell,盒内脏污,R,O,O,X,X,3,"0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦2mm,
+N≦10
+ND 3%不可见",Ignore不卡,不报废,O,2,YLKC,YL,-,-,-,-,-,-,-,S
+,CCWSP,White Spot with Particle,白点有核异物,R,O,O,X,X,3,"0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦2mm,
+N≦10
+ND 5%不可见",Ignore不卡,不报废,O,3,YLKC,Y,-,-,-,-,-,-,-,S
+,CCBSP,Black Spot with Particle,黑点有核异物,R,O,O,X,X,3,"0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦2mm,
+N≦10
+ND 6%不可见",Ignore不卡,不报废,O,4,YLKC,YL,-,-,-,-,-,-,-,S
+,CCLCD,LC Dirty,液晶脏污,R,O,O,X,X,3,"0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦2mm,
+N≦10
+ND 7%不可见",Ignore不卡,不报废,O,5,YLKC,YLYKC,-,-,-,-,-,-,-,S
+,CCSCC,SCratch in Cell,盒内划伤,R,O,O,X,X,3,"0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦1mm
+ N≦10
+ND 3%不可见","0.3mm≦D≦2mm,
+N≦10
+ND 4%不可见",Ignore不卡,不报废,O,6,YLKC,YL,-,-,-,-,-,-,-,S
+,CCLCB,LC Bubble,液晶气泡,R,O,O,X,X,3,不可有,不可有,不可有,Ignore不卡,不报废,O,7,Y,YL,-,-,-,-,LKC,-,-,S
+,CCGVT,GraViTy Mura,重力Mura,R,O,O,X,X,3,不可有,不可有,不可有,Ignore不卡,不报废,O,8,YLYKC,YLYKC,-,-,-,-,-,-,-,S
+,CCASM,AsSeMbly abnormal,组合不良,R,O,O,X,X,3,不可有,不可有,不可有,Ignore不卡,不报废,O,9,YLYKC,YLYKC,-,-,-,-,-,-,-,S
+,CCUVC,UV Curing adnormal,UV配向不良,R,O,O,X,X,3,不可有,不可有,不可有,Ignore不卡,不报废,O,10,YLYKC,Y,-,-,-,-,-,-,-,S
+,CCOTS,cell OTherS,Cell其他,R,O,O,X,X,3,Hold 工程师判定,Hold 工程师判定,Hold 工程师判定,Hold 工程师判定,Hold 工程师判定,O,11,Y,YL,-,-,-,-,-,LKC,-,S
+其他类,COSTK,image STicKing,残像,R,O,X,X,X,X,≦2秒,≦3秒,≦5秒,Ignore不卡,不报废,O,1,YLK,YL,-,-,-,-,-,C,-,S
+,COFLK,FLicKer,闪烁,R,O,X,X,X,X,Hold 工程师判定,Hold 工程师判定,Hold 工程师判定,Hold 工程师判定,Hold 工程师判定,O,2,YLK,YL,-,-,-,-,-,C,-,S
+,COHCT,H-CrossTalk,横向串扰,R,O,X,X,X,X,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,3,YLK,YL,-,-,-,-,-,C,-,S
+,COVCT,V-CrossTalk,纵向串扰,R,O,X,X,X,X,ND 6%不可见,ND 3%不可见,ND 2%不可见,Ignore不卡,不报废,O,4,YLK,Y,-,-,-,-,-,C,-,S
+,COZON,ZONing,画面分屏,R,O,X,X,X,X,不可有，送重工,不可有，送重工,不可有，送重工,不可有，送重工,不可修报废,O,5,YLK,Y,-,-,-,-,-,C,-,S
+,CONOT,NOT image,无画面,R,O,X,X,X,X,不可有，送重工,不可有，送重工,不可有，送重工,不可有，送重工,不可修报废,O,6,YLK,Y,-,-,-,-,-,C,-,S
+,COPTN,PatTerN abnormal,画面异常,R,O,X,X,X,X,不可有，送重工,不可有，送重工,不可有，送重工,不可有，送重工,不可修报废,O,7,YLK,Y,-,-,-,-,-,C,-,S

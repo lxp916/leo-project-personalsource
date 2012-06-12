@@ -1,0 +1,7 @@
+PFCD(3-6),ProcessNo,WorstGrade,defectLevel,DefectCodeType,ChGrade
+K104,3600,F,M,C,WS
+K105,3600,F,M,C,WS
+K106,3600,F,M,C,WS
+K107,3600,F,M,D,WS
+K108,3600,F,M,D,WS
+K109,3600,F,M,,

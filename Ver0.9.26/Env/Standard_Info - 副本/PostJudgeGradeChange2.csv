@@ -1,0 +1,4 @@
+PFCD(3-6),ProcessNO,Rule,ChGrade
+R002,4600,"TFTRepairGrade = ""B""&
+ CellRepairFlag = ""Y""&
+Target Grade = NA,NB,NC",M
