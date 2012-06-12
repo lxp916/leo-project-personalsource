@@ -144,11 +144,11 @@ Type GRADE_DATA_STRUCTURE           'Grade/Rank Maching Data Information Structu
     RANK_DIVISION                   As String
     DEFECT_CODE                     As String
     GRADE                           As String
-    Rank                            As String
+    RANK                            As String
 End Type
 
 Type RANK_PRIORITY_STRUCTURE        'Priority Data Structure in each Ranks
-    Rank                            As String
+    RANK                            As String
     PRIORITY                        As Integer
     RANK_COUNT                      As Integer
 End Type
@@ -168,7 +168,7 @@ Type DEFECT_DATA_STRUCTURE          'Defect Data Structure
     DETAIL_DIVISION                 As String
     DATA_ADDRESS(1 To 3)            As String
     GATE_ADDRESS(1 To 3)            As String
-    Rank                            As String
+    RANK                            As String
     GRADE                           As String
     PRIORITY                        As Integer
     ACCUMULATION                    As Integer
@@ -228,7 +228,7 @@ Type DEFECT_FILE_PANEL_SUMMARY      'Defect File Panel Summary Data Structure
     GATE_TOTAL_PIXEL                As String
     DRIVE_TYPE                      As String
     BACKLIGHT                       As String
-    LIGHT_ON_TARGET_REASON_CODE     As String
+    LIGHT_ON_PRE_GRADE     As String
     LIGHT_ON_TARGET_REASON_TYPE     As String
     SLOT_ID                         As String
 End Type
@@ -279,7 +279,7 @@ Type DEFECT_FILE_PANEL_PDS_SUMMARY  'Defect File Panel PDS Summary Data Structur
     MIN                             As String       'CST_MES_DATA's spare2 25bytes
     MAX                             As String       'CST_MES_DATA's spare3 25bytes
     STD                             As String       'CST_MES_DATA's spare4 25bytes
-    Count                           As String       'CST_MES_DATA's spare5 25bytes
+    COUNT                           As String       'CST_MES_DATA's spare5 25bytes
 End Type
 
 Type PFCD_ADDRESS_STRUCTURE         'PFCD Address Data Structure
@@ -343,7 +343,7 @@ End Type
 Type FS_PATH_DATA                   'FS Path Data Structure
     EQTYPE                          As String
     PFCD_PID                        As String
-    Rank                            As String
+    RANK                            As String
     USER                            As String
     PTN_LIST                        As String
     VERSION                         As String
@@ -410,9 +410,9 @@ Public Type AUTO_ALARM_DATA
     PROCESS_NUM                     As String
     PFCD                            As String
     DEFECT_CODE                     As String
-    Rank                            As String
+    RANK                            As String
     COUNT_TIME                      As Integer
-    Count                           As Integer
+    COUNT                           As Integer
     ALARM_TEXT                      As String
     CURRENT_COUNT                   As Integer
     EXPIRY_DATE                     As Long
@@ -422,7 +422,7 @@ End Type
 Public Type COUNT_CHANGE_DATA
     FINAL_GRADE                     As String
     NEW_GRADE                       As String
-    Count                           As Integer
+    COUNT                           As Integer
     CURRENT_COUNT                   As Integer
 End Type
 

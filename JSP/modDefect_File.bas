@@ -204,7 +204,8 @@ Public Sub Make_Defect_File()
         .GATE_TOTAL_PIXEL = Trim(typPFCD_DATA.Y_PIXEL_LENGTH)
         .DRIVE_TYPE = Trim(frmMain.flxEQ_Information.TextMatrix(1, 1))
         .BACKLIGHT = Trim(EQP.Get_BackLight_Value)
-        .LIGHT_ON_TARGET_REASON_CODE = Trim(.MAIN_DEFECT_CODE)
+'        .LIGHT_ON_TARGET_REASON_CODE = Trim(.MAIN_DEFECT_CODE)
+         .LIGHT_ON_PRE_GRADE = Trim(frmMain.flxMES_Data.TextMatrix(18, 1))
         typMAIN_DEFECT_DATA = Get_DEFECT_DATA_by_CODE(.MAIN_DEFECT_CODE)
         .LIGHT_ON_TARGET_REASON_TYPE = Trim(typMAIN_DEFECT_DATA.DEFECT_NAME)
         .SLOT_ID = Trim(pubPANEL_INFO.SLOT_NUM)
@@ -311,7 +312,7 @@ Public Sub Make_Defect_File()
         .MIN = Trim(pubCST_INFO.CST_SPARE(2))
         .MAX = Trim(pubCST_INFO.CST_SPARE(3))
         .STD = Trim(pubCST_INFO.CST_SPARE(4))
-        .COUNT = Trim(pubCST_INFO.CST_SPARE(5))
+        .COUNT = Trim(pubPANEL_INFO.REPAIR_REWORK_COUNT)
     End With
         
     If strRUN_DATE = "" Then
@@ -498,12 +499,12 @@ Private Sub Write_Share_Panel_Summary_CATST(ByVal pPath As String, ByVal pFileNa
     strTemp = "PANEL_SUMMARY_BEGIN"
     Print #intFileNum, strTemp
     
-    strTemp = "PANEL_ID,JUDGE_RANK,MAIN_DEF_CODE,DATA_TOTAL_PIXEL,GATE_TOTAL_PIXEL,DRIVE_TYPE,LIGHT_ON_TARGET_REASON_CODE,LIGHT_ON_TARGET_REASON_TYPE_E"
+    strTemp = "PANEL_ID,JUDGE_RANK,MAIN_DEF_CODE,DATA_TOTAL_PIXEL,GATE_TOTAL_PIXEL,DRIVE_TYPE,LIGHT_ON_PRE_GRADE,LIGHT_ON_TARGET_REASON_TYPE_E"
     Print #intFileNum, strTemp
     
     With pPANEL_SUMMARY
         strTemp = .PANELID & "," & .JUDGE_RANK & "," & .MAIN_DEFECT_CODE & "," & .DATA_TOTAL_PIXEL & "," & .GATE_TOTAL_PIXEL & "," & .DRIVE_TYPE & ","
-        strTemp = strTemp & .LIGHT_ON_TARGET_REASON_CODE & "," & .LIGHT_ON_TARGET_REASON_TYPE
+        strTemp = strTemp & .LIGHT_ON_PRE_GRADE & "," & .LIGHT_ON_TARGET_REASON_TYPE
         Print #intFileNum, strTemp
     End With
     
@@ -648,12 +649,12 @@ Private Sub Write_Share_Panel_Summary_CALOI(ByVal pPath As String, ByVal pFileNa
     strTemp = "PANEL_SUMMARY_BEGIN"
     Print #intFileNum, strTemp
     
-    strTemp = "PANEL_ID,JUDGE_RANK,MAIN_DEF_CODE,DATA_TOTAL_PIXEL,GATE_TOTAL_PIXEL,DRIVE_TYPE,LIGHT_ON_TARGET_REASON_CODE,LIGHT_ON_TARGET_REASON_TYPE_E"
+    strTemp = "PANEL_ID,JUDGE_RANK,MAIN_DEF_CODE,DATA_TOTAL_PIXEL,GATE_TOTAL_PIXEL,DRIVE_TYPE,LIGHT_ON_PRE_GRADE,LIGHT_ON_TARGET_REASON_TYPE_E"
     Print #intFileNum, strTemp
     
     With pPANEL_SUMMARY
         strTemp = .PANELID & "," & .JUDGE_RANK & "," & .MAIN_DEFECT_CODE & "," & .DATA_TOTAL_PIXEL & "," & .GATE_TOTAL_PIXEL & "," & .DRIVE_TYPE & ","
-        strTemp = strTemp & .LIGHT_ON_TARGET_REASON_CODE & "," & .LIGHT_ON_TARGET_REASON_TYPE
+        strTemp = strTemp & .LIGHT_ON_PRE_GRADE & "," & .LIGHT_ON_TARGET_REASON_TYPE
         Print #intFileNum, strTemp
     End With
     
@@ -856,12 +857,12 @@ Private Sub Write_Panel_Summary_CATST(ByVal pPath As String, ByVal pFileName As 
     strTemp = "PANEL_SUMMARY_BEGIN"
     Print #intFileNum, strTemp
     
-    strTemp = "PANEL_ID,JUDGE_RANK,MAIN_DEF_CODE,DATA_TOTAL_PIXEL,GATE_TOTAL_PIXEL,DRIVE_TYPE,BACKLIGHT,LIGHT_ON_TARGET_REASON_CODE,LIGHT_ON_TARGET_REASON_TYPE_E,SLOT_ID"
+    strTemp = "PANEL_ID,JUDGE_RANK,MAIN_DEF_CODE,DATA_TOTAL_PIXEL,GATE_TOTAL_PIXEL,DRIVE_TYPE,BACKLIGHT,LIGHT_ON_PRE_GRADE,LIGHT_ON_TARGET_REASON_TYPE_E,SLOT_ID"
     Print #intFileNum, strTemp
     
     With pPANEL_SUMMARY
         strTemp = .PANELID & "," & .JUDGE_RANK & "," & .MAIN_DEFECT_CODE & "," & .DATA_TOTAL_PIXEL & "," & .GATE_TOTAL_PIXEL & "," & .DRIVE_TYPE & ","
-        strTemp = strTemp & .BACKLIGHT & "," & .LIGHT_ON_TARGET_REASON_CODE & "," & .LIGHT_ON_TARGET_REASON_TYPE & "," & .SLOT_ID
+        strTemp = strTemp & .BACKLIGHT & "," & .LIGHT_ON_PRE_GRADE & "," & .LIGHT_ON_TARGET_REASON_TYPE & "," & .SLOT_ID
         Print #intFileNum, strTemp
     End With
     
@@ -1273,12 +1274,12 @@ Private Sub Write_Panel_Summary_CALOI(ByVal pPath As String, ByVal pFileName As 
     strTemp = "PANEL_SUMMARY_BEGIN"
     Print #intFileNum, strTemp
     
-    strTemp = "PANEL_ID,JUDGE_RANK,MAIN_DEF_CODE,DATA_TOTAL_PIXEL,GATE_TOTAL_PIXEL,DRIVE_TYPE,LIGHT_ON_TARGET_REASON_CODE,LIGHT_ON_TARGET_REASON_TYPE_E"
+    strTemp = "PANEL_ID,JUDGE_RANK,MAIN_DEF_CODE,DATA_TOTAL_PIXEL,GATE_TOTAL_PIXEL,DRIVE_TYPE,LIGHT_ON_PRE_GRADE,LIGHT_ON_TARGET_REASON_TYPE_E"
     Print #intFileNum, strTemp
     
     With pPANEL_SUMMARY
         strTemp = .PANELID & "," & .JUDGE_RANK & "," & .MAIN_DEFECT_CODE & "," & .DATA_TOTAL_PIXEL & "," & .GATE_TOTAL_PIXEL & "," & .DRIVE_TYPE & ","
-        strTemp = strTemp & .LIGHT_ON_TARGET_REASON_CODE & "," & .LIGHT_ON_TARGET_REASON_TYPE
+        strTemp = strTemp & .LIGHT_ON_PRE_GRADE & "," & .LIGHT_ON_TARGET_REASON_TYPE
         Print #intFileNum, strTemp
     End With
     

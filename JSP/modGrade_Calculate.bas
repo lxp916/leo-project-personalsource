@@ -90,7 +90,7 @@ On Error GoTo ErrorHandler
             Set dbMyDB = Workspaces(0).OpenDatabase(strDB_Path & strDB_FileName)
             
             strQuery = "SELECT * FROM ABNORMAL_MES_DATA WHERE "
-            strQuery = strQuery & "PFCD = '" & pCST_DATA.PFCD & "'"
+            strQuery = strQuery & "PROCESSNUM = '" & pCST_DATA.PROCESS_NUM & "'"
             
             Set lstRecord = dbMyDB.OpenRecordset(strQuery)
             
@@ -101,326 +101,299 @@ On Error GoTo ErrorHandler
                     If strAlarm_Msg = "" Then
                         With lstRecord
                             For intIndex = 1 To 50
-                                arrFind_Data(intIndex) = False
+                                arrFind_Data(intIndex) = True
                             Next intIndex
-                            If Trim(.Fields("PROCESSNUM")) <> "" Then
-                                If pCST_DATA.PROCESS_NUM = .Fields("PROCESSNUM") Then
-                                    arrFind_Data(1) = True
-                                End If
-                            Else
+                            If (Trim(.Fields("PROCESSNUM")) = "") Or (Trim(.Fields("PROCESSNUM")) = pCST_DATA.PROCESS_NUM) Then
                                 arrFind_Data(1) = True
+                            Else
+                                arrFind_Data(1) = False
                             End If
                             
-                            If Trim(.Fields("DEST_FAB")) <> "" Then
-                                If pCST_DATA.DESTINATION_FAB = .Fields("DEST_FAB") Then
-                                    arrFind_Data(2) = True
-                                End If
+                            If Trim(.Fields("DEST_FAB")) = "" Or Trim(pCST_DATA.DESTINATION_FAB) = Trim(.Fields("DEST_FAB")) Then
+                                
+                               arrFind_Data(2) = True
+                               
                             Else
-                                arrFind_Data(2) = True
+                                arrFind_Data(2) = False
                             End If
                             
-                            If Trim(.Fields("RMANO")) <> "" Then
-                                If pCST_DATA.RMANO = .Fields("RMANO") Then
-                                    arrFind_Data(3) = True
-                                End If
-                            Else
+                            If Trim(.Fields("RMANO")) = "" Or Trim(pCST_DATA.RMANO) = Trim(.Fields("RMANO")) Then
                                 arrFind_Data(3) = True
+                            Else
+                                arrFind_Data(3) = False
                             End If
                             
-                            If Trim(.Fields("OQCNO")) <> "" Then
-                                If pCST_DATA.OQCNO = .Fields("OQCNO") Then
-                                    arrFind_Data(4) = True
-                                End If
-                            Else
+                            If Trim(.Fields("OQCNO")) = "" Or Trim(pCST_DATA.OQCNO) = Trim(.Fields("OQCNO")) Then
                                 arrFind_Data(4) = True
+                            Else
+                                arrFind_Data(4) = False
                             End If
                             
-                            If Trim(.Fields("PANELID")) <> "" Then
-                                If pPANEL_DATA.PANELID = .Fields("PANELID") Then
-                                    arrFind_Data(5) = True
-                                End If
-                            Else
+                            If Trim(.Fields("PANELID")) = "" Or Trim(pPANEL_DATA.PANELID) = Trim(.Fields("PANELID")) Then
                                 arrFind_Data(5) = True
+                            Else
+                                arrFind_Data(5) = False
                             End If
                             
-                            If Trim(.Fields("LIGHT_ON_PANEL_GRADE")) <> "" Then
-                                If pPANEL_DATA.LIGHT_ON_PANEL_GRADE = .Fields("LIGHT_ON_PANEL_GRADE") Then
-                                    arrFind_Data(6) = True
-                                End If
-                            Else
+                            If Trim(.Fields("LIGHT_ON_PANEL_GRADE")) = "" Or Trim(pPANEL_DATA.LIGHT_ON_PANEL_GRADE) = Trim(.Fields("LIGHT_ON_PANEL_GRADE")) Then
                                 arrFind_Data(6) = True
+                            Else
+                                arrFind_Data(6) = False
                             End If
                             
-                            If Trim(.Fields("LIGHT_ON_REASON_CODE")) <> "" Then
-                                If pPANEL_DATA.LIGHT_ON_REASON_CODE = .Fields("LIGHT_ON_REASON_CODE") Then
-                                    arrFind_Data(7) = True
-                                End If
-                            Else
+                            If Trim(.Fields("LIGHT_ON_REASON_CODE")) = "" Or Trim(pPANEL_DATA.LIGHT_ON_REASON_CODE) = Trim(.Fields("LIGHT_ON_REASON_CODE")) Then
                                 arrFind_Data(7) = True
+                            Else
+                                arrFind_Data(7) = False
                             End If
                             
-                            If Trim(.Fields("CELL_LINE_RESCUE_FLAG")) <> "" Then
-                                If pPANEL_DATA.CELL_LINE_RESCUE_FLAG = .Fields("CELL_LINE_RESCUE_FLAG") Then
-                                    arrFind_Data(8) = True
-                                End If
-                            Else
+                            If Trim(.Fields("CELL_LINE_RESCUE_FLAG")) = "" Or Trim(pPANEL_DATA.CELL_LINE_RESCUE_FLAG) = Trim(.Fields("CELL_LINE_RESCUE_FLAG")) Then
                                 arrFind_Data(8) = True
+                            Else
+                                arrFind_Data(8) = False
                             End If
                             
-                            If Trim(.Fields("CELL_REPAIR_JUDGE_GRADE")) <> "" Then
-                                If pPANEL_DATA.CELL_REPAIR_JUDGE_GRADE = .Fields("CELL_REPAIR_JUDGE_GRADE") Then
-                                    arrFind_Data(9) = True
-                                End If
-                            Else
+                            If Trim(.Fields("CELL_REPAIR_JUDGE_GRADE")) = "" Or Trim(pPANEL_DATA.CELL_REPAIR_JUDGE_GRADE) = Trim(.Fields("CELL_REPAIR_JUDGE_GRADE")) Then
+                                
                                 arrFind_Data(9) = True
+                           
+                            Else
+                                arrFind_Data(9) = False
                             End If
                             
-                            If Trim(.Fields("TFT_REPAIR_GRADE")) <> "" Then
-                                If pPANEL_DATA.TFT_REPAIR_GRADE = .Fields("TFT_REPAIR_GRADE") Then
-                                    arrFind_Data(10) = True
-                                End If
-                            Else
+                            If Trim(.Fields("TFT_REPAIR_GRADE")) = "" Or Trim(pPANEL_DATA.TFT_REPAIR_GRADE) = Trim(.Fields("TFT_REPAIR_GRADE")) Then
+                               
                                 arrFind_Data(10) = True
+                            Else
+                                arrFind_Data(10) = False
                             End If
                             
-                            If Trim(.Fields("CF_PANELID")) <> "" Then
-                                If pPANEL_DATA.CF_PANELID = .Fields("CF_PANELID") Then
-                                    arrFind_Data(11) = True
-                                End If
-                            Else
+                            If Trim(.Fields("CF_PANELID")) = "" Or Trim(pPANEL_DATA.CF_PANELID) = Trim(.Fields("CF_PANELID")) Then
                                 arrFind_Data(11) = True
-                            End If
-                            
-                            If Trim(.Fields("CF_PANEL_OX_INFORMATION")) <> "" Then
-                                If pPANEL_DATA.CF_PANEL_OX_INFORMATION = .Fields("CF_PANEL_OX_INFORMATION") Then
-                                    arrFind_Data(12) = True
-                                End If
                             Else
-                                arrFind_Data(12) = True
+                                arrFind_Data(11) = False
                             End If
                             
-                            If Trim(.Fields("PANEL_OWNER_TYPE")) <> "" Then
-                                If pPANEL_DATA.PANEL_OWNER_TYPE = .Fields("PANEL_OWNER_TYPE") Then
+                            If Trim(.Fields("CF_PANEL_OX_INFORMATION")) = "" Or Trim(pPANEL_DATA.CF_PANEL_OX_INFORMATION) = Trim(.Fields("CF_PANEL_OX_INFORMATION")) Then
+                               arrFind_Data(12) = True
+                            Else
+                                arrFind_Data(12) = False
+                            End If
+                            
+                            If Trim(.Fields("PANEL_OWNER_TYPE")) = "" Or Trim(pPANEL_DATA.PANEL_OWNER_TYPE) = Trim(.Fields("PANEL_OWNER_TYPE")) Then
+                             
                                     arrFind_Data(13) = True
-                                End If
+                       
                             Else
-                                arrFind_Data(13) = True
+                                arrFind_Data(13) = False
                             End If
                             
-                            If Trim(.Fields("ABNORMAL_CF")) <> "" Then
-                                If pPANEL_DATA.ABNORMAL_CF = .Fields("ABNORMAL_CF") Then
+                            If Trim(.Fields("ABNORMAL_CF")) = "" Or Trim(pPANEL_DATA.ABNORMAL_CF) = Trim(.Fields("ABNORMAL_CF")) Then
+                             
                                     arrFind_Data(14) = True
-                                End If
+                            
                             Else
-                                arrFind_Data(14) = True
+                                arrFind_Data(14) = False
                             End If
                             
-                            If Trim(.Fields("ABNORMAL_TFT")) <> "" Then
-                                If pPANEL_DATA.ABNORMAL_TFT = .Fields("ABNORMAL_TFT") Then
+                            If Trim(.Fields("ABNORMAL_TFT")) = "" Or Trim(pPANEL_DATA.ABNORMAL_TFT) = Trim(.Fields("ABNORMAL_TFT")) Then
+                               
                                     arrFind_Data(15) = True
-                                End If
                             Else
-                                arrFind_Data(15) = True
+                                arrFind_Data(15) = False
                             End If
                             
-                            If Trim(.Fields("ABNORMAL_LCD")) <> "" Then
-                                If pPANEL_DATA.ABNORMAL_LCD = .Fields("ABNORMAL_LCD") Then
-                                    arrFind_Data(16) = True
-                                End If
-                            Else
+                            If Trim(.Fields("ABNORMAL_LCD")) = "" Or Trim(pPANEL_DATA.ABNORMAL_LCD) = Trim(.Fields("ABNORMAL_LCD")) Then
+                                
                                 arrFind_Data(16) = True
+                            Else
+                                arrFind_Data(16) = False
                             End If
                             
-                            If Trim(.Fields("GROUPID")) <> "" Then
-                                If pPANEL_DATA.GROUP_ID = .Fields("GROUPID") Then
+                            If Trim(.Fields("GROUPID")) = "" Or Trim(pPANEL_DATA.GROUP_ID) = Trim(.Fields("GROUPID")) Then
+                                
                                     arrFind_Data(17) = True
-                                End If
+                              
                             Else
-                                arrFind_Data(17) = True
+                                arrFind_Data(17) = False
                             End If
                             
-                            If Trim(.Fields("REPAIR_REWORK_COUNT")) <> "" Then
-                                If pPANEL_DATA.REPAIR_REWORK_COUNT = .Fields("REPAIR_REWORK_COUNT") Then
+                            If Trim(.Fields("REPAIR_REWORK_COUNT")) = "" Or Trim(pPANEL_DATA.REPAIR_REWORK_COUNT) = Trim(.Fields("REPAIR_REWORK_COUNT")) Then
+                               
                                     arrFind_Data(18) = True
-                                End If
+                              
                             Else
-                                arrFind_Data(18) = True
+                                arrFind_Data(18) = False
                             End If
                             
-                            If Trim(.Fields("POLARIZER_REWORK_COUNT")) <> "" Then
-                                If pPANEL_DATA.POLARIZER_REWORK_COUNT = .Fields("POLARIZER_REWORK_COUNT") Then
+                            If Trim(.Fields("POLARIZER_REWORK_COUNT")) = "" Or Trim(pPANEL_DATA.POLARIZER_REWORK_COUNT) = Trim(.Fields("POLARIZER_REWORK_COUNT")) Then
+                               
                                     arrFind_Data(19) = True
-                                End If
+                              
                             Else
-                                arrFind_Data(19) = True
+                                arrFind_Data(19) = False
                             End If
                             
-                            If Trim(.Fields("X_TOTAL_PIXEL")) <> "" Then
-                                If pPANEL_DATA.X_TOTAL_PIXEL = .Fields("X_TOTAL_PIXEL") Then
+                            If Trim(.Fields("X_TOTAL_PIXEL")) = "" Or Trim(pPANEL_DATA.X_TOTAL_PIXEL) = Trim(.Fields("X_TOTAL_PIXEL")) Then
+                                
                                     arrFind_Data(20) = True
-                                End If
                             Else
-                                arrFind_Data(20) = True
+                                arrFind_Data(20) = False
                             End If
                             
-                            If Trim(.Fields("Y_TOTAL_PIXEL")) <> "" Then
-                                If pPANEL_DATA.Y_TOTAL_PIXEL = .Fields("Y_TOTAL_PIXEL") Then
+                            If Trim(.Fields("Y_TOTAL_PIXEL")) = "" Or Trim(pPANEL_DATA.Y_TOTAL_PIXEL) = Trim(.Fields("Y_TOTAL_PIXEL")) Then
+                               
                                     arrFind_Data(21) = True
-                                End If
+                           
                             Else
-                                arrFind_Data(21) = True
+                                arrFind_Data(21) = False
                             End If
                             
-                            If Trim(.Fields("LCD_Q_TAB_LOT_GROUPID")) <> "" Then
-                                If pPANEL_DATA.LCD_Q_TAP_LOT_GROUPID = .Fields("LCD_Q_TAB_LOT_GROUPID") Then
+                            If Trim(.Fields("LCD_Q_TAB_LOT_GROUPID")) = "" Or Trim(pPANEL_DATA.LCD_Q_TAP_LOT_GROUPID) = Trim(.Fields("LCD_Q_TAB_LOT_GROUPID")) Then
+                               
                                     arrFind_Data(22) = True
-                                End If
+                           
                             Else
-                                arrFind_Data(22) = True
+                                arrFind_Data(22) = False
                             End If
                             
-                            If Trim(.Fields("SK_FLAG")) <> "" Then
-                                If pPANEL_DATA.SK_FLAG = .Fields("SK_FLAG") Then
+                            If Trim(.Fields("SK_FLAG")) = "" Or Trim(pPANEL_DATA.SK_FLAG) = Trim(.Fields("SK_FLAG")) Then
+                               
                                     arrFind_Data(23) = True
-                                End If
+                             
                             Else
-                                arrFind_Data(23) = True
+                                arrFind_Data(23) = False
                             End If
                             
-                            If Trim(.Fields("CF_R_DEFECT_CODE")) <> "" Then
-                                If pPANEL_DATA.CF_R_DEFECT_CODE = .Fields("CF_R_DEFECT_CODE") Then
-                                    arrFind_Data(24) = True
-                                End If
-                            Else
+                            If Trim(.Fields("CF_R_DEFECT_CODE")) = "" Or Trim(pPANEL_DATA.CF_R_DEFECT_CODE) = Trim(.Fields("CF_R_DEFECT_CODE")) Then
+                                
                                 arrFind_Data(24) = True
+                            
+                            Else
+                                arrFind_Data(24) = False
                             End If
                             
-                            If Trim(.Fields("ODK_AK_FLAG")) <> "" Then
-                                If pPANEL_DATA.ODK_AK_FLAG = .Fields("ODK_AK_FLAG") Then
+                            If Trim(.Fields("ODK_AK_FLAG")) = "" Or Trim(pPANEL_DATA.ODK_AK_FLAG) = Trim(.Fields("ODK_AK_FLAG")) Then
+                               
                                     arrFind_Data(25) = True
-                                End If
                             Else
-                                arrFind_Data(25) = True
+                                arrFind_Data(25) = False
                             End If
                             
-                            If Trim(.Fields("BPAM_REWORK_FLAG")) <> "" Then
-                                If pPANEL_DATA.BPAM_REWORK_FLAG = .Fields("BPAM_REWORK_FLAG") Then
+                            If Trim(.Fields("BPAM_REWORK_FLAG")) = "" Or Trim(pPANEL_DATA.BPAM_REWORK_FLAG) = Trim(.Fields("BPAM_REWORK_FLAG")) Then
+                               
                                     arrFind_Data(26) = True
-                                End If
+                                
                             Else
-                                arrFind_Data(26) = True
+                                arrFind_Data(26) = False
                             End If
                             
-                            If Trim(.Fields("LCD_BRIGHT_DOT_FLAG")) <> "" Then
-                                If pPANEL_DATA.LCD_BRIGHT_DOT_FLAG = .Fields("LCD_BRIGHT_DOT_FLAG") Then
+                            If Trim(.Fields("LCD_BRIGHT_DOT_FLAG")) = "" Or Trim(pPANEL_DATA.LCD_BRIGHT_DOT_FLAG) = Trim(.Fields("LCD_BRIGHT_DOT_FLAG")) Then
+                              
                                     arrFind_Data(27) = True
-                                End If
+                              
                             Else
-                                arrFind_Data(27) = True
+                                arrFind_Data(27) = False
                             End If
                             
-                            If Trim(.Fields("CF_PS_HEIGHT_ERR_FLAG")) <> "" Then
-                                If pPANEL_DATA.CF_PANEL_OX_INFORMATION = .Fields("CF_PS_HEIGHT_ERR_FLAG") Then
+                            If Trim(.Fields("CF_PS_HEIGHT_ERR_FLAG")) = "" Or Trim(pPANEL_DATA.CF_PANEL_OX_INFORMATION) = Trim(.Fields("CF_PS_HEIGHT_ERR_FLAG")) Then
+                                
                                     arrFind_Data(28) = True
-                                End If
+                              
                             Else
-                                arrFind_Data(28) = True
+                                arrFind_Data(28) = False
                             End If
                             
-                            If Trim(.Fields("PI_INSPECTION_NG_FLAG")) <> "" Then
-                                If pPANEL_DATA.PI_INSPECTION_NG_FLAG = .Fields("PI_INSPECTION_NG_FLAG") Then
+                            If Trim(.Fields("PI_INSPECTION_NG_FLAG")) = "" Or Trim(pPANEL_DATA.PI_INSPECTION_NG_FLAG) = Trim(.Fields("PI_INSPECTION_NG_FLAG")) Then
+                                
                                     arrFind_Data(29) = True
-                                End If
+                                
                             Else
-                                arrFind_Data(29) = True
+                                arrFind_Data(29) = False
                             End If
                             
-                            If Trim(.Fields("PI_OVER_BAKE_FLAG")) <> "" Then
-                                If pPANEL_DATA.PI_OVER_BAKE_FLAG = .Fields("PI_OVER_BAKE_FLAG") Then
-                                    arrFind_Data(30) = True
-                                End If
+                            If Trim(.Fields("PI_OVER_BAKE_FLAG")) = "" Or Trim(pPANEL_DATA.PI_OVER_BAKE_FLAG) = Trim(.Fields("PI_OVER_BAKE_FLAG")) Then
+                                
+                               arrFind_Data(30) = True
+                           
                             Else
-                                arrFind_Data(30) = True
+                                arrFind_Data(30) = False
                             End If
                             
-                            If Trim(.Fields("PI_OVER_Q_TIME_FLAG")) <> "" Then
-                                If pPANEL_DATA.PI_OVER_Q_TIME_FLAG = .Fields("PI_OVER_Q_TIME_FLAG") Then
+                            If Trim(.Fields("PI_OVER_Q_TIME_FLAG")) = "" Or Trim(pPANEL_DATA.PI_OVER_Q_TIME_FLAG) = Trim(.Fields("PI_OVER_Q_TIME_FLAG")) Then
+                                
                                     arrFind_Data(31) = True
-                                End If
+                           
                             Else
-                                arrFind_Data(31) = True
+                                arrFind_Data(31) = False
                             End If
                             
-                            If Trim(.Fields("ODF_OVER_BAKE_FLAG")) <> "" Then
-                                If pPANEL_DATA.ODF_OVER_BAKE_FLAG = .Fields("ODF_OVER_BAKE_FLAG") Then
+                            If Trim(.Fields("ODF_OVER_BAKE_FLAG")) = "" Or Trim(pPANEL_DATA.ODF_OVER_BAKE_FLAG) = Trim(.Fields("ODF_OVER_BAKE_FLAG")) Then
+                               
                                     arrFind_Data(32) = True
-                                End If
+                            
                             Else
-                                arrFind_Data(32) = True
+                                arrFind_Data(32) = False
                             End If
                             
-                            If Trim(.Fields("ODF_OVER_Q_TIME_FLAG")) <> "" Then
-                                If pPANEL_DATA.ODF_OVER_Q_TIME_FLAG = .Fields("ODF_OVER_Q_TIME_FLAG") Then
+                            If Trim(.Fields("ODF_OVER_Q_TIME_FLAG")) = "" Or Trim(pPANEL_DATA.ODF_OVER_Q_TIME_FLAG) = Trim(.Fields("ODF_OVER_Q_TIME_FLAG")) Then
+                                
                                     arrFind_Data(33) = True
-                                End If
+                            
                             Else
-                                arrFind_Data(33) = True
+                                arrFind_Data(33) = False
                             End If
                             
-                            If Trim(.Fields("HVA_OVER_BAKE_FLAG")) <> "" Then
-                                If pPANEL_DATA.HVA_OVER_BAKE_FLAG = .Fields("HVA_OVER_BAKE_FLAG") Then
+                            If Trim(.Fields("HVA_OVER_BAKE_FLAG")) = "" Or Trim(pPANEL_DATA.HVA_OVER_BAKE_FLAG) = Trim(.Fields("HVA_OVER_BAKE_FLAG")) Then
+                                
                                     arrFind_Data(34) = True
-                                End If
                             Else
-                                arrFind_Data(34) = True
+                                arrFind_Data(34) = False
                             End If
                             
-                            If Trim(.Fields("HVA_OVER_Q_TIME_FLAG")) <> "" Then
-                                If pPANEL_DATA.HVA_OVER_Q_TIME_FLAG = .Fields("HVA_OVER_Q_TIME_FLAG") Then
+                            If Trim(.Fields("HVA_OVER_Q_TIME_FLAG")) = "" Or Trim(pPANEL_DATA.HVA_OVER_Q_TIME_FLAG) = Trim(.Fields("HVA_OVER_Q_TIME_FLAG")) Then
+                               
                                     arrFind_Data(35) = True
-                                End If
+                              
                             Else
-                                arrFind_Data(35) = True
+                                arrFind_Data(35) = False
                             End If
                             
-                            If Trim(.Fields("SEAL_INSPECTION_FLAG")) <> "" Then
-                                If pPANEL_DATA.SEAL_INSPECTION_FLAG = .Fields("SEAL_INSPECTION_FLAG") Then
-                                    arrFind_Data(36) = True
-                                End If
-                            Else
+                            If Trim(.Fields("SEAL_INSPECTION_FLAG")) = "" Or Trim(pPANEL_DATA.SEAL_INSPECTION_FLAG) = Trim(.Fields("SEAL_INSPECTION_FLAG")) Then
+                               
                                 arrFind_Data(36) = True
-                            End If
-                            
-                            If Trim(.Fields("ODF_CHECKER_FLAG")) <> "" Then
-                                If pPANEL_DATA.ODF_CHECKER_FLAG = .Fields("ODF_CHECKER_FLAG") Then
-                                    arrFind_Data(37) = True
-                                End If
                             Else
-                                arrFind_Data(37) = True
+                                arrFind_Data(36) = False
                             End If
                             
-                            If Trim(.Fields("ODF_DOOR_OPEN_FLAG")) <> "" Then
-                                If pPANEL_DATA.ODF_DOOR_OPEN_FLAG = .Fields("ODF_DOOR_OPEN_FLAG") Then
+                            If Trim(.Fields("ODF_CHECKER_FLAG")) = "" Or Trim(pPANEL_DATA.ODF_CHECKER_FLAG) = Trim(.Fields("ODF_CHECKER_FLAG")) Then
+                                
+                               arrFind_Data(37) = True
+                            
+                            Else
+                                arrFind_Data(37) = False
+                            End If
+                            
+                            If Trim(.Fields("ODF_DOOR_OPEN_FLAG")) = "" Or Trim(pPANEL_DATA.ODF_DOOR_OPEN_FLAG) = Trim(.Fields("ODF_DOOR_OPEN_FLAG")) Then
+                               
                                     arrFind_Data(38) = True
-                                End If
                             Else
-                                arrFind_Data(38) = True
+                                arrFind_Data(38) = False
                             End If
                             
-                            If Trim(.Fields("JOB_JUDGE")) <> "" Then
-                                If pJOB_DATA.JOB_JUDGE = .Fields("JOB_JUDGE") Then
+                            If Trim(.Fields("JOB_JUDGE")) = "" Or Trim(pJOB_DATA.JOB_JUDGE) = Trim(.Fields("JOB_JUDGE")) Then
+                               
                                     arrFind_Data(39) = True
-                                End If
+                            
                             Else
-                                arrFind_Data(39) = True
+                                arrFind_Data(39) = False
                             End If
                             
-                            If Trim(.Fields("JOB_GRADE")) <> "" Then
-                                If pJOB_DATA.JOB_GRADE = .Fields("JOB_GRADE") Then
-                                    arrFind_Data(40) = True
-                                End If
+                            If Trim(.Fields("JOB_GRADE")) = "" Or Trim(pJOB_DATA.JOB_GRADE) = Trim(.Fields("JOB_GRADE")) Then
+                               
+                               arrFind_Data(40) = True
                             Else
-                                arrFind_Data(40) = True
+                                arrFind_Data(40) = False
                             End If
                             
                             arrFind_Data(41) = True
@@ -429,44 +402,43 @@ On Error GoTo ErrorHandler
                             arrFind_Data(44) = True
                             arrFind_Data(45) = True
                             
-                            If Trim(.Fields("SAMPLING_SLOT_FLAG")) <> "" Then
-                                If pJOB_DATA.SAMPLING_SLOT_FLAG = .Fields("SAMPLING_SLOT_FLAG") Then
+                            If Trim(.Fields("SAMPLING_SLOT_FLAG")) = "" Or Trim(pJOB_DATA.SAMPLING_SLOT_FLAG) = Trim(.Fields("SAMPLING_SLOT_FLAG")) Then
+                               
                                     arrFind_Data(46) = True
-                                End If
+                            
                             Else
-                                arrFind_Data(46) = True
+                                arrFind_Data(46) = False
                             End If
                             
-                            If Trim(.Fields("NEED_GRINDING_FLAG")) <> "" Then
-                                If pJOB_DATA.NEED_GRINDING_FLAG = .Fields("NEED_GRINDING_FLAG") Then
+                            If Trim(.Fields("NEED_GRINDING_FLAG")) = "" Or Trim(pJOB_DATA.NEED_GRINDING_FLAG) = Trim(.Fields("NEED_GRINDING_FLAG")) Then
+                                
                                     arrFind_Data(47) = True
-                                End If
+                              
                             Else
-                                arrFind_Data(47) = True
+                                arrFind_Data(47) = False
                             End If
                             
-                            If Trim(.Fields("SMALL_MULTI_PANEL_FLAG")) <> "" Then
-                                If pJOB_DATA.SMALL_MULTI_PANEL_FLAG = .Fields("SMALL_MULTI_PANEL_FLAG") Then
+                            If Trim(.Fields("SMALL_MULTI_PANEL_FLAG")) = "" Or Trim(pJOB_DATA.SMALL_MULTI_PANEL_FLAG) = Trim(.Fields("SMALL_MULTI_PANEL_FLAG")) Then
+                                
                                     arrFind_Data(48) = True
-                                End If
+                             
                             Else
-                                arrFind_Data(48) = True
+                                arrFind_Data(48) = False
                             End If
                             
-                            If Trim(.Fields("CST_SETTING_CODE")) <> "" Then
-                                If pJOB_DATA.CASSETTE_SETTING_CODE = .Fields("CST_SETTING_CODE") Then
+                            If Trim(.Fields("CST_SETTING_CODE")) = "" Or Trim(pJOB_DATA.CASSETTE_SETTING_CODE) = Trim(.Fields("CST_SETTING_CODE")) Then
+                               
                                     arrFind_Data(49) = True
-                                End If
+                            
                             Else
-                                arrFind_Data(49) = True
+                                arrFind_Data(49) = False
                             End If
                             
-                            If Trim(.Fields("ABNORMAL_FLAG_CODE")) <> "" Then
-                                If pJOB_DATA.ABNORMAL_FLAG_CODE = .Fields("ABNORMAL_FLAG_CODE") Then
+                            If Trim(.Fields("ABNORMAL_FLAG_CODE")) = "" Or Trim(pJOB_DATA.ABNORMAL_FLAG_CODE) = Trim(.Fields("ABNORMAL_FLAG_CODE")) Then
+                                
                                     arrFind_Data(50) = True
-                                End If
                             Else
-                                arrFind_Data(50) = True
+                                arrFind_Data(50) = False
                             End If
                         End With
                         bolFind_False = False
@@ -658,7 +630,7 @@ Public Sub Get_Rank_Data(ByVal pPROCESSNUM As String, pRANK_DATA As RANK_DATA_ST
                 With pGRADE_DATA(intRecord_Index)
                     .RANK_DIVISION = lstRecord.Fields("RANK_DIVISION")
                     .DEFECT_CODE = lstRecord.Fields("DEFECT_CODE")
-                    .Rank = lstRecord.Fields("RANK")
+                    .RANK = lstRecord.Fields("RANK")
                     .GRADE = lstRecord.Fields("GRADE")
                 End With
                 
@@ -713,11 +685,11 @@ Public Sub ACCUMULATE(pCST_DATA As CST_INFO_ELEMENTS, pDEFECT_DATA As DEFECT_DAT
             
             If typRANK_DATA.JUDGE_OR_NOT = "O" Then
                 Call Get_Rank(typRANK_DATA, typGRADE_DATA, intGrade_Count, strRank, strGrade, intPoint_Defect_Total)
-                pDEFECT_DATA.Rank = strRank
+                pDEFECT_DATA.RANK = strRank
                 pDEFECT_DATA.GRADE = strGrade
                 Call RANK_OBJ.Set_DEFECT_RANK(pDEFECT_DATA.DEFECT_CODE, strRank, pDEFECT_DATA.DATA_ADDRESS, pDEFECT_DATA.GATE_ADDRESS)
                 Call RANK_OBJ.Set_DEFECT_GRADE(pDEFECT_DATA.DEFECT_CODE, pDEFECT_DATA.DATA_ADDRESS, pDEFECT_DATA.GATE_ADDRESS, strGrade)
-                pDEFECT_DATA.Rank = strRank
+                pDEFECT_DATA.RANK = strRank
                 If strGrade = "" Then
                     strGrade = frmMain.lblPre_Judge.Caption
                 End If
@@ -730,11 +702,11 @@ Public Sub ACCUMULATE(pCST_DATA As CST_INFO_ELEMENTS, pDEFECT_DATA As DEFECT_DAT
             'Not Accumulation
             If typRANK_DATA.JUDGE_OR_NOT = "O" Then
                 Call Get_Rank(typRANK_DATA, typGRADE_DATA, intGrade_Count, strRank, strGrade, intPoint_Defect_Total)
-                pDEFECT_DATA.Rank = strRank
+                pDEFECT_DATA.RANK = strRank
                 pDEFECT_DATA.GRADE = strGrade
                 Call RANK_OBJ.Set_DEFECT_RANK(pDEFECT_DATA.DEFECT_CODE, strRank, pDEFECT_DATA.DATA_ADDRESS, pDEFECT_DATA.GATE_ADDRESS)
                 Call RANK_OBJ.Set_DEFECT_GRADE(pDEFECT_DATA.DEFECT_CODE, pDEFECT_DATA.DATA_ADDRESS, pDEFECT_DATA.GATE_ADDRESS, strGrade)
-                pDEFECT_DATA.Rank = strRank
+                pDEFECT_DATA.RANK = strRank
                 pDEFECT_DATA.GRADE = strGrade
                 frmJudge.flxDefect_List.TextMatrix(pRow, 9) = strRank
                 Call SaveLog("ACCUMULATE", pDEFECT_DATA.DEFECT_CODE & "'s RANK : " & strRank & ", GRADE : " & strGrade)
@@ -758,9 +730,6 @@ Public Sub Get_Rank(pRANK_DATA As RANK_DATA_STRUCTURE, pGRADE_DATA() As GRADE_DA
 
     pRank = ""
     pGrade = ""
-   
-
-    
     With pRANK_DATA
         If (.DEFECT_CODE <> "CDBDD") And _
            (.DEFECT_CODE <> "CDDKD") And _
@@ -805,7 +774,7 @@ Public Sub Get_Rank(pRANK_DATA As RANK_DATA_STRUCTURE, pGRADE_DATA() As GRADE_DA
         '============Leo 2012.05.22 Add Rank Level End
                     For intIndex = 1 To pArray_Count
                         With pGRADE_DATA(intIndex)
-                            If (pGrade = "") And (.DEFECT_CODE = pRANK_DATA.DEFECT_CODE) And (InStr(.Rank, pRank) > 0) Then
+                            If (pGrade = "") And (.DEFECT_CODE = pRANK_DATA.DEFECT_CODE) And (InStr(.RANK, pRank) > 0) Then
                                 pGrade = .GRADE
                             End If
                         End With
@@ -850,7 +819,7 @@ Public Sub Get_Rank(pRANK_DATA As RANK_DATA_STRUCTURE, pGRADE_DATA() As GRADE_DA
                  '============Leo 2012.05.22 Add Rank Level End
                     For intIndex = 1 To pArray_Count
                         With pGRADE_DATA(intIndex)
-                            If (pGrade = "") And (.DEFECT_CODE = pRANK_DATA.DEFECT_CODE) And (InStr(.Rank, pRank) > 0) Then
+                            If (pGrade = "") And (.DEFECT_CODE = pRANK_DATA.DEFECT_CODE) And (InStr(.RANK, pRank) > 0) Then
                                 pGrade = .GRADE
                             End If
                         End With
@@ -896,7 +865,7 @@ Public Sub Get_Rank(pRANK_DATA As RANK_DATA_STRUCTURE, pGRADE_DATA() As GRADE_DA
                 '============Leo 2012.05.22 Add Rank Level End
                 For intIndex = 1 To pArray_Count
                     With pGRADE_DATA(intIndex)
-                        If (pGrade = "") And (.DEFECT_CODE = pRANK_DATA.DEFECT_CODE) And (InStr(.Rank, pRank) > 0) Then
+                        If (pGrade = "") And (.DEFECT_CODE = pRANK_DATA.DEFECT_CODE) And (InStr(.RANK, pRank) > 0) Then
                             pGrade = .GRADE
                         End If
                     End With
@@ -914,7 +883,7 @@ Public Function Get_Grade_by_Rank(pGRADE_DATA() As GRADE_DATA_STRUCTURE, ByVal p
     
     For intIndex = 1 To pArray_Count
         With pGRADE_DATA(intIndex)
-            If (.DEFECT_CODE = pDEFECT_CODE) And (InStr(.Rank, pRank) > 0) Then
+            If (.DEFECT_CODE = pDEFECT_CODE) And (InStr(.RANK, pRank) > 0) Then
                 Get_Grade_by_Rank = .GRADE
             End If
         End With
@@ -1257,8 +1226,8 @@ Public Function Convert_Rank_Grade(pGRADE_DATA() As GRADE_DATA_STRUCTURE, pRANK_
     While bolFind_Grade = False
         intIndex = intIndex + 1
         If (pGRADE_DATA(intIndex).RANK_DIVISION = pRANK_DATA.RANK_DIVISION) And (pGRADE_DATA(intIndex).DEFECT_CODE = pRANK_DATA.DEFECT_CODE) Then
-            If pGRADE_DATA(intIndex).Rank = pRank Then
-                strGrade = pGRADE_DATA(intIndex).Rank
+            If pGRADE_DATA(intIndex).RANK = pRank Then
+                strGrade = pGRADE_DATA(intIndex).RANK
                 bolFind_Grade = True
             Else
                 If intIndex = pArray_Count Then
@@ -1774,7 +1743,7 @@ On Error GoTo ErrorHandler
         If intDefect_Index > 0 Then
             With typDEFECT_DATA
                 If RANK_OBJ.Get_DEFECT_DATA_by_Index(intDefect_Index, .PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
-                                                     .GRADE, .Rank, .COLOR, .GRAY_LEVEL, .ACCUMULATION) = False Then
+                                                     .GRADE, .RANK, .COLOR, .GRAY_LEVEL, .ACCUMULATION) = False Then
                     Call SaveLog("PostJudgeGradeChange1", intDefect_Index & "'s defect data is not found.")
                 End If
             End With
@@ -2136,7 +2105,7 @@ On Error GoTo ErrorHandler
             Set dbMyDB = Workspaces(0).OpenDatabase(strDB_Path & strDB_FileName)
             
             strQuery = "SELECT * FROM REPAIR_POINT_TIMES WHERE "
-'            strQuery = strQuery & "PFCD = '" & Mid(pCST_MES_DATA.PFCD, 3, 5) & "' AND "
+            strQuery = strQuery & "PFCD = '" & Mid(pCST_MES_DATA.PFCD, 3, 5) & "' AND "
             strQuery = strQuery & "PROCESSNUM = '" & pCST_MES_DATA.PROCESS_NUM & "'"
             
             Set lstRecord = dbMyDB.OpenRecordset(strQuery)
@@ -2172,9 +2141,14 @@ On Error GoTo ErrorHandler
                      
 'Lucas 2012.02.22===================================For Repair rework_count
                     Case "2":
-                                           
                           If (pCST_MES_DATA.PROCESS_NUM = "3650") Then
-                            strNew_Judge = "NG"
+'Lucas Ver.0.9.29 2012.05.30=======================For CUT Test
+                             If (pDEFECT_DATA.DEFECT_CODE = "CLDDK") Or (pDEFECT_DATA.DEFECT_CODE = "CLDWK") Or (pDEFECT_DATA.DEFECT_CODE = "CLDBT") Then
+                              strNew_Judge = "RP"
+'Lucas Ver.0.9.29 2012.05.30=======================For CUT Test
+                             Else
+                              strNew_Judge = "NG"
+                             End If
                           Else
                             If pCST_MES_DATA.PROCESS_NUM = "4650" Then
                             strNew_Judge = "S "
@@ -2271,7 +2245,7 @@ On Error GoTo ErrorHandler
                 
                 While lstRecord.EOF = False
                     With lstRecord
-                                               If (.Fields("DEST_FAB") = " ") Or (.Fields("DEST_FAB") = pCST_MES_DATA.DESTINATION_FAB) Or (.Fields("DEST_FAB") = "") Then
+                        If (.Fields("DEST_FAB") = " ") Or (.Fields("DEST_FAB") = pCST_MES_DATA.DESTINATION_FAB) Or (.Fields("DEST_FAB") = "") Then
                             arrResult(1) = True
                         Else
                             arrResult(1) = False
@@ -2742,7 +2716,7 @@ On Error GoTo ErrorHandler
                     Case "CHANGE GRADE":
                         .NEW_GRADE = Mid(strTemp, intPos + 1)
                     Case "COUNT":
-                        .Count = CInt(Mid(strTemp, intPos + 1))
+                        .COUNT = CInt(Mid(strTemp, intPos + 1))
                     Case "CURRENT COUNT":
                         .CURRENT_COUNT = CInt(Mid(strTemp, intPos + 1))
                     End Select
@@ -2752,14 +2726,14 @@ On Error GoTo ErrorHandler
         
         Close intFileNum
         
-        If typCOUNT_CHANGE.Count > 0 Then
+        If typCOUNT_CHANGE.COUNT > 0 Then
             If pGrade = typCOUNT_CHANGE.FINAL_GRADE Then
                 typCOUNT_CHANGE.CURRENT_COUNT = typCOUNT_CHANGE.CURRENT_COUNT + 1
                 Count_Change = pGrade
                 Call SaveLog("Count_Change", "Grade change from " & pGrade & " to " & typCOUNT_CHANGE.NEW_GRADE)
                 Call SaveLog("            ", "Current change grade count : " & typCOUNT_CHANGE.CURRENT_COUNT)
-                If typCOUNT_CHANGE.CURRENT_COUNT = typCOUNT_CHANGE.Count Then
-                    typCOUNT_CHANGE.Count = 0
+                If typCOUNT_CHANGE.CURRENT_COUNT = typCOUNT_CHANGE.COUNT Then
+                    typCOUNT_CHANGE.COUNT = 0
                 End If
                 intFileNum = FreeFile
                 Open strPath & strFileName For Output As intFileNum
@@ -2771,7 +2745,7 @@ On Error GoTo ErrorHandler
                     strTemp = "CHANGE GRADE=" & .NEW_GRADE
                     Print #intFileNum, strTemp
                     
-                    strTemp = "COUNT=" & .Count
+                    strTemp = "COUNT=" & .COUNT
                     Print #intFileNum, strTemp
                     
                     strTemp = "CURRENT COUNT=" & .CURRENT_COUNT

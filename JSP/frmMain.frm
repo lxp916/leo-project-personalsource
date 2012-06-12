@@ -1,14 +1,14 @@
 VERSION 5.00
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
-Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSCOMM32.OCX"
 Begin VB.Form frmMain 
    BorderStyle     =   5  'Sizable ToolWindow
    Caption         =   "Main"
-   ClientHeight    =   10644
-   ClientLeft      =   168
-   ClientTop       =   -4452
-   ClientWidth     =   20244
+   ClientHeight    =   10650
+   ClientLeft      =   165
+   ClientTop       =   -4455
+   ClientWidth     =   20250
    ControlBox      =   0   'False
    BeginProperty Font 
       Name            =   "Arial"
@@ -23,19 +23,19 @@ Begin VB.Form frmMain
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   10644
-   ScaleWidth      =   20244
+   ScaleHeight     =   10650
+   ScaleWidth      =   20250
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'ÆÁÄ»ÖÐÐÄ
    Begin ComctlLib.Toolbar Toolbar1 
       Align           =   1  'Align Top
-      Height          =   600
+      Height          =   615
       Left            =   0
       TabIndex        =   18
       Top             =   0
-      Width           =   20244
-      _ExtentX        =   35708
-      _ExtentY        =   1058
+      Width           =   20250
+      _ExtentX        =   35719
+      _ExtentY        =   1085
       ButtonWidth     =   2381
       ButtonHeight    =   926
       Appearance      =   1
@@ -98,8 +98,8 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   3855
          Left            =   90
-         ScaleHeight     =   3804
-         ScaleWidth      =   7284
+         ScaleHeight     =   3795
+         ScaleWidth      =   7275
          TabIndex        =   36
          Top             =   240
          Width           =   7335
@@ -854,7 +854,7 @@ Begin VB.Form frmMain
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   1584
+      Height          =   1770
       Left            =   18960
       TabIndex        =   34
       Top             =   8340
@@ -879,13 +879,13 @@ Begin VB.Form frmMain
    End
    Begin ComctlLib.StatusBar StatusBar 
       Align           =   2  'Align Bottom
-      Height          =   408
+      Height          =   405
       Left            =   0
       TabIndex        =   19
-      Top             =   10236
-      Width           =   20244
-      _ExtentX        =   35708
-      _ExtentY        =   720
+      Top             =   10245
+      Width           =   20250
+      _ExtentX        =   35719
+      _ExtentY        =   714
       SimpleText      =   ""
       _Version        =   327682
       BeginProperty Panels {0713E89E-850A-101B-AFC0-4210102A8DA7} 
@@ -915,7 +915,7 @@ Begin VB.Form frmMain
             Alignment       =   1
             Object.Width           =   3598
             MinWidth        =   3598
-            TextSave        =   "11:15"
+            TextSave        =   "16:40"
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
@@ -943,8 +943,8 @@ Begin VB.Form frmMain
          TabIndex        =   30
          Top             =   3000
          Width           =   3015
-         _ExtentX        =   5313
-         _ExtentY        =   3937
+         _ExtentX        =   5318
+         _ExtentY        =   3942
          _Version        =   393216
          Rows            =   6
          FixedRows       =   0
@@ -955,8 +955,8 @@ Begin VB.Form frmMain
          TabIndex        =   20
          Top             =   420
          Width           =   3015
-         _ExtentX        =   5313
-         _ExtentY        =   3937
+         _ExtentX        =   5318
+         _ExtentY        =   3942
          _Version        =   393216
          Rows            =   6
          FixedRows       =   0
@@ -1020,8 +1020,8 @@ Begin VB.Form frmMain
          TabIndex        =   29
          Top             =   150
          Width           =   5775
-         _ExtentX        =   10181
-         _ExtentY        =   3874
+         _ExtentX        =   10186
+         _ExtentY        =   3889
          _Version        =   393216
          Rows            =   6
          FixedRows       =   0
@@ -1043,6 +1043,42 @@ Begin VB.Form frmMain
       TabIndex        =   15
       Top             =   5310
       Width           =   13425
+      Begin VB.Label Repair 
+         Alignment       =   2  'Center
+         BackColor       =   &H008080FF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   12120
+         TabIndex        =   62
+         Top             =   210
+         Width           =   1005
+      End
+      Begin VB.Label Label5 
+         Caption         =   "Repair Rework Count"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   195
+         Left            =   9720
+         TabIndex        =   61
+         Top             =   300
+         Width           =   2175
+      End
       Begin VB.Label lblPre_Loss_Code 
          Alignment       =   2  'Center
          BackColor       =   &H00FFFFFF&
@@ -1057,17 +1093,17 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   345
-         Left            =   10890
+         Left            =   8280
          TabIndex        =   28
          Top             =   210
-         Width           =   1995
+         Width           =   1000
       End
       Begin VB.Label Label4 
          AutoSize        =   -1  'True
          Caption         =   "PRE PROCESS LOSS CODE"
          BeginProperty Font 
             Name            =   "Tahoma"
-            Size            =   9.6
+            Size            =   9.75
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -1075,7 +1111,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   195
-         Left            =   8280
+         Left            =   5640
          TabIndex        =   27
          Top             =   300
          Width           =   2895
@@ -1094,17 +1130,17 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   345
-         Left            =   6330
+         Left            =   4800
          TabIndex        =   26
          Top             =   210
-         Width           =   1635
+         Width           =   600
       End
       Begin VB.Label Label3 
          AutoSize        =   -1  'True
          Caption         =   "POST PANEL JUDGE"
          BeginProperty Font 
             Name            =   "Tahoma"
-            Size            =   9.6
+            Size            =   9.75
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -1112,7 +1148,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   195
-         Left            =   4110
+         Left            =   2880
          TabIndex        =   25
          Top             =   300
          Width           =   2145
@@ -1134,14 +1170,14 @@ Begin VB.Form frmMain
          Left            =   2160
          TabIndex        =   24
          Top             =   210
-         Width           =   1635
+         Width           =   600
       End
       Begin VB.Label Label2 
          AutoSize        =   -1  'True
          Caption         =   "PRE PANEL JUDGE"
          BeginProperty Font 
             Name            =   "Tahoma"
-            Size            =   9.6
+            Size            =   9.75
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -1176,7 +1212,7 @@ Begin VB.Form frmMain
          Enabled         =   0   'False
          BeginProperty Font 
             Name            =   "Microsoft Sans Serif"
-            Size            =   20.4
+            Size            =   20.25
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -1212,14 +1248,14 @@ Begin VB.Form frmMain
          TabIndex        =   21
          Top             =   150
          Width           =   3645
-         _ExtentX        =   6414
-         _ExtentY        =   16574
+         _ExtentX        =   6429
+         _ExtentY        =   16589
          _Version        =   393216
          Rows            =   70
          FixedRows       =   0
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "Tahoma"
-            Size            =   6.6
+            Size            =   6.75
             Charset         =   0
             Weight          =   400
             Underline       =   0   'False
@@ -1249,8 +1285,8 @@ Begin VB.Form frmMain
          TabIndex        =   22
          Top             =   180
          Width           =   13335
-         _ExtentX        =   23516
-         _ExtentY        =   4360
+         _ExtentX        =   23521
+         _ExtentY        =   4366
          _Version        =   393216
          Rows            =   1
          Cols            =   7
@@ -1260,8 +1296,8 @@ Begin VB.Form frmMain
          Index           =   1
          Left            =   600
          Top             =   120
-         _ExtentX        =   995
-         _ExtentY        =   995
+         _ExtentX        =   1005
+         _ExtentY        =   1005
          _Version        =   393216
          CommPort        =   2
          DTREnable       =   -1  'True
@@ -1275,8 +1311,8 @@ Begin VB.Form frmMain
          Index           =   2
          Left            =   1170
          Top             =   120
-         _ExtentX        =   995
-         _ExtentY        =   995
+         _ExtentX        =   1005
+         _ExtentY        =   1005
          _Version        =   393216
          CommPort        =   3
          DTREnable       =   -1  'True
@@ -1290,8 +1326,8 @@ Begin VB.Form frmMain
          Index           =   3
          Left            =   1740
          Top             =   120
-         _ExtentX        =   995
-         _ExtentY        =   995
+         _ExtentX        =   1005
+         _ExtentY        =   1005
          _Version        =   393216
          CommPort        =   4
          DTREnable       =   -1  'True
@@ -1306,8 +1342,8 @@ Begin VB.Form frmMain
          Index           =   4
          Left            =   2310
          Top             =   120
-         _ExtentX        =   995
-         _ExtentY        =   995
+         _ExtentX        =   1005
+         _ExtentY        =   1005
          _Version        =   393216
          CommPort        =   5
          DTREnable       =   -1  'True
@@ -1321,8 +1357,8 @@ Begin VB.Form frmMain
          Index           =   5
          Left            =   2880
          Top             =   120
-         _ExtentX        =   995
-         _ExtentY        =   995
+         _ExtentX        =   1005
+         _ExtentY        =   1005
          _Version        =   393216
          CommPort        =   6
          DTREnable       =   -1  'True
@@ -1336,8 +1372,8 @@ Begin VB.Form frmMain
          Index           =   6
          Left            =   3450
          Top             =   120
-         _ExtentX        =   995
-         _ExtentY        =   995
+         _ExtentX        =   1005
+         _ExtentY        =   1005
          _Version        =   393216
          CommPort        =   7
          DTREnable       =   -1  'True
@@ -1351,8 +1387,8 @@ Begin VB.Form frmMain
          Index           =   7
          Left            =   4020
          Top             =   120
-         _ExtentX        =   995
-         _ExtentY        =   995
+         _ExtentX        =   1005
+         _ExtentY        =   1005
          _Version        =   393216
          CommPort        =   8
          DTREnable       =   -1  'True
@@ -1367,8 +1403,8 @@ Begin VB.Form frmMain
          Index           =   0
          Left            =   30
          Top             =   120
-         _ExtentX        =   995
-         _ExtentY        =   995
+         _ExtentX        =   1005
+         _ExtentY        =   1005
          _Version        =   393216
          DTREnable       =   -1  'True
          InputLen        =   1
@@ -1434,8 +1470,8 @@ Begin VB.Form frmMain
          TabIndex        =   8
          Top             =   960
          Width           =   3015
-         _ExtentX        =   5313
-         _ExtentY        =   1461
+         _ExtentX        =   5318
+         _ExtentY        =   1455
          _Version        =   393216
          Cols            =   1
          FixedCols       =   0
@@ -1446,8 +1482,8 @@ Begin VB.Form frmMain
          TabIndex        =   9
          Top             =   150
          Width           =   3015
-         _ExtentX        =   5313
-         _ExtentY        =   1439
+         _ExtentX        =   5318
+         _ExtentY        =   1455
          _Version        =   393216
          Cols            =   1
          FixedCols       =   0
@@ -1475,8 +1511,8 @@ Begin VB.Form frmMain
          TabIndex        =   6
          Top             =   180
          Width           =   3015
-         _ExtentX        =   5313
-         _ExtentY        =   2667
+         _ExtentX        =   5318
+         _ExtentY        =   2672
          _Version        =   393216
          Rows            =   4
       End
@@ -1501,7 +1537,7 @@ Begin VB.Form frmMain
          BackColor       =   &H00000000&
          BeginProperty Font 
             Name            =   "Tahoma"
-            Size            =   9.6
+            Size            =   9.75
             Charset         =   129
             Weight          =   700
             Underline       =   0   'False
@@ -1509,7 +1545,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H0080FF80&
-         Height          =   1416
+         Height          =   1500
          ItemData        =   "frmMain.frx":08CA
          Left            =   60
          List            =   "frmMain.frx":08CC
@@ -1540,7 +1576,7 @@ Begin VB.Form frmMain
          BorderStyle     =   1  'Fixed Single
          BeginProperty Font 
             Name            =   "Tahoma"
-            Size            =   9.6
+            Size            =   9.75
             Charset         =   134
             Weight          =   400
             Underline       =   0   'False
@@ -1558,7 +1594,7 @@ Begin VB.Form frmMain
          Caption         =   "USER"
          BeginProperty Font 
             Name            =   "ËÎÌå"
-            Size            =   9.6
+            Size            =   9.75
             Charset         =   129
             Weight          =   400
             Underline       =   0   'False
@@ -2153,7 +2189,7 @@ Private Sub Init_Form()
                     Case "CHANGE GRADE":
                         .NEW_GRADE = Mid(strTemp, intPos + 1)
                     Case "COUNT":
-                        .Count = CInt(Mid(strTemp, intPos + 1))
+                        .COUNT = CInt(Mid(strTemp, intPos + 1))
                     Case "CURRENT COUNT":
                         .CURRENT_COUNT = CInt(Mid(strTemp, intPos + 1))
                     End Select
@@ -2339,7 +2375,7 @@ Private Sub Init_Grid()
         .TextMatrix(21, 0) = "Cell Repair Grade"
         .TextMatrix(22, 0) = "TFT Repair Grade"
         .TextMatrix(23, 0) = "CF Panel ID"
-        .TextMatrix(24, 0) = "CF O/X Information"
+        .TextMatrix(24, 0) = "TFT O/X Information"
         .TextMatrix(25, 0) = "Panel Owner Type"
         .TextMatrix(26, 0) = "Abnormal CF"
         .TextMatrix(27, 0) = "Abnormal TFT"
@@ -3229,9 +3265,9 @@ Private Sub Reset_Auto_Alarm()
                     .PROCESS_NUM = lstRecord.Fields("PROCESS_NUM")
                     .PFCD = lstRecord.Fields("PFCD")
                     .DEFECT_CODE = lstRecord.Fields("DEFECT_CODE")
-                    .Rank = lstRecord.Fields("RANK")
+                    .RANK = lstRecord.Fields("RANK")
                     .COUNT_TIME = lstRecord.Fields("COUNT_TIME")
-                    .Count = lstRecord.Fields("COUNT")
+                    .COUNT = lstRecord.Fields("COUNT")
                     .ALARM_TEXT = lstRecord.Fields("ALARM_TEXT")
                     .CURRENT_COUNT = lstRecord.Fields("CURRENT_COUNT")
                     .EXPIRY_DATE = lstRecord.Fields("EXPIRY_DATE")

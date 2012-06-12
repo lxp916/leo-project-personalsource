@@ -127,13 +127,14 @@ Private Function Decode_Buzz_Message(ByVal pPortID As Integer, ByVal pCommand As
     Call Show_Message("Alarm from API", strALCD & " : " & strALTEXT)
     
     Decode_Buzz_Message = "YBAM"
+'Lucas Ver.0.9.28 2012.05.16 PG alarm Didn't send to EQ
     
-    Call ENV.Get_Device_Data_by_Name(Left(frmMain.flxEQ_Information.TextMatrix(5, 1), 5), intPortNo, strStatus)
-    
-    If intPortNo > 0 Then
-        Call QUEUE.Put_Send_Command(intPortNo, "QBAM" & strALCD & strALTEXT)
-    End If
-    
+'    Call ENV.Get_Device_Data_by_Name(Left(frmMain.flxEQ_Information.TextMatrix(5, 1), 5), intPortNo, strStatus)
+'
+'    If intPortNo > 0 Then
+'        Call QUEUE.Put_Send_Command(intPortNo, "QBAM" & strALCD & strALTEXT)
+'    End If
+'Lucas Ver.0.9.28 2012.05.16 PG alarm Didn't send to EQ
 End Function
 
 Private Function Make_FTP_Folder(ByVal pRemotePath As String) As Boolean
@@ -500,16 +501,17 @@ Private Function Decode_Panel_Grade(ByVal pPortID As Integer, ByVal pCommand) As
             strGrade = PostJudgeOtherRule3(strGrade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
             strGrade = PostJudgeGradeChange1(strGrade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
             strGrade = PostJudgeGradeChange2(strGrade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
+            strGrade = RepairPointTimes(strGrade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
             strGrade = CheckPanelIDChangeGrade(strGrade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
             strGrade = ChangeGrade(strGrade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
             strGrade = ChangeGradeByDefectCode(strGrade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
-            strGrade = RepairPointTimes(strGrade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
             strGrade = FlagChangeGrade(strGrade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index), pubJOB_INFO)
             strGrade = SKChange(strGrade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
-            
-    frmMain.flxMES_Data.TextMatrix(18, 1) = strGrade
+'Lucas Ver.0.9.29 2012.06.01=================================For Light on Grade display
+'    frmMain.flxMES_Data.TextMatrix(18, 1) = strGrade
     frmMain.lblPost_Judge.Caption = strGrade
-    frmMain.flxMES_Data.TextMatrix(19, 1) = strLossCode
+'Lucas Ver.0.9.29 2012.06.01=================================For Light on Grade display
+'    frmMain.flxMES_Data.TextMatrix(19, 1) = strLossCode
     
     strDB_Path = App.PATH & "\DB\"
     strDB_FileName = "Result.mdb"

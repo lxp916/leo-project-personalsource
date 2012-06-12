@@ -2,13 +2,13 @@ VERSION 5.00
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
 Begin VB.Form frmJudge 
    Caption         =   "JUDGE WINDOW"
-   ClientHeight    =   11028
+   ClientHeight    =   11025
    ClientLeft      =   60
-   ClientTop       =   348
+   ClientTop       =   345
    ClientWidth     =   19080
    ControlBox      =   0   'False
    LinkTopic       =   "Form1"
-   ScaleHeight     =   11028
+   ScaleHeight     =   11025
    ScaleWidth      =   19080
    StartUpPosition =   2  '屏幕中心
    Begin VB.Frame Frame3 
@@ -23,8 +23,8 @@ Begin VB.Form frmJudge
          TabIndex        =   47
          Top             =   180
          Width           =   9765
-         _ExtentX        =   17230
-         _ExtentY        =   4636
+         _ExtentX        =   17224
+         _ExtentY        =   4630
          _Version        =   393216
          Rows            =   1
          Cols            =   15
@@ -40,9 +40,9 @@ Begin VB.Form frmJudge
       Begin VB.CommandButton cmdSet_Address 
          Caption         =   "Set Address"
          Height          =   525
-         Left            =   2190
+         Left            =   -360
          TabIndex        =   51
-         Top             =   1890
+         Top             =   -120
          Visible         =   0   'False
          Width           =   1245
       End
@@ -99,6 +99,60 @@ Begin VB.Form frmJudge
          TabIndex        =   29
          Top             =   300
          Width           =   1365
+      End
+      Begin VB.Label Polarizor 
+         Alignment       =   2  'Center
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   12
+            Charset         =   134
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   4200
+         TabIndex        =   70
+         Top             =   1920
+         Width           =   735
+      End
+      Begin VB.Label Label6 
+         Caption         =   "PolarizorR/W Count"
+         Height          =   255
+         Left            =   2520
+         TabIndex        =   69
+         Top             =   2040
+         Width           =   1815
+      End
+      Begin VB.Label Repair 
+         Alignment       =   2  'Center
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   12
+            Charset         =   134
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   1800
+         TabIndex        =   68
+         Top             =   1920
+         Width           =   735
+      End
+      Begin VB.Label Label4 
+         Caption         =   "RepairR/W Count"
+         Height          =   255
+         Left            =   120
+         TabIndex        =   67
+         Top             =   2040
+         Width           =   1455
       End
       Begin VB.Label Label2 
          AutoSize        =   -1  'True
@@ -173,8 +227,8 @@ Begin VB.Form frmJudge
          TabIndex        =   44
          Top             =   7650
          Width           =   3405
-         _ExtentX        =   5990
-         _ExtentY        =   5842
+         _ExtentX        =   6006
+         _ExtentY        =   5847
          _Version        =   393216
          Rows            =   1
          FixedCols       =   0
@@ -186,8 +240,8 @@ Begin VB.Form frmJudge
          TabIndex        =   43
          Top             =   7650
          Width           =   3375
-         _ExtentX        =   5948
-         _ExtentY        =   5842
+         _ExtentX        =   5953
+         _ExtentY        =   5847
          _Version        =   393216
          Rows            =   1
          FixedCols       =   0
@@ -199,8 +253,8 @@ Begin VB.Form frmJudge
          TabIndex        =   42
          Top             =   7650
          Width           =   3375
-         _ExtentX        =   5948
-         _ExtentY        =   5842
+         _ExtentX        =   5953
+         _ExtentY        =   5847
          _Version        =   393216
          Rows            =   1
          FixedCols       =   0
@@ -239,8 +293,8 @@ Begin VB.Form frmJudge
                TabIndex        =   49
                Top             =   150
                Width           =   4305
-               _ExtentX        =   7599
-               _ExtentY        =   2879
+               _ExtentX        =   7594
+               _ExtentY        =   2884
                _Version        =   393216
                Rows            =   1
                Cols            =   4
@@ -257,7 +311,7 @@ Begin VB.Form frmJudge
                Caption         =   "GRADE"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   15.6
+                  Size            =   15.75
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -274,7 +328,7 @@ Begin VB.Form frmJudge
                Caption         =   "MAIN"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   15.6
+                  Size            =   15.75
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -304,8 +358,8 @@ Begin VB.Form frmJudge
                BackColor       =   &H00000000&
                Height          =   2655
                Left            =   120
-               ScaleHeight     =   2604
-               ScaleWidth      =   9180
+               ScaleHeight     =   2595
+               ScaleWidth      =   9165
                TabIndex        =   20
                Top             =   480
                Width           =   9225
@@ -438,7 +492,7 @@ Begin VB.Form frmJudge
                Caption         =   "Current Pattern"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   9.6
+                  Size            =   9.75
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -507,8 +561,8 @@ Begin VB.Form frmJudge
          TabIndex        =   6
          Top             =   4050
          Width           =   3405
-         _ExtentX        =   6011
-         _ExtentY        =   5842
+         _ExtentX        =   6006
+         _ExtentY        =   5847
          _Version        =   393216
          Rows            =   1
          FixedCols       =   0
@@ -520,8 +574,8 @@ Begin VB.Form frmJudge
          TabIndex        =   5
          Top             =   4050
          Width           =   3405
-         _ExtentX        =   6011
-         _ExtentY        =   5842
+         _ExtentX        =   6006
+         _ExtentY        =   5847
          _Version        =   393216
          Rows            =   1
          FixedCols       =   0
@@ -533,8 +587,8 @@ Begin VB.Form frmJudge
          TabIndex        =   4
          Top             =   4050
          Width           =   3405
-         _ExtentX        =   6011
-         _ExtentY        =   5842
+         _ExtentX        =   6006
+         _ExtentY        =   5847
          _Version        =   393216
          Rows            =   1
          FixedCols       =   0
@@ -546,8 +600,8 @@ Begin VB.Form frmJudge
          TabIndex        =   3
          Top             =   480
          Width           =   3405
-         _ExtentX        =   6011
-         _ExtentY        =   5842
+         _ExtentX        =   6006
+         _ExtentY        =   5847
          _Version        =   393216
          Rows            =   1
          FixedCols       =   0
@@ -559,8 +613,8 @@ Begin VB.Form frmJudge
          TabIndex        =   2
          Top             =   480
          Width           =   3405
-         _ExtentX        =   6011
-         _ExtentY        =   5842
+         _ExtentX        =   6006
+         _ExtentY        =   5847
          _Version        =   393216
          Rows            =   1
          FixedCols       =   0
@@ -572,8 +626,8 @@ Begin VB.Form frmJudge
          TabIndex        =   1
          Top             =   480
          Width           =   3405
-         _ExtentX        =   6011
-         _ExtentY        =   5842
+         _ExtentX        =   6006
+         _ExtentY        =   5847
          _Version        =   393216
          Rows            =   1
          FixedCols       =   0
@@ -1051,20 +1105,26 @@ Private Sub cmdGrade_Click()
     Dim intSource_Rank_Priority             As Integer
     Dim intTarget_Rank_Priority             As Integer
     Dim msec                                As Long
-    
-    Call ENV.Get_Device_Data_by_Name("API", intPortNo, strState)
+    Dim LineX                               As Integer
+    Dim LineY                               As Integer
+       
     
     intPortNo = EQP.Get_PG_PortID
     If intPortNo > 0 Then
         Call QUEUE.Put_Send_Command(intPortNo, "QPPF")
     End If
-
+    
+    intPTN_Index = CInt(Me.lblCurrent_PTN_Index.Caption)
+    EQP.Set_PATTERN_END_by_Index (intPTN_Index)
+    
+    Call ENV.Get_Device_Data_by_Name("API", intPortNo, strState)
+    
     If Left(frmMain.flxEQ_Information.TextMatrix(5, 1), 5) = "CATST" Then
         If intPortNo > 0 Then
             Call QUEUE.Put_Send_Command(intPortNo, "QBLV")
         End If
     End If
-
+    
     intDefect_Count = Me.flxDefect_List.Rows - 1
     Call RANK_OBJ.Set_DEFECT_DATA_COUNT(intDefect_Count + 6)
     ReDim typDEFECT_DATA(intDefect_Count + 6)
@@ -1099,17 +1159,17 @@ Private Sub cmdGrade_Click()
                 typDEFECT_DATA(intRow).GRAY_LEVEL = CInt(.TextMatrix(intRow, 13))
                 If (Me.flxDefect_List.TextMatrix(intRow, 9) = "") And (Me.flxDefect_List.TextMatrix(intRow, 10) = "") Then
                     Call ACCUMULATE(pubCST_INFO, typDEFECT_DATA(intRow), intRow)
-                    pubDEFECT_DATA(intRow).Rank = typDEFECT_DATA(intRow).Rank       '2012.03.26 Added by K.H.KIM
+                    pubDEFECT_DATA(intRow).RANK = typDEFECT_DATA(intRow).RANK       '2012.03.26 Added by K.H.KIM
                     Me.flxDefect_List.TextMatrix(intRow, 14) = typDEFECT_DATA(intRow).GRADE
                     pubDEFECT_DATA(intRow).GRADE = typDEFECT_DATA(intRow).GRADE     '2012.03.26 Added by K.H.KIM
                     Call RANK_OBJ.Set_DEFECT_DATA(intRow, pubPANEL_INFO.PANELID, .TextMatrix(intRow, 0), .TextMatrix(intRow, 1), typDEFECT_DATA(intRow).DETAIL_DIVISION, _
                                                   typDEFECT_DATA(intRow).DATA_ADDRESS, typDEFECT_DATA(intRow).GATE_ADDRESS, .TextMatrix(intRow, 12), _
                                                   CInt(.TextMatrix(intRow, 13)), typDEFECT_DATA(intRow).ACCUMULATION)
                 Else
-                    typDEFECT_DATA(intRow).Rank = .TextMatrix(intRow, 9)
-                    pubDEFECT_DATA(intRow).Rank = .TextMatrix(intRow, 9)            '2012.03.26 Added by K.H.KIM
+                    typDEFECT_DATA(intRow).RANK = .TextMatrix(intRow, 9)
+                    pubDEFECT_DATA(intRow).RANK = .TextMatrix(intRow, 9)            '2012.03.26 Added by K.H.KIM
                     Call Get_Rank_Data(pubCST_INFO.PROCESS_NUM, typRANK_DATA, typGRADE_DATA, typDEFECT_DATA(intRow).DEFECT_CODE, intGrade_Count)
-                    typDEFECT_DATA(intRow).GRADE = Get_Grade_by_Rank(typGRADE_DATA, intGrade_Count, typDEFECT_DATA(intRow).DEFECT_CODE, typDEFECT_DATA(intRow).Rank)
+                    typDEFECT_DATA(intRow).GRADE = Get_Grade_by_Rank(typGRADE_DATA, intGrade_Count, typDEFECT_DATA(intRow).DEFECT_CODE, typDEFECT_DATA(intRow).RANK)
                     Me.flxDefect_List.TextMatrix(intRow, 14) = typDEFECT_DATA(intRow).GRADE
                     pubDEFECT_DATA(intRow).GRADE = typDEFECT_DATA(intRow).GRADE     '2012.03.26 Added by K.H.KIM
                     Call RANK_OBJ.Set_DEFECT_DATA(intRow, pubPANEL_INFO.PANELID, .TextMatrix(intRow, 0), .TextMatrix(intRow, 1), .TextMatrix(intRow, 11), _
@@ -1145,7 +1205,7 @@ Private Sub cmdGrade_Click()
                         strRank = Me.flxDefect_List.TextMatrix(intRow, 9)
                         For intIndex = 1 To intGrade_Count
                             If (strGrade = "") And (typDEFECT_DATA(intRow).DEFECT_CODE = typGRADE_DATA(intIndex).DEFECT_CODE) And _
-                               (InStr(typGRADE_DATA(intIndex).Rank, strRank) > 0) Then
+                               (InStr(typGRADE_DATA(intIndex).RANK, strRank) > 0) Then
                                 strGrade = typGRADE_DATA(intIndex).GRADE
                             End If
                         Next intIndex
@@ -1153,8 +1213,8 @@ Private Sub cmdGrade_Click()
                             RANK_OBJ.Get_Highest_Grade
                         End If
                         typDEFECT_DATA(intRow).GRADE = strGrade
-                        typDEFECT_DATA(intRow).Rank = strRank
-                        Call SaveLog("cmdGrade_Click", typDEFECT_DATA(intRow).DEFECT_CODE & "'s RANK : " & typDEFECT_DATA(intRow).Rank & ", GRADE : " & strGrade)
+                        typDEFECT_DATA(intRow).RANK = strRank
+                        Call SaveLog("cmdGrade_Click", typDEFECT_DATA(intRow).DEFECT_CODE & "'s RANK : " & typDEFECT_DATA(intRow).RANK & ", GRADE : " & strGrade)
                         Call Update_Defect_Grade(typDEFECT_DATA(intRow))
                         Call RANK_OBJ.Set_DEFECT_RANK(typDEFECT_DATA(intRow).DEFECT_CODE, strRank, typDEFECT_DATA(intRow).DATA_ADDRESS, typDEFECT_DATA(intRow).GATE_ADDRESS)
                         Call RANK_OBJ.Set_DEFECT_GRADE(typDEFECT_DATA(intRow).DEFECT_CODE, typDEFECT_DATA(intRow).DATA_ADDRESS, typDEFECT_DATA(intRow).GATE_ADDRESS, strGrade)
@@ -1164,7 +1224,7 @@ Private Sub cmdGrade_Click()
                             strRank = Me.flxDefect_List.TextMatrix(intRow, 9)
                             For intIndex = 1 To intGrade_Count
                                 If (strGrade = "") And (typDEFECT_DATA(intRow).DEFECT_CODE = typGRADE_DATA(intIndex).DEFECT_CODE) And _
-                                   (InStr(typGRADE_DATA(intIndex).Rank, strRank) > 0) Then
+                                   (InStr(typGRADE_DATA(intIndex).RANK, strRank) > 0) Then
                                     strGrade = typGRADE_DATA(intIndex).GRADE
                                 End If
                             Next intIndex
@@ -1172,8 +1232,8 @@ Private Sub cmdGrade_Click()
                                 RANK_OBJ.Get_Highest_Grade
                             End If
                             typDEFECT_DATA(intRow).GRADE = strGrade
-                            typDEFECT_DATA(intRow).Rank = strRank
-                            Call SaveLog("cmdGrade_Click", typDEFECT_DATA(intRow).DEFECT_CODE & "'s RANK : " & typDEFECT_DATA(intRow).Rank & ", GRADE : " & strGrade)
+                            typDEFECT_DATA(intRow).RANK = strRank
+                            Call SaveLog("cmdGrade_Click", typDEFECT_DATA(intRow).DEFECT_CODE & "'s RANK : " & typDEFECT_DATA(intRow).RANK & ", GRADE : " & strGrade)
                             Call Update_Defect_Grade(typDEFECT_DATA(intRow))
                             Call RANK_OBJ.Set_DEFECT_RANK(typDEFECT_DATA(intRow).DEFECT_CODE, strRank, typDEFECT_DATA(intRow).DATA_ADDRESS, typDEFECT_DATA(intRow).GATE_ADDRESS)
                             Call RANK_OBJ.Set_DEFECT_GRADE(typDEFECT_DATA(intRow).DEFECT_CODE, typDEFECT_DATA(intRow).DATA_ADDRESS, typDEFECT_DATA(intRow).GATE_ADDRESS, strGrade)
@@ -1219,16 +1279,16 @@ Private Sub cmdGrade_Click()
                 For intIndex = 1 To intDefect_Count
                     With typDEFECT_DATA(intIndex)
                         Call RANK_OBJ.Get_DEFECT_DATA_by_Index(intIndex, .PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, _
-                                                               .GATE_ADDRESS, .GRADE, .Rank, .COLOR, .GRAY_LEVEL, .ACCUMULATION)
+                                                               .GATE_ADDRESS, .GRADE, .RANK, .COLOR, .GRAY_LEVEL, .ACCUMULATION)
                         strDEFECT_TYPE = Mid(.DEFECT_CODE, 2, 1)
-                        intSource_Rank_Priority = RANK_OBJ.Get_Rank_Priority_by_Rank(.Rank)
+                        intSource_Rank_Priority = RANK_OBJ.Get_Rank_Priority_by_Rank(.RANK)
                         intTarget_Rank_Priority = RANK_OBJ.Get_Rank_Priority_by_Rank(RANK_OBJ.Get_DEFECT_PRIORITY_RANK_by_DEFECT_TYPE(strDEFECT_TYPE))
                         If intSource_Rank_Priority > intTarget_Rank_Priority Then
-                            Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .Rank)
+                            Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .RANK)
                         Else
                             If intSource_Rank_Priority = intTarget_Rank_Priority Then
                                 If .PRIORITY < RANK_OBJ.Get_DEFECT_PRIORITY_by_DEFECT_TYPE(strDEFECT_TYPE) Then
-                                    Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .Rank)
+                                    Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .RANK)
                                 End If
                             End If
                         End If
@@ -1266,13 +1326,13 @@ Private Sub cmdGrade_Click()
                         Call Get_Rank_Data(pubCST_INFO.PROCESS_NUM, typRANK_DATA, typGRADE_DATA, .DEFECT_CODE, intGrade_Count)
                         Call Get_Rank(typRANK_DATA, typGRADE_DATA, intGrade_Count, strRank, strGrade, arrPOINT_DISTANCE(cDEFECT_TYPE_TB))
                         .PRIORITY = typRANK_DATA.PRIORITY
-                        .Rank = strRank
+                        .RANK = strRank
                         .GRADE = strGrade
                         .ACCUMULATION = arrPOINT_DISTANCE(cDEFECT_TYPE_TB)
                         Call SaveLog("cmdGrade_Click", "CDBDT's RANK : " & strRank & ", GRADE : " & strGrade & ", Bright Distance : " & arrPOINT_DISTANCE(cDEFECT_TYPE_TB))
                         Call RANK_OBJ.Set_DEFECT_DATA(intDefect_Count + 1, pubPANEL_INFO.PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
                                                       .COLOR, .GRAY_LEVEL, Trim(Str$(.ACCUMULATION)))
-                        Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .Rank, .DATA_ADDRESS, .GATE_ADDRESS)
+                        Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .RANK, .DATA_ADDRESS, .GATE_ADDRESS)
                         Call RANK_OBJ.Set_DEFECT_GRADE(.DEFECT_CODE, .DATA_ADDRESS, .GATE_ADDRESS, .GRADE)
                     End With
                 
@@ -1283,13 +1343,13 @@ Private Sub cmdGrade_Click()
                         Call Get_Rank_Data(pubCST_INFO.PROCESS_NUM, typRANK_DATA, typGRADE_DATA, .DEFECT_CODE, intGrade_Count)
                         Call Get_Rank(typRANK_DATA, typGRADE_DATA, intGrade_Count, strRank, strGrade, arrPOINT_DISTANCE(cDEFECT_TYPE_TD))
                         .PRIORITY = typRANK_DATA.PRIORITY
-                        .Rank = strRank
+                        .RANK = strRank
                         .GRADE = strGrade
                         .ACCUMULATION = arrPOINT_DISTANCE(cDEFECT_TYPE_TD)
                         Call SaveLog("cmdGrade_Click", "CDDKD's RANK : " & strRank & ", GRADE : " & strGrade & ", Bright Distance : " & arrPOINT_DISTANCE(cDEFECT_TYPE_TD))
                         Call RANK_OBJ.Set_DEFECT_DATA(intDefect_Count + 3, pubPANEL_INFO.PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
                                                       .COLOR, .GRAY_LEVEL, Trim(Str$(.ACCUMULATION)))
-                        Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .Rank, .DATA_ADDRESS, .GATE_ADDRESS)
+                        Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .RANK, .DATA_ADDRESS, .GATE_ADDRESS)
                         Call RANK_OBJ.Set_DEFECT_GRADE(.DEFECT_CODE, .DATA_ADDRESS, .GATE_ADDRESS, .GRADE)
                     End With
                 
@@ -1300,13 +1360,13 @@ Private Sub cmdGrade_Click()
                         Call Get_Rank_Data(pubCST_INFO.PROCESS_NUM, typRANK_DATA, typGRADE_DATA, .DEFECT_CODE, intGrade_Count)
                         Call Get_Rank(typRANK_DATA, typGRADE_DATA, intGrade_Count, strRank, strGrade, arrPOINT_DISTANCE(cDEFECT_TYPE_TT))
                         .PRIORITY = typRANK_DATA.PRIORITY
-                        .Rank = strRank
+                        .RANK = strRank
                         .GRADE = strGrade
                         .ACCUMULATION = arrPOINT_DISTANCE(cDEFECT_TYPE_TT)
                         Call SaveLog("cmdGrade_Click", "CDBDD's RANK : " & strRank & ", GRADE : " & strGrade & ", Bright Distance : " & arrPOINT_DISTANCE(cDEFECT_TYPE_TT))
                         Call RANK_OBJ.Set_DEFECT_DATA(intDefect_Count + 5, pubPANEL_INFO.PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
                                                       .COLOR, .GRAY_LEVEL, Trim(Str$(.ACCUMULATION)))
-                        Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .Rank, .DATA_ADDRESS, .GATE_ADDRESS)
+                        Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .RANK, .DATA_ADDRESS, .GATE_ADDRESS)
                         Call RANK_OBJ.Set_DEFECT_GRADE(.DEFECT_CODE, .DATA_ADDRESS, .GATE_ADDRESS, .GRADE)
                     End With
                 End If
@@ -1318,13 +1378,13 @@ Private Sub cmdGrade_Click()
                     Call Get_Rank_Data(pubCST_INFO.PROCESS_NUM, typRANK_DATA, typGRADE_DATA, .DEFECT_CODE, intGrade_Count)
                     Call Get_Rank(typRANK_DATA, typGRADE_DATA, intGrade_Count, strRank, strGrade, arrPOINT_DEFECT_COUNT(cDEFECT_TYPE_TB))
                     .PRIORITY = typRANK_DATA.PRIORITY
-                    .Rank = strRank
+                    .RANK = strRank
                     .GRADE = strGrade
                     .ACCUMULATION = arrPOINT_DEFECT_COUNT(cDEFECT_TYPE_TB)
                     Call SaveLog("cmdGrade_Click", "CDBTT's RANK : " & strRank & ", GRADE : " & strGrade & ", Bright Total : " & .ACCUMULATION)
                     Call RANK_OBJ.Set_DEFECT_DATA(intDefect_Count + 2, pubPANEL_INFO.PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
                                                   .COLOR, .GRAY_LEVEL, Trim(Str$(.ACCUMULATION)))
-                    Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .Rank, .DATA_ADDRESS, .GATE_ADDRESS)
+                    Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .RANK, .DATA_ADDRESS, .GATE_ADDRESS)
                     Call RANK_OBJ.Set_DEFECT_GRADE(.DEFECT_CODE, .DATA_ADDRESS, .GATE_ADDRESS, .GRADE)
                 End With
                 
@@ -1335,13 +1395,13 @@ Private Sub cmdGrade_Click()
                     Call Get_Rank_Data(pubCST_INFO.PROCESS_NUM, typRANK_DATA, typGRADE_DATA, .DEFECT_CODE, intGrade_Count)
                     Call Get_Rank(typRANK_DATA, typGRADE_DATA, intGrade_Count, strRank, strGrade, arrPOINT_DEFECT_COUNT(cDEFECT_TYPE_TD))
                     .PRIORITY = typRANK_DATA.PRIORITY
-                    .Rank = strRank
+                    .RANK = strRank
                     .GRADE = strGrade
                     .ACCUMULATION = arrPOINT_DEFECT_COUNT(cDEFECT_TYPE_TD)
                     Call SaveLog("cmdGrade_Click", "CDDKT's RANK : " & strRank & ", GRADE : " & strGrade & ", Dark Total : " & .ACCUMULATION)
                     Call RANK_OBJ.Set_DEFECT_DATA(intDefect_Count + 4, pubPANEL_INFO.PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
                                                   .COLOR, .GRAY_LEVEL, Trim(Str$(.ACCUMULATION)))
-                    Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .Rank, .DATA_ADDRESS, .GATE_ADDRESS)
+                    Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .RANK, .DATA_ADDRESS, .GATE_ADDRESS)
                     Call RANK_OBJ.Set_DEFECT_GRADE(.DEFECT_CODE, .DATA_ADDRESS, .GATE_ADDRESS, .GRADE)
                 End With
                                 
@@ -1352,37 +1412,37 @@ Private Sub cmdGrade_Click()
                     Call Get_Rank_Data(pubCST_INFO.PROCESS_NUM, typRANK_DATA, typGRADE_DATA, .DEFECT_CODE, intGrade_Count)
                     Call Get_Rank(typRANK_DATA, typGRADE_DATA, intGrade_Count, strRank, strGrade, arrPOINT_DEFECT_COUNT(cDEFECT_TYPE_TT))
                     .PRIORITY = typRANK_DATA.PRIORITY
-                    .Rank = strRank
+                    .RANK = strRank
                     .GRADE = strGrade
                     .ACCUMULATION = arrPOINT_DEFECT_COUNT(cDEFECT_TYPE_TT)
                     Call SaveLog("cmdGrade_Click", "CDBDT's RANK : " & strRank & ", GRADE : " & strGrade & ", Point Total : " & .ACCUMULATION)
                     Call RANK_OBJ.Set_DEFECT_DATA(intDefect_Count + 6, pubPANEL_INFO.PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
                                                   .COLOR, .GRAY_LEVEL, Trim(Str$(.ACCUMULATION)))
-                    Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .Rank, .DATA_ADDRESS, .GATE_ADDRESS)
+                    Call RANK_OBJ.Set_DEFECT_RANK(.DEFECT_CODE, .RANK, .DATA_ADDRESS, .GATE_ADDRESS)
                     Call RANK_OBJ.Set_DEFECT_GRADE(.DEFECT_CODE, .DATA_ADDRESS, .GATE_ADDRESS, .GRADE)
                 End With
         
                 With typDEFECT_DATA(1)
                     Call RANK_OBJ.Get_DEFECT_DATA_by_Index(1, .PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
-                                                           .GRADE, .Rank, .COLOR, .GRAY_LEVEL, .ACCUMULATION)
-                    If .Rank <> "" Then
-                        Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(Mid(.DEFECT_CODE, 2, 1), .GRADE, .PRIORITY, 1, .DEFECT_CODE, .Rank)
+                                                           .GRADE, .RANK, .COLOR, .GRAY_LEVEL, .ACCUMULATION)
+                    If .RANK <> "" Then
+                        Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(Mid(.DEFECT_CODE, 2, 1), .GRADE, .PRIORITY, 1, .DEFECT_CODE, .RANK)
                     End If
                 End With
                 For intIndex = 2 To intDefect_Count
                     With typDEFECT_DATA(intIndex)
                         Call RANK_OBJ.Get_DEFECT_DATA_by_Index(intIndex, .PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
-                                                               .GRADE, .Rank, .COLOR, .GRAY_LEVEL, .ACCUMULATION)
-                        If .Rank <> "" Then
+                                                               .GRADE, .RANK, .COLOR, .GRAY_LEVEL, .ACCUMULATION)
+                        If .RANK <> "" Then
                             strDEFECT_TYPE = Mid(.DEFECT_CODE, 2, 1)
-                            intSource_Rank_Priority = RANK_OBJ.Get_Rank_Priority_by_Rank(.Rank)
+                            intSource_Rank_Priority = RANK_OBJ.Get_Rank_Priority_by_Rank(.RANK)
                             intTarget_Rank_Priority = RANK_OBJ.Get_Rank_Priority_by_Rank(RANK_OBJ.Get_DEFECT_PRIORITY_RANK_by_DEFECT_TYPE(strDEFECT_TYPE))
                             If intSource_Rank_Priority > intTarget_Rank_Priority Then
-                                Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .Rank)
+                                Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .RANK)
                             Else
                                 If intSource_Rank_Priority = intTarget_Rank_Priority Then
                                     If .PRIORITY < RANK_OBJ.Get_DEFECT_PRIORITY_by_DEFECT_TYPE(strDEFECT_TYPE) Then
-                                        Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .Rank)
+                                        Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .RANK)
                                     End If
                                 End If
                             End If
@@ -1392,17 +1452,17 @@ Private Sub cmdGrade_Click()
                 For intIndex = intDefect_Count + 1 To intDefect_Count + 6
                     With typDEFECT_DATA(intIndex)
                         Call RANK_OBJ.Get_DEFECT_DATA_by_Index(intIndex, .PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
-                                                               .GRADE, .Rank, .COLOR, .GRAY_LEVEL, .ACCUMULATION)
-                        If .Rank <> "" Then
+                                                               .GRADE, .RANK, .COLOR, .GRAY_LEVEL, .ACCUMULATION)
+                        If .RANK <> "" Then
                             strDEFECT_TYPE = Mid(.DEFECT_CODE, 2, 1)
-                            intSource_Rank_Priority = RANK_OBJ.Get_Rank_Priority_by_Rank(.Rank)
+                            intSource_Rank_Priority = RANK_OBJ.Get_Rank_Priority_by_Rank(.RANK)
                             intTarget_Rank_Priority = RANK_OBJ.Get_Rank_Priority_by_Rank(RANK_OBJ.Get_DEFECT_PRIORITY_RANK_by_DEFECT_TYPE(strDEFECT_TYPE))
                             If intSource_Rank_Priority > intTarget_Rank_Priority Then
-                                Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .Rank)
+                                Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .RANK)
                             Else
                                 If intSource_Rank_Priority = intTarget_Rank_Priority Then
                                     If .PRIORITY < RANK_OBJ.Get_DEFECT_PRIORITY_by_DEFECT_TYPE(strDEFECT_TYPE) Then
-                                        Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .Rank)
+                                        Call RANK_OBJ.Set_DEFECT_GRADE_by_PRIORITY(strDEFECT_TYPE, .GRADE, .PRIORITY, intIndex, .DEFECT_CODE, .RANK)
                                     End If
                                 End If
                             End If
@@ -1424,7 +1484,7 @@ Private Sub cmdGrade_Click()
                 If strNew_Grade = "" Then
                     With typGRADE_DEFECT_DATA
                         Call RANK_OBJ.Get_DEFECT_DATA_by_Index(intGrade_Defect_Index, .PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
-                                                               .GRADE, .Rank, .COLOR, .GRAY_LEVEL, .ACCUMULATION)
+                                                               .GRADE, .RANK, .COLOR, .GRAY_LEVEL, .ACCUMULATION)
                         strNew_Grade = .GRADE
                     End With
         End If
@@ -1446,24 +1506,136 @@ Private Sub cmdGrade_Click()
         strNew_Grade = PostJudgeOtherRule3(strNew_Grade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
         strNew_Grade = PostJudgeGradeChange1(strNew_Grade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
         strNew_Grade = PostJudgeGradeChange2(strNew_Grade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
+        strNew_Grade = RepairPointTimes(strNew_Grade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
         strNew_Grade = CheckPanelIDChangeGrade(strNew_Grade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
         strNew_Grade = ChangeGrade(strNew_Grade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
         strNew_Grade = ChangeGradeByDefectCode(strNew_Grade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
-        strNew_Grade = RepairPointTimes(strNew_Grade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
         strNew_Grade = FlagChangeGrade(strNew_Grade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index), pubJOB_INFO)
         strNew_Grade = SKChange(strNew_Grade, pubCST_INFO, pubPANEL_INFO, typDEFECT_DATA(intGrade_Defect_Index))
 '        strNew_Grade = Count_Change(typDEFECT_DATA(intGrade_Defect_Index).GRADE)
-
     End With
+    
+'Lucas Ver.0.9.30 2012.06.05=====For 1D1G address change to S/NG
+    
+If Mid(frmJudge.Text1, 2, 2) = "LD" Then
+LineX = Val(frmJudge.Text2) / 2 + Val(frmJudge.Text4) / 2
+LineY = Val(frmJudge.Text3) / 2 + Val(frmJudge.Text5) / 2
+   If (Val(frmJudge.Text2) >= "1007" And Val(frmJudge.Text2) <= "1041") Or (Val(frmJudge.Text2) >= "2032" And Val(frmJudge.Text2) <= "2067") _
+      Or (Val(frmJudge.Text2) >= "3056" And Val(frmJudge.Text2) <= "3090") Or (Val(frmJudge.Text2) >= "4080" And Val(frmJudge.Text2) <= "5113") _
+      Or (LineX >= "1007" And LineX <= "1041") Or (LineX >= "2032" And LineX <= "2067") Or (LineX >= "3056" And LineX <= "3090") _
+      Or (LineX >= "4080" And LineX <= "5113") Then
+      If pubCST_INFO.PROCESS_NUM = "3660" Then
+         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+      Else
+         If pubCST_INFO.PROCESS_NUM = "4660" Then
+           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+         End If
+      End If
+     
+  End If
+Else
+    If Mid(frmJudge.Text1, 2, 2) = "LG" Then
+     LineY = Val(frmJudge.Text3) / 2 + Val(frmJudge.Text5) / 2
+     If (LineY >= "368" And LineY <= "400") Or (LineY >= "751" And LineY <= "783") _
+         Or (Val(frmJudge.Text3) >= "368" And Val(frmJudge.Text3) <= "400") Or (Val(frmJudge.Text3) >= "751" And Val(frmJudge.Text3) <= "783") Then
+       If pubCST_INFO.PROCESS_NUM = "3660" Then
+         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+        Else
+          If pubCST_INFO.PROCESS_NUM = "4660" Then
+           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+          End If
+       End If
+    End If
+   End If
+End If
 
+If Mid(frmJudge.Text6, 2, 2) = "LD" Then
+LineX = Val(frmJudge.Text7) / 2 + Val(frmJudge.Text9) / 2
+
+   If (Val(frmJudge.Text7) >= "1007" And Val(frmJudge.Text7) <= "1041") Or (Val(frmJudge.Text7) >= "2032" And Val(frmJudge.Text7) <= "2067") _
+      Or (Val(frmJudge.Text7) >= "3056" And Val(frmJudge.Text7) <= "3090") Or (Val(frmJudge.Text7) >= "4080" And Val(frmJudge.Text7) <= "5113") _
+      Or (LineX >= "1007" And LineX <= "1041") Or (LineX >= "2032" And LineX <= "2067") Or (LineX >= "3056" And LineX <= "3090") _
+      Or (LineX >= "4080" And LineX <= "5113") Then
+      If pubCST_INFO.PROCESS_NUM = "3660" Then
+         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+      Else
+         If pubCST_INFO.PROCESS_NUM = "4660" Then
+           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+         End If
+      End If
+     
+  End If
+Else
+    If Mid(frmJudge.Text6, 2, 2) = "LG" Then
+     LineY = Val(frmJudge.Text8) / 2 + Val(frmJudge.Text10) / 2
+     If (LineY >= "368" And LineY <= "400") Or (LineY >= "751" And LineY <= "783") _
+        Or (Val(frmJudge.Text8) >= "368" And Val(frmJudge.Text8) <= "400") Or (Val(frmJudge.Text8) >= "751" And Val(frmJudge.Text8) <= "783") Then
+       
+       If pubCST_INFO.PROCESS_NUM = "3660" Then
+         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+        Else
+          If pubCST_INFO.PROCESS_NUM = "4660" Then
+           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+          End If
+       End If
+    End If
+   End If
+End If
+
+If Mid(frmJudge.Text11, 2, 2) = "LD" Then
+LineX = Val(frmJudge.Text12) / 2 + Val(frmJudge.Text14) / 2
+
+   If (Val(frmJudge.Text12) >= "1007" And Val(frmJudge.Text12) <= "1041") Or (Val(frmJudge.Text12) >= "2032" And Val(frmJudge.Text12) <= "2067") _
+      Or (Val(frmJudge.Text12) >= "3056" And Val(frmJudge.Text12) <= "3090") Or (Val(frmJudge.Text12) >= "4080" And Val(frmJudge.Text12) <= "5113") _
+      Or (LineX >= "1007" And LineX <= "1041") Or (LineX >= "2032" And LineX <= "2067") Or (LineX >= "3056" And LineX <= "3090") _
+      Or (LineX >= "4080" And LineX <= "5113") Then
+      If pubCST_INFO.PROCESS_NUM = "3660" Then
+         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+      Else
+         If pubCST_INFO.PROCESS_NUM = "4660" Then
+           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+         End If
+      End If
+     
+  End If
+Else
+    If Mid(frmJudge.Text11, 2, 2) = "LG" Then
+     LineY = Val(frmJudge.Text13) / 2 + Val(frmJudge.Text15) / 2
+     If (LineY >= "368" And LineY <= "400") Or (LineY >= "751" And LineY <= "783") _
+        Or (Val(frmJudge.Text13) >= "368" And Val(frmJudge.Text13) <= "400") Or (Val(frmJudge.Text13) >= "751" And Val(frmJudge.Text13) <= "783") Then
+       
+       If pubCST_INFO.PROCESS_NUM = "3660" Then
+         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+        Else
+          If pubCST_INFO.PROCESS_NUM = "4660" Then
+           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+          End If
+       End If
+    End If
+   End If
+End If
+
+'Lucas Ver.0.9.30 2012.06.05=====For 1D1G address change to S/NG
 
     frmMain.lblPost_Judge.Caption = strNew_Grade
     With frmMain.flxMES_Data
-        .TextMatrix(4, 1) = strNew_Grade
+'        .TextMatrix(4, 1) = strNew_Grade
         If strNew_Grade = "RD" Then
             .TextMatrix(5, 1) = "CDBTT"
-        Else
-            .TextMatrix(5, 1) = typDEFECT_DATA(intGrade_Defect_Index).DEFECT_CODE
+'        Else
+'            .TextMatrix(5, 1) = typDEFECT_DATA(intGrade_Defect_Index).DEFECT_CODE
         End If
     End With
     With frmMain.flxJudge_History
@@ -1499,9 +1671,6 @@ Private Sub cmdGrade_Click()
 '    Call delaytime(msec)
 '    Lucas Ver.0.9.17 2012.03.29========================For QJPG delay sending
     Call Send_Panel_Judge(pubPANEL_INFO.PANELID, strNew_Grade, frmMain.flxJudge_History.TextMatrix(intRow, 4), "")
-
-    intPTN_Index = CInt(Me.lblCurrent_PTN_Index.Caption)
-    EQP.Set_PATTERN_END_by_Index (intPTN_Index)
 
     Unload Me
     
@@ -2712,21 +2881,26 @@ Private Sub picCurrent_Pattern_Click()
 '        Me.picCurrent_Pattern.BackColor = vbRed
 '    Case "WHITE":
 '    End Select
-'    Me.tmrPattern_Delay.Interval = PATTERN_LIST(m_CURRENT_PATTERN_INDEX).DELAY_TIME * 1000
+'    Me.tmrPattern_Delay.Interval = PATTERN_LIST(CInt(Me.lblCurrent_PTN_Index.Caption)).DELAY_TIME * 1000
 '    Me.picCurrent_Pattern.Enabled = False
 '    Me.tmrPattern_Delay.Enabled = True
-    Me.picCurrent_Pattern.Enabled = False
-    If CInt(Me.lblCurrent_PTN_Index.Caption) < Me.flxPG_Data.Rows - 1 Then
+'    Me.picCurrent_Pattern.Enabled = False
+
+    intPortID = EQP.Get_PG_PortID
+    Call QUEUE.Put_Send_Command(intPortID, "QPCC")
+
+       If CInt(Me.lblCurrent_PTN_Index.Caption) < Me.flxPG_Data.Rows - 1 Then
         intPTN_Index = CInt(Me.lblCurrent_PTN_Index.Caption)
         EQP.Set_PATTERN_END_by_Index (intPTN_Index)
-        intPortID = EQP.Get_PG_PortID
-        Call QUEUE.Put_Send_Command(intPortID, "QPCC")
+'Lucas Ver.0.9.28 2012.05.16 PG Delay time setting
+'        Call QUEUE.Put_Send_Command(intPortID, "QPCC")
     Else
         intPTN_Index = CInt(Me.lblCurrent_PTN_Index.Caption)
         EQP.Set_PATTERN_END_by_Index (intPTN_Index)
         Me.lblCurrent_PTN_Index.Caption = "0"
-        intPortID = EQP.Get_PG_PortID
-        Call QUEUE.Put_Send_Command(intPortID, "QPCC")
+'Lucas Ver.0.9.28 2012.05.16 PG Delay time setting
+'        intPortID = EQP.Get_PG_PortID
+'        Call QUEUE.Put_Send_Command(intPortID, "QPCC")
         Me.cmdGrade.Enabled = True
     End If
     
@@ -3236,7 +3410,7 @@ Private Sub Fill_Data()
     
     With typDEFECT_DATA
         If RANK_OBJ.Get_DEFECT_DATA_by_Index(1, .PANELID, .DEFECT_CODE, .DEFECT_NAME, .DETAIL_DIVISION, .DATA_ADDRESS, .GATE_ADDRESS, _
-                                             .GRADE, .Rank, .COLOR, .GRAY_LEVEL, .ACCUMULATION) = True Then
+                                             .GRADE, .RANK, .COLOR, .GRAY_LEVEL, .ACCUMULATION) = True Then
             If Mid(.DEFECT_CODE, 2, 1) = "M" Then
                 For intIndex = 1 To 3
                     Me.txtX_Data(intIndex - 1).Text = .DATA_ADDRESS(intIndex)
@@ -3290,7 +3464,7 @@ Private Sub Set_Interlock()
         .flxDefect_G.Enabled = False
         .flxDefect_H.Enabled = False
         .flxDefect_I.Enabled = False
-        .cmdGrade.Enabled = True        '2012. 04. 24
+        .cmdGrade.Enabled = False        '2012. 04. 24
     End With
     
     For intIndex = 0 To 2
@@ -3341,7 +3515,7 @@ Public Sub Load_Manual_Judge()
 
     intRow = frmJudge.flxDefect_List.Rows - 1
     strDefect_Code = frmJudge.flxDefect_List.TextMatrix(intRow, 0)
-   
+    
     
     For intIndex = 1 To 3
         strDATA_ADDRESS(intIndex) = Space(5)

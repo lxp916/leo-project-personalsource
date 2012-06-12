@@ -98,12 +98,15 @@ Private Sub Decode_Setting_Modify(ByVal pPortID As Integer, ByVal pCommand)
         
     If strRS = "1" Then
         Call Show_Message("PG Error", "PG Recipe change fail.")
-        Call ENV.Get_Device_Data_by_Name(Left(frmMain.flxEQ_Information.TextMatrix(5, 1), 5), intPortNo, strStatus)
-        If intPortNo > 0 Then
-            Call QUEUE.Put_Send_Command(intPortNo, "QBAM0010PG recipe change fail.")
-        End If
+'Lucas Ver.0.9.31 2012.06.07 ==============Don't send PG error to EQ
+'        Call ENV.Get_Device_Data_by_Name(Left(frmMain.flxEQ_Information.TextMatrix(5, 1), 5), intPortNo, strStatus)
+'        If intPortNo > 0 Then
+'            Call QUEUE.Put_Send_Command(intPortNo, "QBAM0010PG recipe change fail.")
+'        End If
 '    Else
 '        Call Power_On_PG
+'Lucas Ver.0.9.31 2012.06.07 ==============Don't send PG error to EQ
+
     End If
     
 End Sub
@@ -122,9 +125,9 @@ Private Function Decode_Buzz_Message(ByVal pPortID As Integer, ByVal pCommand As
     
     Call ENV.Get_Device_Data_by_Name(Left(frmMain.flxEQ_Information.TextMatrix(5, 1), 5), intPortNo, strStatus)
     
-    If intPortNo > 0 Then
-        Call QUEUE.Put_Send_Command(intPortNo, "QBAM0" & Mid(pCommand, 5))
-    End If
+'    If intPortNo > 0 Then
+'        Call QUEUE.Put_Send_Command(intPortNo, "QBAM0" & Mid(pCommand, 5))
+'    End If
     
 End Function
 
@@ -141,6 +144,11 @@ Private Sub Decode_Power_On(ByVal pPortID As Integer, ByVal pCommand As String)
     strResponse = Mid(pCommand, 5, 1)
     
     frmJudge.lblCurrent_PTN_Index.Caption = CInt(frmJudge.lblCurrent_PTN_Index.Caption) + 1
+'Lucas Ver.0.9.28 2012.05.16 For PG Awlays error."error 9 overflow"
+    If frmJudge.lblCurrent_PTN_Index.Caption > EQP.Get_PATTERN_COUNT Then
+       frmJudge.lblCurrent_PTN_Index.Caption = EQP.Get_PATTERN_COUNT
+ 'Lucas Ver.0.9.28 2012.05.16 For PG Awlays error."error 9 overflow"
+    End If
     intPTN_Index = CInt(frmJudge.lblCurrent_PTN_Index.Caption)
     With typPATTERN_DATA
         Call EQP.Get_PATTERN_LIST_by_Index(intPTN_Index, .PATTERN_CODE, .PATTERN_NAME, .DELAY_TIME, .LEVEL, .DH, .DL, .VGH, .VGL, .RESCUE_HIGH, .RESCUE_LOW, .VCOM)
@@ -205,6 +213,11 @@ Private Sub Decode_Pattern_Change(ByVal pPortID As Integer, ByVal pCommand As St
     End With
     
     frmJudge.lblCurrent_PTN_Index.Caption = CInt(frmJudge.lblCurrent_PTN_Index.Caption) + 1
+    'Lucas Ver.0.9.28 2012.05.16 For PG Awlays error."error 9 overflow"
+    If frmJudge.lblCurrent_PTN_Index.Caption > EQP.Get_PATTERN_COUNT Then
+       frmJudge.lblCurrent_PTN_Index.Caption = EQP.Get_PATTERN_COUNT
+    'Lucas Ver.0.9.28 2012.05.16 For PG Awlays error."error 9 overflow"
+    End If
     intPTN_Index = CInt(frmJudge.lblCurrent_PTN_Index.Caption)
     With typPATTERN_DATA
         Call EQP.Get_PATTERN_LIST_by_Index(intPTN_Index, .PATTERN_CODE, .PATTERN_NAME, .DELAY_TIME, .LEVEL, .DH, .DL, .VGH, .VGL, .RESCUE_HIGH, .RESCUE_LOW, .VCOM)

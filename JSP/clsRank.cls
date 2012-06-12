@@ -241,7 +241,7 @@ On Error GoTo ErrorHandler
                     pGATE_ADDRESS(intIndex) = .GATE_ADDRESS(intIndex)
                 Next intIndex
                 pGrade = .GRADE
-                pRank = .Rank
+                pRank = .RANK
                 pAccumulation = .ACCUMULATION
             End With
         End If
@@ -311,7 +311,7 @@ Public Sub Set_DEFECT_RANK(ByVal pDEFECT_CODE As String, pRank As String, pDATA_
             End With
         Next intIndex
         If intData_Index > 0 Then
-            DEFECT_DATA(intData_Index).Rank = pRank
+            DEFECT_DATA(intData_Index).RANK = pRank
         End If
     End If
     
@@ -541,7 +541,7 @@ End Function
 Public Function Get_GRADE_RANK() As String
 
     If DEFECT_COUNT > 0 Then
-        Get_GRADE_RANK = DEFECT_DATA(GRADE_DEFECT_INDEX).Rank
+        Get_GRADE_RANK = DEFECT_DATA(GRADE_DEFECT_INDEX).RANK
     Else
         Get_GRADE_RANK = ""
     End If

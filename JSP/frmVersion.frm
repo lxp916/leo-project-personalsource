@@ -86,14 +86,15 @@ Private Sub cmdGet_Version_Click()
     Me.flxVersion.Rows = 1
     
     'Download version files from DFS
+    strRemote_Path = "EQ_Config\" & "JPS\" & "Version\"
     strLocal_Path = App.PATH & "\Env\"
     If FTP_OBJ.Init_FTP_Client = True Then
         Call FTP_OBJ.Open_Session
-        strRemote_Path = FTP_OBJ.Get_Path(cFTP_DEFECT)
-        If Right(strRemote_Path, 1) <> "\" Then
-            strRemote_Path = strRemote_Path & "\" & "EQ_Config\" & "JPS\" & "Version"
-        End If
-        strFileName = FTP_OBJ.FTP_Get_FileList("Version_*.dat", strRemote_Path)
+        
+'        If Right(strRemote_Path, 1) <> "\" Then
+'            strRemote_Path = strRemote_Path & "\" & "EQ_Config\" & "JPS\" & "Version\"
+'        End If
+        strFileName = FTP_OBJ.FTP_Get_FileList("*.dat", strRemote_Path)
         If FTP_OBJ.FTP_Get_File_from_List(strRemote_Path, strLocal_Path, strLocal_Path, strFileName) = True Then
             Call SaveLog("cmdGet_Version_Click", "Version files download complete.")
         Else
@@ -108,12 +109,17 @@ Private Sub cmdGet_Version_Click()
     
     If Me.fleFile.ListCount > 0 Then
         For intIndex = 0 To Me.fleFile.ListCount - 1
-            Call Get_Version_Data_by_FileName(typVERSION_DATA, strLocal_Path & Me.fleFile.List(intIndex))
+'Lucas Ver.0.9.28 2012.05.16 Get Version Data
+          Call Get_Version_Data_by_FileName(typVERSION_DATA, Me.fleFile.List(intIndex))
             If typVERSION_DATA.EQ_VERSION <> "" Then
                 Call Add_Row(typVERSION_DATA)
             End If
+'Lucas Ver.0.9.28 2012.05.16 Get Version Data
+            
         Next intIndex
     End If
+    
+    
     
 End Sub
 
