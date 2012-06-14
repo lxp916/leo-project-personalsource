@@ -70,8 +70,8 @@ Begin VB.Form frmSystem_Parameter
          TabCaption(4)   =   "Alarm/Grade"
          TabPicture(4)   =   "frmSystem_Parameter.frx":0070
          Tab(4).ControlEnabled=   0   'False
-         Tab(4).Control(0)=   "Frame6"
-         Tab(4).Control(1)=   "Frame4"
+         Tab(4).Control(0)=   "Frame4"
+         Tab(4).Control(1)=   "Frame6"
          Tab(4).ControlCount=   2
          TabCaption(5)   =   "Rank Level"
          TabPicture(5)   =   "frmSystem_Parameter.frx":008C
@@ -1200,12 +1200,14 @@ End Sub
 
 Private Sub cmdDelete_Click()
     Dim i As Integer
-    For i = 0 To Me.flxRankLevel.Rows - 1
-        If flxRankLevel.RowSel = i Then
-            flxRankLevel.RemoveItem i
-            Exit For
-        End If
-    Next
+    If MsgBox("Are you sure to delete this rank level?", vbYesNo, "Confirm") = vbYes Then
+        For i = 0 To Me.flxRankLevel.Rows - 1
+            If flxRankLevel.RowSel = i Then
+                flxRankLevel.RemoveItem i
+                Exit For
+            End If
+        Next
+    End If
 End Sub
 
 Private Sub cmdFTP_Save_Click()

@@ -3188,7 +3188,7 @@ Public Sub Read_Rank_Data(ByVal pDB_FileName As String)
     Dim intRankLevel                 As Integer
     '============Leo 2012.05.22 Add Rank Level end
 
-    
+    On Error GoTo ErrorHandler
    
     If (pubCST_INFO.PFCD <> EQP.Get_Pre_PFCD) Or (ENV.Get_Download_Flag = "E") Or (ENV.Get_Download_Flag = "") Or (typCST_INFO.PROCESS_NUM <> EQP.Get_Current_PROCESSID) Then
         strPath = App.PATH & "\Env\Standard_Info\"
@@ -3279,7 +3279,7 @@ Public Sub Read_Rank_Data(ByVal pDB_FileName As String)
                            '============Leo 2012.05.22 Add Rank Level Start
                             For intRankLevel = 0 To UBound(RankLevel)
                                 intPos = InStr(strTemp, ",")
-                                .Rank(intRankLevel) = Left(strTemp, intPos - 1)
+                                .RANK(intRankLevel) = Left(strTemp, intPos - 1)
                                 strTemp = Mid(strTemp, intPos + 1)
                             Next intRankLevel
                             
@@ -3374,7 +3374,13 @@ Public Sub Read_Rank_Data(ByVal pDB_FileName As String)
         Call RANK_OBJ.Init_RANK_Priority
 '        Call ENV.Reset_Download_Flag
     End If
-    
+ '============Leo 2012.05.22 Add Rank Level Start
+ErrorHandler:
+
+    Call SaveLog("Rank file is wrong", Err.Number & " - " & Err.Description)
+    If Err.Number = 13 Then
+        Call Show_Message("Wrong rank file", strFileName & " does not match system rank level setting.")
+    End If
 End Sub
 
 Private Sub Insert_Rank_Data(pRANK_DATA As RANK_DATA_STRUCTURE, pGRADE_DATA() As GRADE_DATA_STRUCTURE, ByVal pGRADE_COUNT As Integer)
@@ -3427,9 +3433,9 @@ Private Sub Insert_Rank_Data(pRANK_DATA As RANK_DATA_STRUCTURE, pGRADE_DATA() As
             strQuery = strQuery & .PRIORITY & ", "
             strQuery = strQuery & "'" & .POP_UP & "'"
        '============Leo 2012.05.22 Add Rank Level Start
-            For intCount = 0 To UBound(.Rank)
-                If .Rank(intCount) <> "" Then
-                    strQuery = strQuery & ",'" & .Rank(intCount) & "' "
+            For intCount = 0 To UBound(.RANK)
+                If .RANK(intCount) <> "" Then
+                    strQuery = strQuery & ",'" & .RANK(intCount) & "' "
                 End If
             Next intCount
          '============Leo 2012.05.22 Add Rank Level End
@@ -4566,7 +4572,7 @@ Public Function Get_DEFECT_DATA_by_CODE(ByVal pDEFECT_CODE As String) As RANK_DA
                 .ADDRESS_COUNT = lstRecord.Fields("ADDRESS_COUNT")
                      '============Leo 2012.05.22 Add Rank Level Start
                 For intRankLevel = 0 To UBound(RankLevel)
-                    .Rank(intRankLevel) = lstRecord.Fields("RANK_" & RankLevel(intRankLevel))
+                    .RANK(intRankLevel) = lstRecord.Fields("RANK_" & RankLevel(intRankLevel))
                 Next intRankLevel
 '                .RANK_Y = lstRecord.Fields("RANK_Y")
 '                .RANK_L = lstRecord.Fields("RANK_L")
@@ -6127,7 +6133,7 @@ Public Sub Decode_Auto_Alarm()
                     strTemp = Mid(strTemp, intPos + 1)
                     
                     intPos = InStr(strTemp, ",")
-                    .COUNT = CInt(Left(strTemp, intPos - 1))
+                    .Count = CInt(Left(strTemp, intPos - 1))
                     strTemp = Mid(strTemp, intPos + 1)
                     
                     .ALARM_TEXT = strTemp
@@ -6141,7 +6147,7 @@ Public Sub Decode_Auto_Alarm()
                     strQuery = strQuery & "'" & .DEFECT_CODE & "', "
                     strQuery = strQuery & "'" & .RANK & "', "
                     strQuery = strQuery & .COUNT_TIME & ", "
-                    strQuery = strQuery & .COUNT & ", "
+                    strQuery = strQuery & .Count & ", "
                     strQuery = strQuery & "'" & .ALARM_TEXT & "', "
                     strQuery = strQuery & "0, "
                     strQuery = strQuery & .EXPIRY_DATE & ", "
@@ -6210,7 +6216,7 @@ Public Sub Check_Auto_Alarm()
                     .DEFECT_CODE = lstRecord.Fields("DEFECT_CODE")
                     .RANK = lstRecord.Fields("RANK")
                     .COUNT_TIME = lstRecord.Fields("COUNT_TIME")
-                    .COUNT = lstRecord.Fields("COUNT")
+                    .Count = lstRecord.Fields("COUNT")
                     .ALARM_TEXT = lstRecord.Fields("ALARM_TEXT")
                     .CURRENT_COUNT = lstRecord.Fields("CURRENT_COUNT")
                     .EXPIRY_DATE = lstRecord.Fields("EXPIRY_DATE")
@@ -6219,7 +6225,7 @@ Public Sub Check_Auto_Alarm()
                     lstRecord.Close
                     
                     .CURRENT_COUNT = .CURRENT_COUNT + 1
-                    If .CURRENT_COUNT = .COUNT Then
+                    If .CURRENT_COUNT = .Count Then
                         Load frmAuto_Alarm
 '                        frmAuto_Alarm.lblTitle.Caption = "Common defect occurred. DEFECT CODE : " & .DEFECT_CODE & ", RANK : " & .RANK
                         frmAuto_Alarm.lblTitle.Caption = .ALARM_TEXT
