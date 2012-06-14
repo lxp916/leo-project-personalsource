@@ -70,8 +70,8 @@ Begin VB.Form frmSystem_Parameter
          TabCaption(4)   =   "Alarm/Grade"
          TabPicture(4)   =   "frmSystem_Parameter.frx":0070
          Tab(4).ControlEnabled=   0   'False
-         Tab(4).Control(0)=   "Frame6"
-         Tab(4).Control(1)=   "Frame4"
+         Tab(4).Control(0)=   "Frame4"
+         Tab(4).Control(1)=   "Frame6"
          Tab(4).ControlCount=   2
          TabCaption(5)   =   "Rank Level"
          TabPicture(5)   =   "frmSystem_Parameter.frx":008C
@@ -1255,15 +1255,15 @@ Private Sub cmdSave_Click()
     Dim strQuery                            As String
     Dim strDEFECT_TYPE                      As String
     
-    Dim Rank()                              As String
+    Dim RANK()                              As String
     Dim intNewCount                         As Integer
     Dim intIndex                            As Integer
     
     intNewCount = Me.flxRankLevel.Rows - 1
     If intNewCount > 0 Then
-        ReDim Rank(intNewCount - 1)
+        ReDim RANK(intNewCount - 1)
         For intNewCount = 0 To (Me.flxRankLevel.Rows - 1) - 1
-            Rank(intNewCount) = Me.flxRankLevel.TextMatrix(intNewCount + 1, 1)
+            RANK(intNewCount) = Me.flxRankLevel.TextMatrix(intNewCount + 1, 1)
         Next intNewCount
     End If
     
@@ -1276,10 +1276,10 @@ Private Sub cmdSave_Click()
         
         If intNewCount > 0 Then
             For intIndex = 0 To intNewCount - 1
-                If Rank(intIndex) <> "" Then
+                If RANK(intIndex) <> "" Then
                     strQuery = "INSERT INTO Rank_Level (RankCode,OrginalRankCode,RankLevel) VALUES ("
-                    strQuery = strQuery & "'" & Rank(intIndex) & "',"
-                    strQuery = strQuery & "'" & Rank(intIndex) & "',"
+                    strQuery = strQuery & "'" & RANK(intIndex) & "',"
+                    strQuery = strQuery & "'" & RANK(intIndex) & "',"
                     strQuery = strQuery & "'" & intIndex + 1 & "')"
                     dbMyDB.Execute (strQuery)
                 End If
@@ -1300,9 +1300,9 @@ Private Sub cmdSave_Click()
             
             If intNewCount > 0 Then
                 For intIndex = 0 To intNewCount - 1
-                    If Rank(intIndex) <> "" Then
+                    If RANK(intIndex) <> "" Then
                         strQuery = "Alter Table RANK_DATA Add  COLUMN "
-                        strQuery = strQuery & "RANK_" & Rank(intIndex) & " Text"
+                        strQuery = strQuery & "RANK_" & RANK(intIndex) & " Text"
                         dbMyDB.Execute (strQuery)
                     End If
                 Next intIndex
@@ -1797,8 +1797,7 @@ Private Sub Fill_Grid()
             With Me.flxRankLevel
                 While lstRecord.EOF = False
                     intRow = Add_Rank_Level_Grid_Row(lstRecord.Fields("RankCode"))
-'                .TextMatrix(intRow, 0) = lstRecord.Fields("RankLevel")
-                 .TextMatrix(intRow, 0) = ""
+                .TextMatrix(intRow, 0) = lstRecord.Fields("RankLevel")
                 .TextMatrix(intRow, 1) = lstRecord.Fields("RankCode")
                  lstRecord.MoveNext
                 Wend
