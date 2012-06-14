@@ -70,8 +70,8 @@ Begin VB.Form frmSystem_Parameter
          TabCaption(4)   =   "Alarm/Grade"
          TabPicture(4)   =   "frmSystem_Parameter.frx":0070
          Tab(4).ControlEnabled=   0   'False
-         Tab(4).Control(0)=   "Frame4"
-         Tab(4).Control(1)=   "Frame6"
+         Tab(4).Control(0)=   "Frame6"
+         Tab(4).Control(1)=   "Frame4"
          Tab(4).ControlCount=   2
          TabCaption(5)   =   "Rank Level"
          TabPicture(5)   =   "frmSystem_Parameter.frx":008C
@@ -80,7 +80,17 @@ Begin VB.Form frmSystem_Parameter
          Tab(5).Control(0).Enabled=   0   'False
          Tab(5).Control(1)=   "cmdSave"
          Tab(5).Control(1).Enabled=   0   'False
-         Tab(5).ControlCount=   2
+         Tab(5).Control(2)=   "cmdDelete"
+         Tab(5).Control(2).Enabled=   0   'False
+         Tab(5).ControlCount=   3
+         Begin VB.CommandButton cmdDelete 
+            Caption         =   "Delete"
+            Height          =   585
+            Left            =   1800
+            TabIndex        =   66
+            Top             =   4680
+            Width           =   1455
+         End
          Begin VB.CommandButton cmdSave 
             Caption         =   "Save"
             Height          =   585
@@ -1186,6 +1196,16 @@ Private Sub cmdDefect_Priority_Add_Click()
 '    Kill strDB_Path & strDB_FileName
 '    Name strDB_Path & "Rank_Delete_Temp.mdb" As strDB_Path & strDB_FileName
     
+End Sub
+
+Private Sub cmdDelete_Click()
+    Dim i As Integer
+    For i = 0 To Me.flxRankLevel.Rows - 1
+        If flxRankLevel.RowSel = i Then
+            flxRankLevel.RemoveItem i
+            Exit For
+        End If
+    Next
 End Sub
 
 Private Sub cmdFTP_Save_Click()
