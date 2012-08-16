@@ -34,6 +34,11 @@ Public Sub PG_Sequence(ByVal pPortID As Integer, ByVal pCommand As String)
             frmJudge.picCurrent_Pattern.Enabled = True
         Case "RFDD":                'Coordinate command
             strReply = Decode_Coordinate(pPortID, pCommand)
+'Lucas Ver.1.9.36 2012.07.02---------For Pattern change UP
+        Case "PPCU":
+            Call Decode_Pattern_UP(pPortID, pCommand)
+            frmJudge.picCurrent_Pattern.Enabled = True
+'Lucas Ver.1.9.36 2012.07.02---------For Pattern change UP
         End Select
     End If
     
@@ -231,7 +236,7 @@ Private Sub Decode_Pattern_Change(ByVal pPortID As Integer, ByVal pCommand As St
         End If
     End If
     
-    If (frmJudge.flxPG_Data.TextMatrix(intPTN_Index, 3) <> "0") And (frmJudge.flxPG_Data.TextMatrix(intPTN_Index, 3) <> "") Then
+    If (frmJudge.flxPG_Data.TextMatrix(intPTN_Index, 3) <> "0") And (frmJudge.flxPG_Data.TextMatrix(intPTN_Index, 3) <> "") And (frmJudge.flxPG_Data.TextMatrix(intPTN_Index, 3) <> "DELAY") Then
         frmJudge.tmrPattern_Delay.Interval = CLng(frmJudge.flxPG_Data.TextMatrix(intPTN_Index, 3))
         frmJudge.picCurrent_Pattern.Enabled = False
         frmJudge.tmrPattern_Delay.Enabled = True
@@ -243,6 +248,62 @@ Private Sub Decode_Pattern_Change(ByVal pPortID As Integer, ByVal pCommand As St
     Call EQP.Set_PATTERN_START_by_Index(intPTN_Index)
     
 End Sub
+
+'Lucas Ver.1.9.36 2012.07.02---------For Pattern change UP
+Private Sub Decode_Pattern_UP(ByVal pPortID As Integer, ByVal pCommand As String)
+
+    Dim typPATTERN_DATA                 As PATTERN_LIST_DATA
+    
+    Dim strResponse                     As String
+    Dim strPath                         As String
+    Dim strFileName                     As String
+    
+    Dim intPTN_Index                    As Integer
+    
+    strResponse = Mid(pCommand, 5, 1)
+    
+    With typPATTERN_DATA
+        intPTN_Index = CInt(frmJudge.lblCurrent_PTN_Index.Caption)
+        Call EQP.Get_PATTERN_LIST_by_Index(intPTN_Index, .PATTERN_CODE, .PATTERN_NAME, .DELAY_TIME, .LEVEL, .DH, .DL, .VGH, .VGL, .RESCUE_HIGH, .RESCUE_LOW, .VCOM)
+        Call Insert_Pattern_End(RANK_OBJ.Get_Select_DEFECTCODE, .PATTERN_NAME)
+    End With
+    
+     'Lucas Ver.1.9.36 2012.07.02 For PG Awlays error."error 9 overflow"
+    If frmJudge.lblCurrent_PTN_Index.Caption = "0" Then
+       frmJudge.lblCurrent_PTN_Index.Caption = EQP.Get_PATTERN_COUNT
+    'Lucas Ver.0.9.28 2012.05.16 For PG Awlays error."error 9 overflow"
+    End If
+    
+    frmJudge.lblCurrent_PTN_Index.Caption = CInt(frmJudge.lblCurrent_PTN_Index.Caption) - 1
+
+    intPTN_Index = CInt(frmJudge.lblCurrent_PTN_Index.Caption)
+    With typPATTERN_DATA
+        Call EQP.Get_PATTERN_LIST_by_Index(intPTN_Index, .PATTERN_CODE, .PATTERN_NAME, .DELAY_TIME, .LEVEL, .DH, .DL, .VGH, .VGL, .RESCUE_HIGH, .RESCUE_LOW, .VCOM)
+        Call Insert_Pattern_Start(RANK_OBJ.Get_Select_DEFECTCODE, .PATTERN_NAME)
+    End With
+    If typPATTERN_DATA.PATTERN_NAME <> "" Then
+        strPath = App.PATH & "\Env\Standard_Info\"
+        strFileName = typPATTERN_DATA.PATTERN_NAME & ".jpg"
+        If Dir(strPath & strFileName) <> "" Then
+            frmJudge.imgPG_Image.Picture = LoadPicture(strPath & strFileName)
+        End If
+    End If
+    
+    If (frmJudge.flxPG_Data.TextMatrix(intPTN_Index, 3) <> "0") And (frmJudge.flxPG_Data.TextMatrix(intPTN_Index, 3) <> "") And (frmJudge.flxPG_Data.TextMatrix(intPTN_Index, 3) <> "DELAY") Then
+        frmJudge.tmrPattern_Delay.Interval = CLng(frmJudge.flxPG_Data.TextMatrix(intPTN_Index, 3))
+        frmJudge.picCurrent_Pattern.Enabled = False
+        frmJudge.tmrPattern_Delay.Enabled = True
+    Else
+        frmJudge.picCurrent_Pattern.Enabled = True
+        frmJudge.tmrPattern_Delay.Enabled = False
+    End If
+        
+    Call EQP.Set_PATTERN_START_by_Index(intPTN_Index)
+    
+End Sub
+'Lucas Ver.1.9.36 2012.07.02---------For Pattern change UP
+
+
 
 Private Function Decode_Coordinate(ByVal pPortID As Integer, ByVal pCommand As String) As String
 
@@ -305,9 +366,9 @@ Private Function Decode_Coordinate(ByVal pPortID As Integer, ByVal pCommand As S
             With frmManual_Judge
              '============Leo 2012.05.22 Add Rank Level Start
                 For intRankLevel = 0 To UBound(RankLevel)
-                    If (Trim(typRANK_DATA.Rank(intRankLevel)) <> "0") And (Trim(typRANK_DATA.Rank(intRankLevel)) <> "-") Then
+                    If (Trim(typRANK_DATA.RANK(intRankLevel)) <> "0") And (Trim(typRANK_DATA.RANK(intRankLevel)) <> "-") Then
                         .lblGrade(intRankLevel).Caption = RankLevel(intRankLevel)
-                        .optSpec_Value(intRankLevel).Caption = typRANK_DATA.Rank(intRankLevel)
+                        .optSpec_Value(intRankLevel).Caption = typRANK_DATA.RANK(intRankLevel)
                         .lblGrade(intRankLevel).Visible = True
                         .optSpec_Value(intRankLevel).Visible = True
                     End If

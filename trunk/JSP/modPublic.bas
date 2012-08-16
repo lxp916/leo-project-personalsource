@@ -75,7 +75,6 @@ Type PANEL_INFO_ELEMENTS            'Panel MES Data Structure
     OWNERID                         As String
     PREPROCESSID                    As String
     SPARE(1 To 10)                  As String
-'    AAAAAA                          As String
 End Type
 
 Type JOB_DATA_STRUCTURE             'JOB MES Data Structure
@@ -134,10 +133,15 @@ Type RANK_DATA_STRUCTURE            'Rank Data Information Structure
     DETAIL_DIVISION                 As String
     ACCUMULATION                    As String
     ADDRESS_COUNT                   As String
+    RANK_Y                          As String
+    RANK_L                          As String
+    RANK_K                          As String
+    RANK_C                          As String
+    RANK_S                          As String
     ODF                             As String
     PRIORITY                        As Integer
     POP_UP                          As String
-    Rank(30)                        As String
+    RANK(30)                        As String
 End Type
 
 Type GRADE_DATA_STRUCTURE           'Grade/Rank Maching Data Information Structure
@@ -228,7 +232,7 @@ Type DEFECT_FILE_PANEL_SUMMARY      'Defect File Panel Summary Data Structure
     GATE_TOTAL_PIXEL                As String
     DRIVE_TYPE                      As String
     BACKLIGHT                       As String
-    LIGHT_ON_PRE_GRADE     As String
+    LIGHT_ON_PRE_GRADE              As String
     LIGHT_ON_TARGET_REASON_TYPE     As String
     SLOT_ID                         As String
 End Type
@@ -279,7 +283,7 @@ Type DEFECT_FILE_PANEL_PDS_SUMMARY  'Defect File Panel PDS Summary Data Structur
     MIN                             As String       'CST_MES_DATA's spare2 25bytes
     MAX                             As String       'CST_MES_DATA's spare3 25bytes
     STD                             As String       'CST_MES_DATA's spare4 25bytes
-    COUNT                           As String       'CST_MES_DATA's spare5 25bytes
+    Count                           As String       'CST_MES_DATA's spare5 25bytes
 End Type
 
 Type PFCD_ADDRESS_STRUCTURE         'PFCD Address Data Structure
@@ -412,7 +416,7 @@ Public Type AUTO_ALARM_DATA
     DEFECT_CODE                     As String
     RANK                            As String
     COUNT_TIME                      As Integer
-    COUNT                           As Integer
+    Count                           As Integer
     ALARM_TEXT                      As String
     CURRENT_COUNT                   As Integer
     EXPIRY_DATE                     As Long
@@ -422,7 +426,7 @@ End Type
 Public Type COUNT_CHANGE_DATA
     FINAL_GRADE                     As String
     NEW_GRADE                       As String
-    COUNT                           As Integer
+    Count                           As Integer
     CURRENT_COUNT                   As Integer
 End Type
 
@@ -436,4 +440,6 @@ Public pubDEFECT_DATA()             As DEFECT_DATA_STRUCTURE            '2012.03
 
 'leo
 Public RankLevel()                  As String
+Public PatternCycletimes            As Integer
+Public PointAddress                 As Integer
 

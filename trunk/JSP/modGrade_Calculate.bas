@@ -597,7 +597,7 @@ Public Sub Get_Rank_Data(ByVal pPROCESSNUM As String, pRANK_DATA As RANK_DATA_ST
                 .ADDRESS_COUNT = lstRecord.Fields("ADDRESS_COUNT")
                  '============Leo 2012.05.22 Add Rank Level Start
                 For intRankLevel = 0 To UBound(RankLevel)
-                    .Rank(intRankLevel) = lstRecord.Fields("RANK_" & RankLevel(intRankLevel))
+                    .RANK(intRankLevel) = lstRecord.Fields("RANK_" & RankLevel(intRankLevel))
                 Next intRankLevel
 '                .RANK_Y = lstRecord.Fields("RANK_Y")
 '                .RANK_L = lstRecord.Fields("RANK_L")
@@ -738,8 +738,8 @@ Public Sub Get_Rank(pRANK_DATA As RANK_DATA_STRUCTURE, pGRADE_DATA() As GRADE_DA
                 If pDEFECT_TOTAL > 1 Then
 '============Leo 2012.05.22 Add Rank Level Start
                     For intRankLevel = 0 To UBound(RankLevel)
-                        If (pRank = "") And (IsNumeric(.Rank(intRankLevel)) = True) Then
-                            If pDEFECT_TOTAL <= CInt(.Rank(intRankLevel)) Then
+                        If (pRank = "") And (IsNumeric(.RANK(intRankLevel)) = True) Then
+                            If pDEFECT_TOTAL <= CInt(.RANK(intRankLevel)) Then
                                 pRank = RankLevel(intRankLevel)
                             End If
                         End If
@@ -784,8 +784,8 @@ Public Sub Get_Rank(pRANK_DATA As RANK_DATA_STRUCTURE, pGRADE_DATA() As GRADE_DA
                 If pDEFECT_TOTAL > 0 Then
                 '============Leo 2012.05.22 Add Rank Level Start
                     For intRankLevel = 0 To UBound(RankLevel)
-                        If (pRank = "") And (IsNumeric(.Rank(intRankLevel)) = True) Then
-                            If pDEFECT_TOTAL <= CInt(.Rank(intRankLevel)) Then
+                        If (pRank = "") And (IsNumeric(.RANK(intRankLevel)) = True) Then
+                            If pDEFECT_TOTAL <= CInt(.RANK(intRankLevel)) Then
                                 pRank = RankLevel(intRankLevel)
                             End If
                         End If
@@ -830,8 +830,8 @@ Public Sub Get_Rank(pRANK_DATA As RANK_DATA_STRUCTURE, pGRADE_DATA() As GRADE_DA
             If pDEFECT_TOTAL > 1 Then
              '============Leo 2012.05.22 Add Rank Level Start
                     For intRankLevel = 0 To UBound(RankLevel)
-                        If (pRank = "") And (IsNumeric(.Rank(UBound(RankLevel) - intRankLevel)) = True) Then
-                            If pDEFECT_TOTAL <= CInt(.Rank(UBound(RankLevel) - intRankLevel)) Then
+                        If (pRank = "") And (IsNumeric(.RANK(UBound(RankLevel) - intRankLevel)) = True) Then
+                            If pDEFECT_TOTAL <= CInt(.RANK(UBound(RankLevel) - intRankLevel)) Then
                                 pRank = RankLevel(UBound(RankLevel) - intRankLevel)
                             End If
                         End If
@@ -2133,7 +2133,8 @@ On Error GoTo ErrorHandler
                         End If
                      End If
                      
-                     If pCST_MES_DATA.PROCESS_NUM = "3650" Then
+                     If pCST_MES_DATA.PROCESS_NUM = "3650" & Mid(pCST_MES_DATA.PFCD, 3, 5) = "31502" Or Mid(pCST_MES_DATA.PFCD, 3, 5) = "31503" Or Mid(pCST_MES_DATA.PFCD, 3, 5) = "31506" Then
+                     
                        If (pDEFECT_DATA.DEFECT_CODE = "CDRBP") Or (pDEFECT_DATA.DEFECT_CODE = "CDGBP") Or (pDEFECT_DATA.DEFECT_CODE = "CDBBP") Or (pDEFECT_DATA.DEFECT_CODE = "CDBTD") Or (pDEFECT_DATA.DEFECT_CODE = "CDBDD") Or (pDEFECT_DATA.DEFECT_CODE = "CDLEK") Or (pDEFECT_DATA.DEFECT_CODE = "CDBTT") Then
                         strNew_Judge = "RC"
                        End If
@@ -2143,12 +2144,7 @@ On Error GoTo ErrorHandler
                     Case "2":
                           If (pCST_MES_DATA.PROCESS_NUM = "3650") Then
 'Lucas Ver.0.9.29 2012.05.30=======================For CUT Test
-                             If (pDEFECT_DATA.DEFECT_CODE = "CLDDK") Or (pDEFECT_DATA.DEFECT_CODE = "CLDWK") Or (pDEFECT_DATA.DEFECT_CODE = "CLDBT") Then
-                              strNew_Judge = "RP"
-'Lucas Ver.0.9.29 2012.05.30=======================For CUT Test
-                             Else
-                              strNew_Judge = "NG"
-                             End If
+                               strNew_Judge = "NG"
                           Else
                             If pCST_MES_DATA.PROCESS_NUM = "4650" Then
                             strNew_Judge = "S "
@@ -2167,7 +2163,7 @@ On Error GoTo ErrorHandler
                         
  'Lucas 2012.05.06===================================For CRP "Y" case "RC"
                     Case "1":
-                         If pCST_MES_DATA.PROCESS_NUM = "3650" Then
+                         If pCST_MES_DATA.PROCESS_NUM = "3650" & Mid(pCST_MES_DATA.PFCD, 3, 5) = "31502" Or Mid(pCST_MES_DATA.PFCD, 3, 5) = "31503" Or Mid(pCST_MES_DATA.PFCD, 3, 5) = "31506" Then
                             If (pDEFECT_DATA.DEFECT_CODE = "CDRBP") Or (pDEFECT_DATA.DEFECT_CODE = "CDGBP") Or (pDEFECT_DATA.DEFECT_CODE = "CDBBP") Or (pDEFECT_DATA.DEFECT_CODE = "CDBTD") Or (pDEFECT_DATA.DEFECT_CODE = "CDBDD") Or (pDEFECT_DATA.DEFECT_CODE = "CDLEK") Or (pDEFECT_DATA.DEFECT_CODE = "CDBTT") Then
                              strNew_Judge = "RC"
                             End If
@@ -2716,7 +2712,7 @@ On Error GoTo ErrorHandler
                     Case "CHANGE GRADE":
                         .NEW_GRADE = Mid(strTemp, intPos + 1)
                     Case "COUNT":
-                        .COUNT = CInt(Mid(strTemp, intPos + 1))
+                        .Count = CInt(Mid(strTemp, intPos + 1))
                     Case "CURRENT COUNT":
                         .CURRENT_COUNT = CInt(Mid(strTemp, intPos + 1))
                     End Select
@@ -2726,14 +2722,14 @@ On Error GoTo ErrorHandler
         
         Close intFileNum
         
-        If typCOUNT_CHANGE.COUNT > 0 Then
+        If typCOUNT_CHANGE.Count > 0 Then
             If pGrade = typCOUNT_CHANGE.FINAL_GRADE Then
                 typCOUNT_CHANGE.CURRENT_COUNT = typCOUNT_CHANGE.CURRENT_COUNT + 1
                 Count_Change = pGrade
                 Call SaveLog("Count_Change", "Grade change from " & pGrade & " to " & typCOUNT_CHANGE.NEW_GRADE)
                 Call SaveLog("            ", "Current change grade count : " & typCOUNT_CHANGE.CURRENT_COUNT)
-                If typCOUNT_CHANGE.CURRENT_COUNT = typCOUNT_CHANGE.COUNT Then
-                    typCOUNT_CHANGE.COUNT = 0
+                If typCOUNT_CHANGE.CURRENT_COUNT = typCOUNT_CHANGE.Count Then
+                    typCOUNT_CHANGE.Count = 0
                 End If
                 intFileNum = FreeFile
                 Open strPath & strFileName For Output As intFileNum
@@ -2745,7 +2741,7 @@ On Error GoTo ErrorHandler
                     strTemp = "CHANGE GRADE=" & .NEW_GRADE
                     Print #intFileNum, strTemp
                     
-                    strTemp = "COUNT=" & .COUNT
+                    strTemp = "COUNT=" & .Count
                     Print #intFileNum, strTemp
                     
                     strTemp = "CURRENT COUNT=" & .CURRENT_COUNT
