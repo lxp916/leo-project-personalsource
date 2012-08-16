@@ -205,7 +205,9 @@ Public Sub Make_Defect_File()
         .DRIVE_TYPE = Trim(frmMain.flxEQ_Information.TextMatrix(1, 1))
         .BACKLIGHT = Trim(EQP.Get_BackLight_Value)
 '        .LIGHT_ON_TARGET_REASON_CODE = Trim(.MAIN_DEFECT_CODE)
-         .LIGHT_ON_PRE_GRADE = Trim(frmMain.flxMES_Data.TextMatrix(18, 1))
+'Lucas Ver.0.9.34 2012.06.26---------For Light ON PreGrade
+         .LIGHT_ON_PRE_GRADE = Trim(pubJOB_INFO.JOB_GRADE)
+'Lucas Ver.0.9.34 2012.06.26---------For Light ON PreGrade
         typMAIN_DEFECT_DATA = Get_DEFECT_DATA_by_CODE(.MAIN_DEFECT_CODE)
         .LIGHT_ON_TARGET_REASON_TYPE = Trim(typMAIN_DEFECT_DATA.DEFECT_NAME)
         .SLOT_ID = Trim(pubPANEL_INFO.SLOT_NUM)
@@ -312,7 +314,7 @@ Public Sub Make_Defect_File()
         .MIN = Trim(pubCST_INFO.CST_SPARE(2))
         .MAX = Trim(pubCST_INFO.CST_SPARE(3))
         .STD = Trim(pubCST_INFO.CST_SPARE(4))
-        .COUNT = Trim(pubPANEL_INFO.REPAIR_REWORK_COUNT)
+        .Count = Trim(pubPANEL_INFO.REPAIR_REWORK_COUNT)
     End With
         
     If strRUN_DATE = "" Then
@@ -1152,7 +1154,7 @@ Private Sub Write_Panel_PDS_Summay_CATST(ByVal pPath As String, ByVal pFileName 
     Print #intFileNum, strTemp
     
     With pPANEL_PDS_SUMMARY
-        strTemp = .PANELID & "," & .PARAMETER_NAME & "," & .AVG & "," & .MIN & "," & .MAX & "," & .STD & "," & .COUNT
+        strTemp = .PANELID & "," & .PARAMETER_NAME & "," & .AVG & "," & .MIN & "," & .MAX & "," & .STD & "," & .Count
         Print #intFileNum, strTemp
     End With
     
@@ -1568,7 +1570,7 @@ Private Sub Write_Panel_PDS_Summay_CALOI(ByVal pPath As String, ByVal pFileName 
     Print #intFileNum, strTemp
     
     With pPANEL_PDS_SUMMARY
-        strTemp = .PANELID & "," & .PARAMETER_NAME & "," & .AVG & "," & .MIN & "," & .MAX & "," & .STD & "," & .COUNT
+        strTemp = .PANELID & "," & .PARAMETER_NAME & "," & .AVG & "," & .MIN & "," & .MAX & "," & .STD & "," & .Count
         Print #intFileNum, strTemp
     End With
     

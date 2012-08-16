@@ -64,9 +64,9 @@ Public Sub Read_PATTERN_LIST(ByVal pFileName As String)
     Dim strDB_Path                  As String
     Dim strDB_FileName              As String
     Dim strQuery                    As String
-    Dim strtemp                     As String
+    Dim strTemp                     As String
     
-    Dim intfilenum                  As Integer
+    Dim intFileNum                  As Integer
     Dim intPos                      As Integer
     Dim intPattern_Index            As Integer
     
@@ -75,8 +75,8 @@ Public Sub Read_PATTERN_LIST(ByVal pFileName As String)
     
     strPath = App.PATH & "\Env\Standard_Info\"
     If Dir(strPath & pFileName, vbNormal) <> "" Then
-        intfilenum = FreeFile
-        Open strPath & pFileName For Input As intfilenum
+        intFileNum = FreeFile
+        Open strPath & pFileName For Input As intFileNum
         
         intPattern_Index = 0
         If Dir(strDB_Path & strDB_FileName, vbNormal) <> "" Then
@@ -85,53 +85,53 @@ Public Sub Read_PATTERN_LIST(ByVal pFileName As String)
             strQuery = "DELETE * FROM PATTERN_LIST"
             dbMyDB.Execute (strQuery)
             
-            While Not EOF(intfilenum)
-                Line Input #intfilenum, strtemp
+            While Not EOF(intFileNum)
+                Line Input #intFileNum, strTemp
                 
-                intPos = InStr(strtemp, ",")
+                intPos = InStr(strTemp, ",")
                 If intPos > 0 Then
                     intPattern_Index = intPattern_Index + 1
-                    If UCase(Left(strtemp, intPos - 1)) <> "PATTERN CODE" Then
+                    If UCase(Left(strTemp, intPos - 1)) <> "PATTERN CODE" Then
                         With typPATTERN_LIST
                             .FILENAME = pFileName
-                            .PATTERN_CODE = Left(strtemp, intPos - 1)
-                            strtemp = Mid(strtemp, intPos + 1)
+                            .PATTERN_CODE = Left(strTemp, intPos - 1)
+                            strTemp = Mid(strTemp, intPos + 1)
                             
-                            intPos = InStr(strtemp, ",")
-                            .PATTERN_NAME = Left(strtemp, intPos - 1)
-                            strtemp = Mid(strtemp, intPos + 1)
+                            intPos = InStr(strTemp, ",")
+                            .PATTERN_NAME = Left(strTemp, intPos - 1)
+                            strTemp = Mid(strTemp, intPos + 1)
                             
-                            intPos = InStr(strtemp, ",")
-                            .DELAY_TIME = Left(strtemp, intPos - 1)
-                            strtemp = Mid(strtemp, intPos + 1)
+                            intPos = InStr(strTemp, ",")
+                            .DELAY_TIME = Left(strTemp, intPos - 1)
+                            strTemp = Mid(strTemp, intPos + 1)
                             
-                            intPos = InStr(strtemp, ",")
-                            .LEVEL = Left(strtemp, intPos - 1)
-                            strtemp = Mid(strtemp, intPos + 1)
+                            intPos = InStr(strTemp, ",")
+                            .LEVEL = Left(strTemp, intPos - 1)
+                            strTemp = Mid(strTemp, intPos + 1)
                             
-                            intPos = InStr(strtemp, ",")
-                            .DH = Left(strtemp, intPos - 1)
-                            strtemp = Mid(strtemp, intPos + 1)
+                            intPos = InStr(strTemp, ",")
+                            .DH = Left(strTemp, intPos - 1)
+                            strTemp = Mid(strTemp, intPos + 1)
                             
-                            intPos = InStr(strtemp, ",")
-                            .DL = Left(strtemp, intPos - 1)
-                            strtemp = Mid(strtemp, intPos + 1)
+                            intPos = InStr(strTemp, ",")
+                            .DL = Left(strTemp, intPos - 1)
+                            strTemp = Mid(strTemp, intPos + 1)
                             
-                            intPos = InStr(strtemp, ",")
-                            .VGH = Left(strtemp, intPos - 1)
-                            strtemp = Mid(strtemp, intPos + 1)
+                            intPos = InStr(strTemp, ",")
+                            .VGH = Left(strTemp, intPos - 1)
+                            strTemp = Mid(strTemp, intPos + 1)
                             
-                            intPos = InStr(strtemp, ",")
-                            .VGL = Left(strtemp, intPos - 1)
-                            strtemp = Mid(strtemp, intPos + 1)
+                            intPos = InStr(strTemp, ",")
+                            .VGL = Left(strTemp, intPos - 1)
+                            strTemp = Mid(strTemp, intPos + 1)
                             
-                            intPos = InStr(strtemp, ",")
-                            .RESCUE_HIGH = Left(strtemp, intPos - 1)
-                            strtemp = Mid(strtemp, intPos + 1)
+                            intPos = InStr(strTemp, ",")
+                            .RESCUE_HIGH = Left(strTemp, intPos - 1)
+                            strTemp = Mid(strTemp, intPos + 1)
                             
-                            intPos = InStr(strtemp, ",")
-                            .RESCUE_LOW = Left(strtemp, intPos - 1)
-                            .VCOM = Mid(strtemp, intPos + 1)
+                            intPos = InStr(strTemp, ",")
+                            .RESCUE_LOW = Left(strTemp, intPos - 1)
+                            .VCOM = Mid(strTemp, intPos + 1)
                                                     
                             
                             strQuery = "INSERT INTO PATTERN_LIST VALUES ("
@@ -157,7 +157,7 @@ Public Sub Read_PATTERN_LIST(ByVal pFileName As String)
             dbMyDB.Close
         End If
         
-        Close intfilenum
+        Close intFileNum
         PATTERN_COUNT = intPattern_Index
     Else
         Call Show_Message("File error", pFileName & " does not exist.")

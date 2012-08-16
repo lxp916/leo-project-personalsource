@@ -570,8 +570,17 @@ Public Sub Set_MES_Data(pCST_INFO As CST_INFO_ELEMENTS, pPNL_INFO As PANEL_INFO_
     End With
     frmMain.lblPre_Judge.Caption = frmMain.flxMES_Data.TextMatrix(18, 1)
     frmMain.lblPre_Loss_Code.Caption = frmMain.flxMES_Data.TextMatrix(19, 1)
-    frmMain.Repair.Caption = frmMain.flxMES_Data.TextMatrix(30, 1)
-    frmJudge.Repair.Caption = frmMain.flxMES_Data.TextMatrix(30, 1)
+    frmMain.Repair.Caption = pubPANEL_INFO.REPAIR_REWORK_COUNT
+ 'Ver.1.9.36 2012.08.02============Show alarm For repair Count
+       
+      Select Case pubPANEL_INFO.REPAIR_REWORK_COUNT
+      Case "2":
+              Call Show_Message("Repair Count", "该片线Defect CANRP不可修报废NG/S")
+      Case "3"
+              Call Show_Message("Repair Count", "该片因CANRP判定会转RP/RT")
+      End Select
+'Ver.1.9.36 2012.08.02============Show alarm For repair Count
+    frmJudge.Repair.Caption = pubPANEL_INFO.REPAIR_REWORK_COUNT
 End Sub
 
 Public Sub Set_RUN_Data()
@@ -3582,8 +3591,7 @@ Public Function Make_CST_DATA_DB(ByVal pMonth As Integer, ByVal pDay As Integer,
     Dim SourceName                  As String
     Dim intFileNum                  As Integer
     Dim strTemp                     As String
-    
-    
+
     Dim ErrMsg                      As String
     
 On Error GoTo ErrorHandler
@@ -3659,6 +3667,10 @@ On Error GoTo ErrorHandler
         strFileName = pPANEL_INFO.PANELID & ".csv"
         Call Get_File_From_Host_by_Path(strRemote_Path, strDB_Path, strFileName)
         Call Read_Share_Defect_File(pPANEL_INFO, strDB_Path, strFileName)
+        If Trim(pPANEL_INFO.REPAIR_REWORK_COUNT) = "" Then
+           pPANEL_INFO.REPAIR_REWORK_COUNT = "0"
+        End If
+        'Lucas Ver.1.9.35 2012.06.28 ==============for Repair count
 '==========================================================================================================
 '
 '  Modify Date : 2012. 03. 20
@@ -3695,8 +3707,15 @@ If SourceName <> "" Then
                  Call Get_File_From_Host_by_Path(strRemote_Path, strDB_Path, SourceName)
                  Call Read_Source_Defect_File(pPANEL_INFO, strDB_Path, SourceName)
 End If
+'Lucas Ver.1.9.35 2012.06.28=========For pPANEL_INFO.POLARIZER_REWORK_COUNT
+If Trim(pPANEL_INFO.POLARIZER_REWORK_COUNT) = "" Then
+pPANEL_INFO.POLARIZER_REWORK_COUNT = "0"
+End If
+'Lucas Ver.1.9.35 2012.06.28=========For pPANEL_INFO.POLARIZER_REWORK_COUNT
 
 frmJudge.Polarizor.Caption = pPANEL_INFO.POLARIZER_REWORK_COUNT
+
+
         
 '    Else
 '        If frmMain.flxEQ_Information.TextMatrix(3, 1) = "Operator" Then         'The equipment is CATST and operation mode is operator mode
@@ -3809,6 +3828,11 @@ Public Sub Read_Share_Defect_File(pPANEL_INFO As PANEL_INFO_ELEMENTS, ByVal pLoc
                                 pPANEL_INFO.CELL_LINE_RESCUE_FLAG = strTemp
                             Case intRework_Count_Pos:
                                 pPANEL_INFO.REPAIR_REWORK_COUNT = strTemp
+         'Lucas Ver.1.9.35 2012.06.28 ==============for Repair count
+                                    If Trim(pPANEL_INFO.REPAIR_REWORK_COUNT) = "" Then
+                                       pPANEL_INFO.REPAIR_REWORK_COUNT = "0"
+                                    End If
+        'Lucas Ver.1.9.35 2012.06.28 ==============for Repair count
                             End Select
                             bolRead_Data = True
                         End If
@@ -5908,6 +5932,10 @@ Public Sub Decode_CALOI_After_Block_Contact(ByVal pCommand As String)
     Dim intDefect_Count         As Integer
     Dim intIndex                As Integer
     Dim intRow                  As Integer
+    Dim LineX                   As Integer
+    Dim LineY                   As Integer
+    
+    
     
     If (EQP.Get_Re_Contact_Flag = False) And (EQP.Get_Re_Alignment_Flag = False) Then
         pCommand = Mid(pCommand, 5)
@@ -6023,6 +6051,120 @@ Public Sub Decode_CALOI_After_Block_Contact(ByVal pCommand As String)
     '            Load frmJudge
                 Call Power_On_PG
                 frmJudge.Show
+'Lucas Ver.1.9.34 2012.06.18=====For 1D1G address Show Alarm
+    
+If Mid(frmJudge.Text1, 2, 2) = "LD" Then
+LineX = Val(frmJudge.Text2) / 2 + Val(frmJudge.Text4) / 2
+LineY = Val(frmJudge.Text3) / 2 + Val(frmJudge.Text5) / 2
+   If (Val(frmJudge.Text2) >= "1007" And Val(frmJudge.Text2) <= "1041") Or (Val(frmJudge.Text2) >= "2032" And Val(frmJudge.Text2) <= "2067") _
+      Or (Val(frmJudge.Text2) >= "3056" And Val(frmJudge.Text2) <= "3090") Or (Val(frmJudge.Text2) >= "4080" And Val(frmJudge.Text2) <= "4113") _
+      Or (LineX >= "1007" And LineX <= "1041") Or (LineX >= "2032" And LineX <= "2067") Or (LineX >= "3056" And LineX <= "3090") _
+      Or (LineX >= "4080" And LineX <= "4113") Then
+      If pubCST_INFO.PROCESS_NUM = "3660" Then
+'         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+      Else
+         If pubCST_INFO.PROCESS_NUM = "4660" Then
+'           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+         End If
+      End If
+     
+  End If
+Else
+    If Mid(frmJudge.Text1, 2, 2) = "LG" Then
+     LineY = Val(frmJudge.Text3) / 2 + Val(frmJudge.Text5) / 2
+     If (LineY >= "368" And LineY <= "400") Or (LineY >= "751" And LineY <= "783") _
+         Or (Val(frmJudge.Text3) >= "368" And Val(frmJudge.Text3) <= "400") Or (Val(frmJudge.Text3) >= "751" And Val(frmJudge.Text3) <= "783") Then
+       If pubCST_INFO.PROCESS_NUM = "3660" Then
+'         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+        Else
+          If pubCST_INFO.PROCESS_NUM = "4660" Then
+'           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+          End If
+       End If
+    End If
+   End If
+End If
+
+If Mid(frmJudge.Text6, 2, 2) = "LD" Then
+LineX = Val(frmJudge.Text7) / 2 + Val(frmJudge.Text9) / 2
+
+   If (Val(frmJudge.Text7) >= "1007" And Val(frmJudge.Text7) <= "1041") Or (Val(frmJudge.Text7) >= "2032" And Val(frmJudge.Text7) <= "2067") _
+      Or (Val(frmJudge.Text7) >= "3056" And Val(frmJudge.Text7) <= "3090") Or (Val(frmJudge.Text7) >= "4080" And Val(frmJudge.Text7) <= "4113") _
+      Or (LineX >= "1007" And LineX <= "1041") Or (LineX >= "2032" And LineX <= "2067") Or (LineX >= "3056" And LineX <= "3090") _
+      Or (LineX >= "4080" And LineX <= "4113") Then
+      If pubCST_INFO.PROCESS_NUM = "3660" Then
+'         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+      Else
+         If pubCST_INFO.PROCESS_NUM = "4660" Then
+'           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+         End If
+      End If
+     
+  End If
+Else
+    If Mid(frmJudge.Text6, 2, 2) = "LG" Then
+     LineY = Val(frmJudge.Text8) / 2 + Val(frmJudge.Text10) / 2
+     If (LineY >= "368" And LineY <= "400") Or (LineY >= "751" And LineY <= "783") _
+        Or (Val(frmJudge.Text8) >= "368" And Val(frmJudge.Text8) <= "400") Or (Val(frmJudge.Text8) >= "751" And Val(frmJudge.Text8) <= "783") Then
+       
+       If pubCST_INFO.PROCESS_NUM = "3660" Then
+'         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+        Else
+          If pubCST_INFO.PROCESS_NUM = "4660" Then
+'           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+          End If
+       End If
+    End If
+   End If
+End If
+
+If Mid(frmJudge.Text11, 2, 2) = "LD" Then
+LineX = Val(frmJudge.Text12) / 2 + Val(frmJudge.Text14) / 2
+
+   If (Val(frmJudge.Text12) >= "1007" And Val(frmJudge.Text12) <= "1041") Or (Val(frmJudge.Text12) >= "2032" And Val(frmJudge.Text12) <= "2067") _
+      Or (Val(frmJudge.Text12) >= "3056" And Val(frmJudge.Text12) <= "3090") Or (Val(frmJudge.Text12) >= "4080" And Val(frmJudge.Text12) <= "4113") _
+      Or (LineX >= "1007" And LineX <= "1041") Or (LineX >= "2032" And LineX <= "2067") Or (LineX >= "3056" And LineX <= "3090") _
+      Or (LineX >= "4080" And LineX <= "4113") Then
+      If pubCST_INFO.PROCESS_NUM = "3660" Then
+'         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+      Else
+         If pubCST_INFO.PROCESS_NUM = "4660" Then
+'           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
+         End If
+      End If
+     
+  End If
+Else
+    If Mid(frmJudge.Text11, 2, 2) = "LG" Then
+     LineY = Val(frmJudge.Text13) / 2 + Val(frmJudge.Text15) / 2
+     If (LineY >= "368" And LineY <= "400") Or (LineY >= "751" And LineY <= "783") _
+        Or (Val(frmJudge.Text13) >= "368" And Val(frmJudge.Text13) <= "400") Or (Val(frmJudge.Text13) >= "751" And Val(frmJudge.Text13) <= "783") Then
+       
+       If pubCST_INFO.PROCESS_NUM = "3660" Then
+'         strNew_Grade = "NG"
+         Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+        Else
+          If pubCST_INFO.PROCESS_NUM = "4660" Then
+'           strNew_Grade = "S "
+           Call Show_Message("1D1G", "该片LOI-1Gate线座标落在1D1G假线内,需判S/NG")
+          End If
+       End If
+    End If
+   End If
+End If
+'Lucas Ver.1.9.34 2012.06.18=====For 1D1G address Show Alarm
+                
+                
 'Lucas Ver0.9.29 2012.05.22---Show Alarm Msg after Block Contact
             'TFT, CF Panel ID Check
             strMsg = Check_TFT_CF_PanelID(pubPANEL_INFO.PANELID)

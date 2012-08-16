@@ -223,7 +223,7 @@ Begin VB.Form frmJudge
       Width           =   20235
       Begin MSFlexGridLib.MSFlexGrid flxDefect_I 
          Height          =   3315
-         Left            =   6750
+         Left            =   6720
          TabIndex        =   44
          Top             =   7650
          Width           =   3405
@@ -1256,10 +1256,10 @@ Private Sub cmdGrade_Click()
             Next intIndex
                 
             If IsRanks Then
-                If (typRANK_DATA.Rank(Rank_SIndex) <> "-") And (typRANK_DATA.Rank(Rank_SIndex) <> "") Then
-                    If CInt(typRANK_DATA.Rank(Rank_SIndex)) < RANK_OBJ.Get_TB_Count Then
+                If (typRANK_DATA.RANK(Rank_SIndex) <> "-") And (typRANK_DATA.RANK(Rank_SIndex) <> "") Then
+                    If CInt(typRANK_DATA.RANK(Rank_SIndex)) < RANK_OBJ.Get_TB_Count Then
                         Call Get_Rank_Data(pubCST_INFO.PROCESS_NUM, typRANK_DATA, typGRADE_DATA, "CDDKT", intGrade_Count)
-                        If RANK_OBJ.Get_TB_Count + RANK_OBJ.Get_TD_Count <= typRANK_DATA.Rank(Rank_SIndex) Then
+                        If RANK_OBJ.Get_TB_Count + RANK_OBJ.Get_TD_Count <= typRANK_DATA.RANK(Rank_SIndex) Then
                             If (pubCST_INFO.PROCESS_NUM = "4600") Or (pubCST_INFO.PROCESS_NUM = "4650") Then
                                 strNew_Grade = "P2"
                             Else
@@ -1521,9 +1521,9 @@ If Mid(frmJudge.Text1, 2, 2) = "LD" Then
 LineX = Val(frmJudge.Text2) / 2 + Val(frmJudge.Text4) / 2
 LineY = Val(frmJudge.Text3) / 2 + Val(frmJudge.Text5) / 2
    If (Val(frmJudge.Text2) >= "1007" And Val(frmJudge.Text2) <= "1041") Or (Val(frmJudge.Text2) >= "2032" And Val(frmJudge.Text2) <= "2067") _
-      Or (Val(frmJudge.Text2) >= "3056" And Val(frmJudge.Text2) <= "3090") Or (Val(frmJudge.Text2) >= "4080" And Val(frmJudge.Text2) <= "5113") _
+      Or (Val(frmJudge.Text2) >= "3056" And Val(frmJudge.Text2) <= "3090") Or (Val(frmJudge.Text2) >= "4080" And Val(frmJudge.Text2) <= "4113") _
       Or (LineX >= "1007" And LineX <= "1041") Or (LineX >= "2032" And LineX <= "2067") Or (LineX >= "3056" And LineX <= "3090") _
-      Or (LineX >= "4080" And LineX <= "5113") Then
+      Or (LineX >= "4080" And LineX <= "4113") Then
       If pubCST_INFO.PROCESS_NUM = "3660" Then
          strNew_Grade = "NG"
          Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
@@ -1557,9 +1557,9 @@ If Mid(frmJudge.Text6, 2, 2) = "LD" Then
 LineX = Val(frmJudge.Text7) / 2 + Val(frmJudge.Text9) / 2
 
    If (Val(frmJudge.Text7) >= "1007" And Val(frmJudge.Text7) <= "1041") Or (Val(frmJudge.Text7) >= "2032" And Val(frmJudge.Text7) <= "2067") _
-      Or (Val(frmJudge.Text7) >= "3056" And Val(frmJudge.Text7) <= "3090") Or (Val(frmJudge.Text7) >= "4080" And Val(frmJudge.Text7) <= "5113") _
+      Or (Val(frmJudge.Text7) >= "3056" And Val(frmJudge.Text7) <= "3090") Or (Val(frmJudge.Text7) >= "4080" And Val(frmJudge.Text7) <= "4113") _
       Or (LineX >= "1007" And LineX <= "1041") Or (LineX >= "2032" And LineX <= "2067") Or (LineX >= "3056" And LineX <= "3090") _
-      Or (LineX >= "4080" And LineX <= "5113") Then
+      Or (LineX >= "4080" And LineX <= "4113") Then
       If pubCST_INFO.PROCESS_NUM = "3660" Then
          strNew_Grade = "NG"
          Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
@@ -1594,9 +1594,9 @@ If Mid(frmJudge.Text11, 2, 2) = "LD" Then
 LineX = Val(frmJudge.Text12) / 2 + Val(frmJudge.Text14) / 2
 
    If (Val(frmJudge.Text12) >= "1007" And Val(frmJudge.Text12) <= "1041") Or (Val(frmJudge.Text12) >= "2032" And Val(frmJudge.Text12) <= "2067") _
-      Or (Val(frmJudge.Text12) >= "3056" And Val(frmJudge.Text12) <= "3090") Or (Val(frmJudge.Text12) >= "4080" And Val(frmJudge.Text12) <= "5113") _
+      Or (Val(frmJudge.Text12) >= "3056" And Val(frmJudge.Text12) <= "3090") Or (Val(frmJudge.Text12) >= "4080" And Val(frmJudge.Text12) <= "4113") _
       Or (LineX >= "1007" And LineX <= "1041") Or (LineX >= "2032" And LineX <= "2067") Or (LineX >= "3056" And LineX <= "3090") _
-      Or (LineX >= "4080" And LineX <= "5113") Then
+      Or (LineX >= "4080" And LineX <= "4113") Then
       If pubCST_INFO.PROCESS_NUM = "3660" Then
          strNew_Grade = "NG"
          Call Show_Message("1D1G", "该片LOI-1Data线座标落在1D1G假线内,需判S/NG")
@@ -2645,6 +2645,16 @@ Private Sub Form_Activate()
     
 End Sub
 
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+'Lucas Ver.1.9.36 2012.07.02---------For Pattern change UP
+    If Me.picCurrent_Pattern.Enabled = True Then
+        If KeyCode = vbKeyNumpad9 Then
+            Call picCurrent_Pattern_UPClick
+        End If
+    End If
+'Lucas Ver.1.9.36 2012.07.02---------For Pattern change UP
+End Sub
+
 Private Sub Form_KeyUp(KeyCode As Integer, Shift As Integer)
 
     If Me.picCurrent_Pattern.Enabled = True Then
@@ -2898,13 +2908,38 @@ Private Sub picCurrent_Pattern_Click()
         intPTN_Index = CInt(Me.lblCurrent_PTN_Index.Caption)
         EQP.Set_PATTERN_END_by_Index (intPTN_Index)
         Me.lblCurrent_PTN_Index.Caption = "0"
+'        PatternCycletimes = "1"
 'Lucas Ver.0.9.28 2012.05.16 PG Delay time setting
 '        intPortID = EQP.Get_PG_PortID
 '        Call QUEUE.Put_Send_Command(intPortID, "QPCC")
-        Me.cmdGrade.Enabled = True
+'       If PatternCycletimes = "1" And PointAddress = "1" Then
+         Me.cmdGrade.Enabled = True
+'       End If
     End If
     
 End Sub
+
+'Lucas Ver.1.9.36 2012.07.02---------For Pattern change UP
+Private Sub picCurrent_Pattern_UPClick()
+
+    Dim intPortID                       As Integer
+    Dim intPTN_Index                    As Integer
+    
+    intPortID = EQP.Get_PG_PortID
+    Call QUEUE.Put_Send_Command(intPortID, "QPCU")
+
+       If CInt(Me.lblCurrent_PTN_Index.Caption) < Me.flxPG_Data.Rows - 1 Then
+        intPTN_Index = CInt(Me.lblCurrent_PTN_Index.Caption)
+        EQP.Set_PATTERN_END_by_Index (intPTN_Index)
+    Else
+        intPTN_Index = CInt(Me.lblCurrent_PTN_Index.Caption)
+        EQP.Set_PATTERN_END_by_Index (intPTN_Index)
+        Me.lblCurrent_PTN_Index.Caption = "0"
+    End If
+    
+End Sub
+'Lucas Ver.1.9.36 2012.07.02---------For Pattern change UP
+
 
 Private Sub tmrPattern_Delay_Timer()
 
@@ -3541,9 +3576,9 @@ Public Sub Load_Manual_Judge()
     With frmManual_Judge
          '============Leo 2012.05.22 Add Rank Level Start
                 For intRankLevel = 0 To UBound(RankLevel)
-                    If (Trim(typRANK_DATA.Rank(intRankLevel)) <> "0") And (Trim(typRANK_DATA.Rank(intRankLevel)) <> "-") Then
+                    If (Trim(typRANK_DATA.RANK(intRankLevel)) <> "0") And (Trim(typRANK_DATA.RANK(intRankLevel)) <> "-") Then
                         .lblGrade(intRankLevel).Caption = RankLevel(intRankLevel)
-                        .optSpec_Value(intRankLevel).Caption = typRANK_DATA.Rank(intRankLevel)
+                        .optSpec_Value(intRankLevel).Caption = typRANK_DATA.RANK(intRankLevel)
                         .lblGrade(intRankLevel).Visible = True
                         .optSpec_Value(intRankLevel).Visible = True
                     End If
@@ -3652,8 +3687,8 @@ Private Sub txtY_Gate_Change(Index As Integer)
 
     If (Me.txtX_Data(0).Text <> "") And (Me.txtY_Gate(0).Text <> "") Then
         If (IsNumeric(Me.txtX_Data(0).Text) = True) And (IsNumeric(Me.txtY_Gate(0).Text) = True) Then
-            Me.cmdGrade.Enabled = True
+           Me.cmdGrade.Enabled = True
         End If
     End If
-    
+
 End Sub

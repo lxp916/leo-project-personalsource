@@ -552,9 +552,9 @@ Public Sub Init_RANK_Priority()
 '============Leo 2012.05.22 Add Rank Level Start
 Dim intLoop As Integer
 
-For intLoop = 1 To UBound(RankLevel)
+For intLoop = 1 To UBound(RankLevel) + 1
     With RANK_PRIORITY(intLoop)
-        .Rank = RankLevel(intLoop - 1)
+        .RANK = RankLevel(intLoop - 1)
         .PRIORITY = intLoop
     End With
 Next intLoop
@@ -591,7 +591,7 @@ Public Function Get_Rank_Priority_by_Rank(ByVal pRank As String) As Integer
 '    For intIndex = 1 To 5
     For intIndex = 1 To UBound(RankLevel) + 1
     '============Leo 2012.05.22 Add Rank Level end
-        If RANK_PRIORITY(intIndex).Rank = pRank Then
+        If RANK_PRIORITY(intIndex).RANK = pRank Then
             Get_Rank_Priority_by_Rank = RANK_PRIORITY(intIndex).PRIORITY
         End If
     Next intIndex
