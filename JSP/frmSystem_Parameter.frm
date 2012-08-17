@@ -44,7 +44,7 @@ Begin VB.Form frmSystem_Parameter
          _ExtentY        =   9821
          _Version        =   393216
          Tabs            =   6
-         Tab             =   5
+         Tab             =   2
          TabsPerRow      =   6
          TabHeight       =   520
          TabCaption(0)   =   "Path Parameter"
@@ -59,8 +59,9 @@ Begin VB.Form frmSystem_Parameter
          Tab(1).ControlCount=   1
          TabCaption(2)   =   "Others"
          TabPicture(2)   =   "frmSystem_Parameter.frx":0038
-         Tab(2).ControlEnabled=   0   'False
+         Tab(2).ControlEnabled=   -1  'True
          Tab(2).Control(0)=   "Frame3"
+         Tab(2).Control(0).Enabled=   0   'False
          Tab(2).ControlCount=   1
          TabCaption(3)   =   "D/F Priority"
          TabPicture(3)   =   "frmSystem_Parameter.frx":0054
@@ -75,18 +76,15 @@ Begin VB.Form frmSystem_Parameter
          Tab(4).ControlCount=   2
          TabCaption(5)   =   "Rank Level"
          TabPicture(5)   =   "frmSystem_Parameter.frx":008C
-         Tab(5).ControlEnabled=   -1  'True
-         Tab(5).Control(0)=   "frameRank(0)"
-         Tab(5).Control(0).Enabled=   0   'False
+         Tab(5).ControlEnabled=   0   'False
+         Tab(5).Control(0)=   "cmdDelete"
          Tab(5).Control(1)=   "cmdSave"
-         Tab(5).Control(1).Enabled=   0   'False
-         Tab(5).Control(2)=   "cmdDelete"
-         Tab(5).Control(2).Enabled=   0   'False
+         Tab(5).Control(2)=   "frameRank(0)"
          Tab(5).ControlCount=   3
          Begin VB.CommandButton cmdDelete 
             Caption         =   "Delete"
             Height          =   585
-            Left            =   1800
+            Left            =   -73200
             TabIndex        =   66
             Top             =   4680
             Width           =   1455
@@ -94,7 +92,7 @@ Begin VB.Form frmSystem_Parameter
          Begin VB.CommandButton cmdSave 
             Caption         =   "Save"
             Height          =   585
-            Left            =   4800
+            Left            =   -70200
             TabIndex        =   65
             Top             =   4680
             Width           =   1455
@@ -102,7 +100,7 @@ Begin VB.Form frmSystem_Parameter
          Begin VB.Frame frameRank 
             Height          =   5112
             Index           =   0
-            Left            =   90
+            Left            =   -74910
             TabIndex        =   61
             Top             =   628
             Width           =   10095
@@ -624,10 +622,26 @@ Begin VB.Form frmSystem_Parameter
          End
          Begin VB.Frame Frame3 
             Height          =   5115
-            Left            =   -74910
+            Left            =   90
             TabIndex        =   7
             Top             =   628
             Width           =   10095
+            Begin VB.OptionButton radResume 
+               Caption         =   "Resume Mode"
+               Height          =   372
+               Left            =   2400
+               TabIndex        =   68
+               Top             =   3000
+               Width           =   1692
+            End
+            Begin VB.OptionButton radFtpMode 
+               Caption         =   "FTP Mode"
+               Height          =   252
+               Left            =   720
+               TabIndex        =   67
+               Top             =   3000
+               Width           =   1212
+            End
             Begin VB.CheckBox chkFTP_Use 
                Caption         =   "Use FTP Function"
                Height          =   225
@@ -1249,6 +1263,12 @@ Private Sub cmdFTP_Save_Click()
     strTemp = "USE FTP=" & strData
     Print #intFileNum, strTemp
     
+    'add by leo 2012.08.17
+    If Me.radFtpMode.Value Then
+        Print #intFileNum, "Use FTP Mode=1"
+    Else
+        Print #intFileNum, "Use FTP Mode=0"
+    End If
     Close intFileNum
 '
 '    strFileName = "Common_Parameter.cfg"
@@ -1553,6 +1573,15 @@ Private Sub Init_Form()
                         Me.chkFTP_Use.Value = vbChecked
                     Else
                         Me.chkFTP_Use.Value = vbUnchecked
+                    End If
+                'added by leo
+                Case "Use FTP Mode":
+                     If Mid(strTemp, intPos + 1) = "1" Then
+                        Me.radFtpMode.Value = vbChecked
+                        Me.radResume.Value = vbUnchecked
+                    Else
+                        Me.radFtpMode.Value = vbUnchecked
+                        Me.radResume.Value = vbChecked
                     End If
                 End Select
             End If
