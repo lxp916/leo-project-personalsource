@@ -5,29 +5,58 @@ Private Function FTP_Upload(ByVal pRemotePath As String, ByVal pLocalPath As Str
 
     Dim FTP_OBJ                 As New clsFTP
     
+    Dim commUpload_OBJ          As New clsCommUpload
+    
     Dim bolResult               As Boolean
+     Dim isUpload               As Boolean
     
     Dim ErrMsg                  As String
     
 On Error GoTo ErrorHandler
 
-    If FTP_OBJ.Init_FTP_Client = True Then       'FTP Object Initialize
+' Add upload mode selector, by leo.2012.08.15  'True:use FTP uploading mode, false:use common uploading mode
+    If (commUpload_OBJ.Get_Upload_Mode) Then
+        If FTP_OBJ.Init_FTP_Client = True Then       'FTP Object Initialize
+            If Right(pRemotePath, 1) <> "\" Then
+                pRemotePath = pRemotePath & "\"
+            End If
+            Call FTP_OBJ.Open_Session                     'FTP Session Open
+            bolResult = FTP_OBJ.FTP_Put_File(pFileName, pRemotePath, pLocalPath)
+            If bolResult = False Then
+                Call SaveLog("Defect_File_Upload", pFileName & " upload fail. Remote path : " & pRemotePath)
+                FTP_Upload = False
+            Else
+                FTP_Upload = True
+            End If
+            FTP_OBJ.Close_Session
+            FTP_OBJ.Disconnect_FTP_Client
+        Else
+            FTP_Upload = False
+        End If
+    Else ' common lan network uploadming mode
         If Right(pRemotePath, 1) <> "\" Then
             pRemotePath = pRemotePath & "\"
         End If
-        Call FTP_OBJ.Open_Session                     'FTP Session Open
-        bolResult = FTP_OBJ.FTP_Put_File(pFileName, pRemotePath, pLocalPath)
-        If bolResult = False Then
-            Call SaveLog("Defect_File_Upload", pFileName & " upload fail. Remote path : " & pRemotePath)
-            FTP_Upload = False
-        Else
-            FTP_Upload = True
+            If commUpload_OBJ.Check_Network = False Then
+                Call Show_Message("Network is disconnected", "Please check your network.")
+                Call commUpload_OBJ.Write_Local_Index(pFileName, pRemotePath)
+            Else
+                bolResult = commUpload_OBJ.do_Upload(pFileName, pRemotePath, pLocalPath)
+                
+                If bolResult = False Then
+                    Call SaveLog("Defect_File_Upload", pFileName & " upload fail. Remote path : " & pRemotePath)
+                    FTP_Upload = False
+                Else
+                    FTP_Upload = True
+                End If
+                
+                Call commUpload_OBJ.Write_Remote_Index(pFileName, pRemotePath)
+                If MsgBox("Are you sure panel unload by manual?", vbYesNo, "") = vbYes Then
+                   
+                   ' upload last faild files
+                End If
+            End If
         End If
-        FTP_OBJ.Close_Session
-        FTP_OBJ.Disconnect_FTP_Client
-    Else
-        FTP_Upload = False
-    End If
     
     Exit Function
     

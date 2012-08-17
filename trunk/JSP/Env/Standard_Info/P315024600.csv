@@ -1,7 +1,7 @@
 pattern code,Pattern name,Delay time,Level,DH,DL,VGH,VGL,Rescue High,Rescue Low,Vcom
 001,R,0,256,1,1,1,1,1,1,1
 002,G,0,256,1,1,1,1,1,1,1
-003,B,2,256,1,1,1,1,1,1,1
+003,B,0,256,1,1,1,1,1,1,1
 004,Black,0,256,1,1,1,1,1,1,1
 005,white,0,256,1,1,1,1,1,1,1
 006,gray,0,256,1,1,1,1,1,1,1
