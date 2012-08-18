@@ -14,28 +14,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Declare Function MakeSureDirectoryPathExists Lib "imagehlp.dll" (ByVal dirPath As String) As Long
-Private Declare Function RasEnumConnections Lib "RasApi32.dll" Alias "RasEnumConnectionsA" (lpRasCon As Any, lpcb As Long, lpcConnections As Long) As Long
-Private Declare Function RasGetConnectStatus Lib "RasApi32.dll" Alias "RasGetConnectStatusA" (ByVal hRasCon As Long, lpStatus As Any) As Long
-'常数和变量的设定
-Const RAS95_MaxEntryName = 256
-Const RAS95_MaxDeviceType = 16
-Const RAS95_MaxDeviceName = 32
 
-Private Type RASCONN95
-  dwSize As Long
-  hRasCon As Long
-  szEntryName(RAS95_MaxEntryName) As Byte
-  szDeviceType(RAS95_MaxDeviceType) As Byte
-  szDeviceName(RAS95_MaxDeviceName) As Byte
-End Type
-
-Private Type RASCONNSTATUS95
-  dwSize As Long
-  RasConnState As Long
-  dwError As Long
-  szDeviceType(RAS95_MaxDeviceType) As Byte
-  szDeviceName(RAS95_MaxDeviceName) As Byte
-End Type
 Public Function Init_Upload() As Boolean
     Dim remoteDirectory As String
     
@@ -86,17 +65,20 @@ Public Function do_Upload(ByVal pFileName As String, ByVal pRemote_Folder As Str
     Dim sourceFile As String
     Dim destinationFile As String
     Dim remoteDisk As String
-    
-    remoteDisk = "F:\"
+  
+   
+    remoteDisk = "\\" & get_Remote_Server_IP & "\windows2008\"
     
     sourceFile = pLocal_Folder + pFileName
     destinationFile = remoteDisk + pRemote_Folder + pFileName
     
     If Dir(remoteDisk + pRemote_Folder, vbDirectory) = "" Then MakeSureDirectoryPathExists remoteDisk + pRemote_Folder
     Set fs = CreateObject("Scripting.FileSystemObject")  '创建声明
-    fs.CopyFolder sourceFile, destinationFile, True
+    fs.CopyFile sourceFile, destinationFile, True
     do_Upload = True
-    
+'    fs.CopyFolder "d:\在", "\\192.168.1.90\QLL\新建文件夹", True
+'                            '源文件夹     目标文件夹
+'Shell "net   use   \\192.168.1.90   526456   /user:qll ", vbHide '当窗体加载的时候输入远程服务器的登陆用户名和秘码
 End Function
 
 Public Function Write_Remote_Index(ByVal pFileName As String, ByVal pRemote_Folder As String)
@@ -105,7 +87,7 @@ Public Function Write_Remote_Index(ByVal pFileName As String, ByVal pRemote_Fold
     strMessage = "Test"
 '    WriteText(pFileName,pLocal_Folder,strMessage)
     Write_Remote_Index = True
-    
+    'FileHandle   =   OpenFile( "\\ "   &   IP地址   &   文件路径   &   "\ "   &   文件名,   lpReOpenBuff,   OF_READ)
 
 End Function
 
@@ -125,7 +107,7 @@ Public Function Write_Local_Index(ByVal pFileName As String, ByVal pLocal_Folder
     Write_Local_Index = True
     
 End Function
-Private Function WriteText(ByVal pFileName As String, ByVal pFolder As String, ByVal pMessage As String)
+Private Function WriteText(ByVal pFileName As String, ByVal pFolder As String, ByVal pMESSAGE As String)
    
     
     Dim intFileNum                          As Integer
@@ -135,9 +117,15 @@ Private Function WriteText(ByVal pFileName As String, ByVal pFolder As String, B
     On Error GoTo ErrorHandler
     Open pFolder & pFileName For Append As intFileNum
     
-    Print #intFileNum, pMessage
+    Print #intFileNum, pMESSAGE
     
     Close intFileNum
+    
+'    Shell "net use \\机器名 密码 /user:用户名"
+'或者shell "cmd/c explorer\\机器名\文件夹名", 0
+'Open ".txt" For Append As #1
+'Close #1
+
 ErrorHandler:
     ErrMsg = Err.Number & " - " & Err.Description
     Call SaveLog("Decode_CST_Information_Elements", ErrMsg)
@@ -145,27 +133,12 @@ ErrorHandler:
 End Function
 Public Function Check_Network() As Boolean
 
-  Dim TRasCon(255) As RASCONN95
-  Dim lg As Long
-  Dim lpcon As Long
-  Dim RetVal As Long
-  Dim Tstatus As RASCONNSTATUS95
-  TRasCon(0).dwSize = 412
-  lg = 256 * TRasCon(0).dwSize
-  RetVal = RasEnumConnections(TRasCon(0), lg, lpcon)
-  If RetVal <> 0 Then
-'    MsgBox "错误"
-    Exit Function
-  End If
-  Tstatus.dwSize = 160
-  RetVal = RasGetConnectStatus(TRasCon(0).hRasCon, Tstatus)
-  If Tstatus.RasConnState = &H2000 Then
-    Check_Network = True
-  Else
-    Check_Network = False
-  End If
-
-'   Check_Network = My.Computer.Network.IsAvailable
+  Dim networkChecker As New clsNet
+  
+  Check_Network = networkChecker.IPValid(get_Remote_Server_IP)
+  
 End Function
 
-
+Private Function get_Remote_Server_IP() As String
+get_Remote_Server_IP = "192.168.1.5"
+End Function

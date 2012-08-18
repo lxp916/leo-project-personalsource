@@ -38,7 +38,7 @@ On Error GoTo ErrorHandler
             pRemotePath = pRemotePath & "\"
         End If
             If commUpload_OBJ.Check_Network = False Then
-                Call Show_Message("Network is disconnected", "Please check your network.")
+                Call Show_Message("Network is disconnected", "Remote server is not reachable, please check your network.")
                 Call commUpload_OBJ.Write_Local_Index(pFileName, pRemotePath)
             Else
                 bolResult = commUpload_OBJ.do_Upload(pFileName, pRemotePath, pLocalPath)
@@ -48,6 +48,7 @@ On Error GoTo ErrorHandler
                     FTP_Upload = False
                 Else
                     FTP_Upload = True
+                    Call SaveLog("Defect_File_Upload", pFileName & " upload successful. Remote path : " & pRemotePath)
                 End If
                 
                 Call commUpload_OBJ.Write_Remote_Index(pFileName, pRemotePath)
