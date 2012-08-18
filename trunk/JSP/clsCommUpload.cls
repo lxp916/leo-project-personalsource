@@ -28,10 +28,10 @@ Public Function do_Upload(ByVal pFileName As String, ByVal pRemote_Folder As Str
    
     remoteDisk = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_Folder & "\"
     
-    sourceFile = pLocal_Folder + pFileName
-    destinationFile = remoteDisk + pRemote_Folder + pFileName
+    sourceFile = pLocal_Folder & pFileName
+    destinationFile = remoteDisk & pRemote_Folder & pFileName
     
-    If Dir(remoteDisk + pRemote_Folder, vbDirectory) = "" Then MakeSureDirectoryPathExists remoteDisk + pRemote_Folder
+    If Dir(remoteDisk & pRemote_Folder, vbDirectory) = "" Then MakeSureDirectoryPathExists remoteDisk & pRemote_Folder
     Set fs = CreateObject("Scripting.FileSystemObject")  '创建声明
     fs.CopyFile sourceFile, destinationFile, True
     do_Upload = True
@@ -41,39 +41,63 @@ Public Function do_Upload(ByVal pFileName As String, ByVal pRemote_Folder As Str
 End Function
 
 Public Function Write_Remote_Index(ByVal pFileName As String, ByVal pRemote_Folder As String)
-   
-   Dim strMessage As String
-    strMessage = "Test"
-'    WriteText(pFileName,pLocal_Folder,strMessage)
-    Write_Remote_Index = True
-    'FileHandle   =   OpenFile( "\\ "   &   IP地址   &   文件路径   &   "\ "   &   文件名,   lpReOpenBuff,   OF_READ)
-
-End Function
-
-Public Function Write_Local_Index(ByVal pFileName As String, ByVal pLocal_Folder As String)
-    Dim strMessage As String
-    strMessage = "Test"
-    Dim strTime As String
     
-    Dim strDate As String
+    Dim strMessage As String
+    Dim strPath  As String
     Dim strFileName As String
     
-    strTime = Format(TIME, "HH:MM:SS")
-    strDate = Format(DATE, "YYYY-MM-DD")
-    strFileName = Format(DATE, "YYYYMMDD") & Format(TIME, "HH") & ".csv"
+    strFileName = Format(DATE, "YYYYMMDD") & ".csv"
+    strPath = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_Folder & "\Index\" & pRemote_Folder
     
-'    WriteText(pFileName,pLocal_Folder,strMessage)
-    Write_Local_Index = True
+    strMessage = Format(DATE, "YYYY/MM/DD") & " " & Format(TIME, "HH:MM:SS") & "," & pRemote_Folder & pFileName
+    On Error GoTo ErrorHandler
     
+    Call WriteIndex(strFileName, strPath, strMessage)
+    Write_Remote_Index = True
+    
+ErrorHandler:
+   Write_Remote_Index = False
+
 End Function
-Private Function WriteText(ByVal pFileName As String, ByVal pFolder As String, ByVal pMESSAGE As String)
+
+Public Function Write_Local_Index(ByVal pFileName As String, ByVal pLocal_Folder As String, ByVal pRemote_Folder As String)
+    Dim strMessage As String
+    Dim strPath  As String
+    Dim strFileName As String
+    
+    strFileName = Format(DATE, "YYYYMMDD") & ".csv"
+    
+    strPath = Replace(pLocal_Folder, "\DB\", "\DB\FailIndex\")
+    
+    
+    strMessage = Format(DATE, "YYYY/MM/DD") & " " & Format(TIME, "HH:MM:SS") & "," & pRemote_Folder & pFileName
+    On Error GoTo ErrorHandler
+    
+    Call WriteIndex(strFileName, strPath, strMessage)
+    Write_Local_Index = True
+ErrorHandler:
+   Write_Local_Index = False
+End Function
+Private Function WriteIndex(ByVal pFileName As String, ByVal pFolder As String, ByVal pMESSAGE As String)
    
     
     Dim intFileNum                          As Integer
+    Dim fs As Object
     Dim ErrMsg As String
 
+    Set fs = CreateObject("Scripting.FileSystemObject")
     intFileNum = FreeFile
+    
     On Error GoTo ErrorHandler
+    
+    If Dir(pFolder & pFileName, vbDirectory) = "" Then
+        MakeSureDirectoryPathExists pFolder & pFileName
+         Open pFolder & pFileName For Output As intFileNum
+         Print #intFileNum, "date_time,data_file"
+    
+        Close intFileNum
+    End If
+    
     Open pFolder & pFileName For Append As intFileNum
     
     Print #intFileNum, pMESSAGE
@@ -88,7 +112,6 @@ Private Function WriteText(ByVal pFileName As String, ByVal pFolder As String, B
 ErrorHandler:
     ErrMsg = Err.Number & " - " & Err.Description
     Call SaveLog("Decode_CST_Information_Elements", ErrMsg)
-    Call Show_Message("Write index error", ErrMsg)
 End Function
 Public Function Check_Network() As Boolean
 
