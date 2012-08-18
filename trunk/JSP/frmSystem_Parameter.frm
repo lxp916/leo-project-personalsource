@@ -51,6 +51,7 @@ Begin VB.Form frmSystem_Parameter
          TabPicture(0)   =   "frmSystem_Parameter.frx":0000
          Tab(0).ControlEnabled=   0   'False
          Tab(0).Control(0)=   "Frame2(0)"
+         Tab(0).Control(0).Enabled=   0   'False
          Tab(0).ControlCount=   1
          TabCaption(1)   =   "RS-232 Parameter"
          TabPicture(1)   =   "frmSystem_Parameter.frx":001C
@@ -67,19 +68,25 @@ Begin VB.Form frmSystem_Parameter
          TabPicture(3)   =   "frmSystem_Parameter.frx":0054
          Tab(3).ControlEnabled=   0   'False
          Tab(3).Control(0)=   "Frame5"
+         Tab(3).Control(0).Enabled=   0   'False
          Tab(3).ControlCount=   1
          TabCaption(4)   =   "Alarm/Grade"
          TabPicture(4)   =   "frmSystem_Parameter.frx":0070
          Tab(4).ControlEnabled=   0   'False
-         Tab(4).Control(0)=   "Frame6"
-         Tab(4).Control(1)=   "Frame4"
+         Tab(4).Control(0)=   "Frame4"
+         Tab(4).Control(0).Enabled=   0   'False
+         Tab(4).Control(1)=   "Frame6"
+         Tab(4).Control(1).Enabled=   0   'False
          Tab(4).ControlCount=   2
          TabCaption(5)   =   "Rank Level"
          TabPicture(5)   =   "frmSystem_Parameter.frx":008C
          Tab(5).ControlEnabled=   0   'False
-         Tab(5).Control(0)=   "cmdDelete"
+         Tab(5).Control(0)=   "frameRank(0)"
+         Tab(5).Control(0).Enabled=   0   'False
          Tab(5).Control(1)=   "cmdSave"
-         Tab(5).Control(2)=   "frameRank(0)"
+         Tab(5).Control(1).Enabled=   0   'False
+         Tab(5).Control(2)=   "cmdDelete"
+         Tab(5).Control(2).Enabled=   0   'False
          Tab(5).ControlCount=   3
          Begin VB.CommandButton cmdDelete 
             Caption         =   "Delete"
@@ -626,6 +633,21 @@ Begin VB.Form frmSystem_Parameter
             TabIndex        =   7
             Top             =   628
             Width           =   10095
+            Begin VB.TextBox txtRemoteFolder 
+               Height          =   264
+               Left            =   2400
+               TabIndex        =   75
+               Top             =   3720
+               Width           =   1452
+            End
+            Begin VB.TextBox txtRemote 
+               Height          =   264
+               Left            =   2400
+               TabIndex        =   71
+               Text            =   "0.0.0.0"
+               Top             =   3360
+               Width           =   1452
+            End
             Begin VB.OptionButton radResume 
                Caption         =   "Resume Mode"
                Height          =   372
@@ -802,6 +824,44 @@ Begin VB.Form frmSystem_Parameter
                Top             =   2070
                Width           =   645
             End
+            Begin VB.Label Label1 
+               AutoSize        =   -1  'True
+               Caption         =   "Remote Server Root Folder"
+               BeginProperty Font 
+                  Name            =   "Arial"
+                  Size            =   9
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               Height          =   204
+               Index           =   8
+               Left            =   240
+               TabIndex        =   74
+               Top             =   3720
+               Width           =   2148
+            End
+            Begin VB.Label Label1 
+               AutoSize        =   -1  'True
+               Caption         =   "Remote Server IP Address"
+               BeginProperty Font 
+                  Name            =   "Arial"
+                  Size            =   9
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               Height          =   204
+               Index           =   1
+               Left            =   240
+               TabIndex        =   70
+               Top             =   3360
+               Width           =   2088
+            End
             Begin VB.Label Label6 
                AutoSize        =   -1  'True
                Caption         =   "time(s)"
@@ -908,7 +968,7 @@ Begin VB.Form frmSystem_Parameter
             End
             Begin VB.Label Label1 
                AutoSize        =   -1  'True
-               Caption         =   "File Server IP Address"
+               Caption         =   "FTP Server IP Address"
                BeginProperty Font 
                   Name            =   "Arial"
                   Size            =   9
@@ -918,12 +978,12 @@ Begin VB.Form frmSystem_Parameter
                   Italic          =   0   'False
                   Strikethrough   =   0   'False
                EndProperty
-               Height          =   180
+               Height          =   204
                Index           =   4
                Left            =   420
                TabIndex        =   21
-               Top             =   450
-               Width           =   1980
+               Top             =   456
+               Width           =   1800
             End
             Begin VB.Label Label5 
                AutoSize        =   -1  'True
@@ -993,6 +1053,63 @@ Begin VB.Form frmSystem_Parameter
             End
          End
       End
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      Caption         =   "HOST DATA Path"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Index           =   3
+      Left            =   0
+      TabIndex        =   73
+      Top             =   0
+      Width           =   1260
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      Caption         =   "HOST DATA Path"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Index           =   2
+      Left            =   0
+      TabIndex        =   72
+      Top             =   0
+      Width           =   1260
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      Caption         =   "FTP Server IP Address"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   204
+      Index           =   0
+      Left            =   0
+      TabIndex        =   69
+      Top             =   0
+      Width           =   1800
    End
    Begin VB.Menu mnuPort_Use 
       Caption         =   "Port_Use"
@@ -1269,6 +1386,10 @@ Private Sub cmdFTP_Save_Click()
     Else
         Print #intFileNum, "Use FTP Mode=0"
     End If
+    strTemp = "Remote Server IP=" & Me.txtRemote.Text
+    Print #intFileNum, strTemp
+    strTemp = "Remote Server Folder=" & Me.txtRemoteFolder.Text
+    Print #intFileNum, strTemp
     Close intFileNum
 '
 '    strFileName = "Common_Parameter.cfg"
@@ -1395,7 +1516,7 @@ Private Sub txtEdit_LostFocus()
 End Sub
 
 
-Private Sub flxRS232_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub flxRS232_MouseUp(Button As Integer, Shift As Integer, X As Single, y As Single)
 
     Dim intRow                              As Integer
     
@@ -1583,6 +1704,10 @@ Private Sub Init_Form()
                         Me.radFtpMode.Value = vbUnchecked
                         Me.radResume.Value = vbChecked
                     End If
+                Case "Remote Server IP":
+                    Me.txtRemote.Text = Mid(strTemp, intPos + 1)
+                Case "Remote Server Folder":
+                    Me.txtRemoteFolder.Text = Mid(strTemp, intPos + 1)
                 End Select
             End If
         Wend

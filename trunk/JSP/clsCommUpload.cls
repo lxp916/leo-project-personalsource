@@ -15,50 +15,9 @@ Option Explicit
 
 Private Declare Function MakeSureDirectoryPathExists Lib "imagehlp.dll" (ByVal dirPath As String) As Long
 
-Public Function Init_Upload() As Boolean
-    Dim remoteDirectory As String
-    
-    Init_Upload = True
-    
-End Function
 
-Public Function Get_Upload_Mode()
-    Dim Ftp_Mode As Boolean
-    Dim strFileName As String
-    Dim intFileNum As Integer
-    Dim strTemp As String
-    Dim intPos As Integer
-    Dim intPosition As Integer
-    
-    
-    
-    
-    Ftp_Mode = True
-    strFileName = App.PATH & "\Env\FTP_Parameter.cfg"
-    If Dir(strFileName, vbNormal) <> "" Then
-        intFileNum = FreeFile
-        Open strFileName For Input As intFileNum
-        
-        While Not EOF(intFileNum)
-            Line Input #intFileNum, strTemp
-            intPos = InStr(strTemp, "=")
-            If intPos > 0 Then
-                Select Case Left(strTemp, intPos - 1)
-                
-                'added by leo
-                Case "Use FTP Mode":
-                    If Mid(strTemp, intPosition + 1) = "1" Then
-                        Ftp_Mode = True
-                    Else
-                        Ftp_Mode = False
-                    End If
-                End Select
-            End If
-        Wend
-    End If
-        Close intFileNum
-    Get_Upload_Mode = Ftp_Mode 'True:use FTP uploading mode, false:use common uploading mode
-End Function
+
+
 
 Public Function do_Upload(ByVal pFileName As String, ByVal pRemote_Folder As String, ByVal pLocal_Folder As String) As Boolean
     Dim fs As Object
@@ -67,7 +26,7 @@ Public Function do_Upload(ByVal pFileName As String, ByVal pRemote_Folder As Str
     Dim remoteDisk As String
   
    
-    remoteDisk = "\\" & get_Remote_Server_IP & "\windows2008\"
+    remoteDisk = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_Folder & "\"
     
     sourceFile = pLocal_Folder + pFileName
     destinationFile = remoteDisk + pRemote_Folder + pFileName
@@ -138,7 +97,54 @@ Public Function Check_Network() As Boolean
   Check_Network = networkChecker.IPValid(get_Remote_Server_IP)
   
 End Function
+Private Function get_conf(ByVal strKey As String) As String
+    Dim strKeyValue As String
+    Dim strFileName As String
+    Dim intFileNum As Integer
+    Dim strTemp As String
+    Dim intPos As Integer
+    Dim intPosition As Integer
+
+    strFileName = App.PATH & "\Env\FTP_Parameter.cfg"
+    If Dir(strFileName, vbNormal) <> "" Then
+        intFileNum = FreeFile
+        Open strFileName For Input As intFileNum
+        
+        While Not EOF(intFileNum)
+            Line Input #intFileNum, strTemp
+            intPos = InStr(strTemp, "=")
+            If intPos > 0 Then
+                Select Case Left(strTemp, intPos - 1)
+                Case strKey:
+                    strKeyValue = Mid(strTemp, intPos + 1)
+                    
+                End Select
+            End If
+        Wend
+    End If
+    Close intFileNum
+    get_conf = strKeyValue
+End Function
 
 Private Function get_Remote_Server_IP() As String
-get_Remote_Server_IP = "192.168.1.5"
+get_Remote_Server_IP = get_conf("Remote Server IP")
+End Function
+
+Private Function get_Remote_Server_Folder() As String
+get_Remote_Server_Folder = get_conf("Remote Server Folder")
+End Function
+
+Public Function Get_Upload_Mode()
+    Dim Ftp_Mode As Boolean
+    Dim strKeyValue  As String
+    
+    strKeyValue = get_conf("Use FTP Mode")
+    Ftp_Mode = True
+    If strKeyValue = "1" Then
+        Ftp_Mode = True
+    Else
+        Ftp_Mode = False
+    End If
+                    
+    Get_Upload_Mode = Ftp_Mode 'True:use FTP uploading mode, false:use common uploading mode
 End Function
