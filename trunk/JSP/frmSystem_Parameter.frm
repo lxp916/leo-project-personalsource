@@ -51,7 +51,6 @@ Begin VB.Form frmSystem_Parameter
          TabPicture(0)   =   "frmSystem_Parameter.frx":0000
          Tab(0).ControlEnabled=   0   'False
          Tab(0).Control(0)=   "Frame2(0)"
-         Tab(0).Control(0).Enabled=   0   'False
          Tab(0).ControlCount=   1
          TabCaption(1)   =   "RS-232 Parameter"
          TabPicture(1)   =   "frmSystem_Parameter.frx":001C
@@ -68,25 +67,19 @@ Begin VB.Form frmSystem_Parameter
          TabPicture(3)   =   "frmSystem_Parameter.frx":0054
          Tab(3).ControlEnabled=   0   'False
          Tab(3).Control(0)=   "Frame5"
-         Tab(3).Control(0).Enabled=   0   'False
          Tab(3).ControlCount=   1
          TabCaption(4)   =   "Alarm/Grade"
          TabPicture(4)   =   "frmSystem_Parameter.frx":0070
          Tab(4).ControlEnabled=   0   'False
          Tab(4).Control(0)=   "Frame4"
-         Tab(4).Control(0).Enabled=   0   'False
          Tab(4).Control(1)=   "Frame6"
-         Tab(4).Control(1).Enabled=   0   'False
          Tab(4).ControlCount=   2
          TabCaption(5)   =   "Rank Level"
          TabPicture(5)   =   "frmSystem_Parameter.frx":008C
          Tab(5).ControlEnabled=   0   'False
          Tab(5).Control(0)=   "frameRank(0)"
-         Tab(5).Control(0).Enabled=   0   'False
          Tab(5).Control(1)=   "cmdSave"
-         Tab(5).Control(1).Enabled=   0   'False
          Tab(5).Control(2)=   "cmdDelete"
-         Tab(5).Control(2).Enabled=   0   'False
          Tab(5).ControlCount=   3
          Begin VB.CommandButton cmdDelete 
             Caption         =   "Delete"
@@ -633,6 +626,22 @@ Begin VB.Form frmSystem_Parameter
             TabIndex        =   7
             Top             =   628
             Width           =   10095
+            Begin VB.TextBox txtRemotePwd 
+               Height          =   264
+               IMEMode         =   3  'DISABLE
+               Left            =   6960
+               PasswordChar    =   "*"
+               TabIndex        =   80
+               Top             =   3720
+               Width           =   1452
+            End
+            Begin VB.TextBox txtRemoteLogin 
+               Height          =   264
+               Left            =   6960
+               TabIndex        =   79
+               Top             =   3360
+               Width           =   1452
+            End
             Begin VB.TextBox txtRemoteFolder 
                Height          =   264
                Left            =   2400
@@ -823,6 +832,44 @@ Begin VB.Form frmSystem_Parameter
                Text            =   "0"
                Top             =   2070
                Width           =   645
+            End
+            Begin VB.Label Label1 
+               AutoSize        =   -1  'True
+               Caption         =   "Remote Server Login Password"
+               BeginProperty Font 
+                  Name            =   "Arial"
+                  Size            =   9
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               Height          =   204
+               Index           =   11
+               Left            =   4200
+               TabIndex        =   78
+               Top             =   3720
+               Width           =   2496
+            End
+            Begin VB.Label Label1 
+               AutoSize        =   -1  'True
+               Caption         =   "Remote Server Login ID"
+               BeginProperty Font 
+                  Name            =   "Arial"
+                  Size            =   9
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               Height          =   204
+               Index           =   10
+               Left            =   4200
+               TabIndex        =   77
+               Top             =   3360
+               Width           =   1872
             End
             Begin VB.Label Label1 
                AutoSize        =   -1  'True
@@ -1053,6 +1100,25 @@ Begin VB.Form frmSystem_Parameter
             End
          End
       End
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      Caption         =   "Remote Server Root Folder"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   204
+      Index           =   9
+      Left            =   0
+      TabIndex        =   76
+      Top             =   0
+      Width           =   2148
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True
@@ -1386,10 +1452,19 @@ Private Sub cmdFTP_Save_Click()
     Else
         Print #intFileNum, "Use FTP Mode=0"
     End If
+    
     strTemp = "Remote Server IP=" & Me.txtRemote.Text
     Print #intFileNum, strTemp
+    
     strTemp = "Remote Server Folder=" & Me.txtRemoteFolder.Text
     Print #intFileNum, strTemp
+    
+    strTemp = "Remote Server Login=" & Me.txtRemoteLogin.Text
+    Print #intFileNum, strTemp
+    
+    strTemp = "Remote Server Login Password=" & Me.txtRemotePwd.Text
+    Print #intFileNum, strTemp
+    
     Close intFileNum
 '
 '    strFileName = "Common_Parameter.cfg"
@@ -1506,6 +1581,9 @@ Private Sub flxRankLevel_EnterCell()
       .SelLength = Len(txtEdit.Text)
     End With
 End Sub
+
+
+
  'Leo 2012.05.15 ver.0.9.26 -----Add Rank level
 Private Sub txtEdit_Change()
     flxRankLevel.Text = txtEdit.Text
@@ -1516,7 +1594,7 @@ Private Sub txtEdit_LostFocus()
 End Sub
 
 
-Private Sub flxRS232_MouseUp(Button As Integer, Shift As Integer, X As Single, y As Single)
+Private Sub flxRS232_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
 
     Dim intRow                              As Integer
     
@@ -1708,6 +1786,10 @@ Private Sub Init_Form()
                     Me.txtRemote.Text = Mid(strTemp, intPos + 1)
                 Case "Remote Server Folder":
                     Me.txtRemoteFolder.Text = Mid(strTemp, intPos + 1)
+                 Case "Remote Server Login":
+                    Me.txtRemoteLogin.Text = Mid(strTemp, intPos + 1)
+                 Case "Remote Server Login Password":
+                    Me.txtRemotePwd.Text = Mid(strTemp, intPos + 1)
                 End Select
             End If
         Wend

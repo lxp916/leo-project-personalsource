@@ -33,31 +33,34 @@ On Error GoTo ErrorHandler
         Else
             FTP_Upload = False
         End If
-    Else ' common lan network uploadming mode
+    Else ' common lan network uploadming mode added by leo 2012.08.19
         If Right(pRemotePath, 1) <> "\" Then
             pRemotePath = pRemotePath & "\"
         End If
-            If commUpload_OBJ.Check_Network = False Then
-                Call Show_Message("Network is disconnected", "Remote server is not reachable, please check your network.")
+        If commUpload_OBJ.Check_Network = False Then
+            Call Show_Message("Network is disconnected", "Remote server is not reachable, please check your network.")
+            Call commUpload_OBJ.Write_Local_Index(pFileName, pLocalPath, pRemotePath)
+        Else
+            Call commUpload_OBJ.Write_Remote_Index(pFileName, pRemotePath)
+            bolResult = commUpload_OBJ.do_Upload(pFileName, pLocalPath, pRemotePath)
+            
+            If bolResult = False Then
+                Call SaveLog("Defect_File_Upload", pFileName & " upload fail. Remote path : " & pRemotePath)
                 Call commUpload_OBJ.Write_Local_Index(pFileName, pLocalPath, pRemotePath)
+                FTP_Upload = False
             Else
-                bolResult = commUpload_OBJ.do_Upload(pFileName, pRemotePath, pLocalPath)
-                
-                If bolResult = False Then
-                    Call SaveLog("Defect_File_Upload", pFileName & " upload fail. Remote path : " & pRemotePath)
-                    FTP_Upload = False
-                Else
-                    FTP_Upload = True
-                    Call SaveLog("Defect_File_Upload", pFileName & " upload successful. Remote path : " & pRemotePath)
-                End If
 
-                Call commUpload_OBJ.Write_Remote_Index(pFileName, pRemotePath)
-                If MsgBox("Are you sure panel unload by manual?", vbYesNo, "") = vbYes Then
-                   
+                If MsgBox("Do you want to upload local existing offline files?", vbYesNo, "") = vbYes Then
                    ' upload last faild files
+                   Call commUpload_OBJ.do_upload_files
                 End If
+                Call SaveLog("Defect_File_Upload", pFileName & " upload successful. Remote path : " & pRemotePath)
+                FTP_Upload = True
             End If
+
+            
         End If
+    End If
     
     Exit Function
     
