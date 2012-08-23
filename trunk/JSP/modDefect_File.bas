@@ -52,7 +52,9 @@ On Error GoTo ErrorHandler
 
                 If MsgBox("Do you want to upload local existing offline files?", vbYesNo, "") = vbYes Then
                    ' upload last faild files
-                   Call commUpload_OBJ.do_upload_files
+                   If commUpload_OBJ.hasExistingLocalIndex = True Then
+                    Call commUpload_OBJ.do_upload_files
+                   End If
                 End If
                 Call SaveLog("Defect_File_Upload", pFileName & " upload successful. Remote path : " & pRemotePath)
                 FTP_Upload = True
