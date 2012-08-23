@@ -5,7 +5,7 @@ Private Function FTP_Upload(ByVal pRemotePath As String, ByVal pLocalPath As Str
 
     Dim FTP_OBJ                 As New clsFTP
     
-    Dim commUpload_OBJ          As New clsCommUpload
+    Dim fe_object          As New clsFileExchanger
     
     Dim bolResult               As Boolean
      Dim isUpload               As Boolean
@@ -15,7 +15,7 @@ Private Function FTP_Upload(ByVal pRemotePath As String, ByVal pLocalPath As Str
 On Error GoTo ErrorHandler
 
 ' Add upload mode selector, by leo.2012.08.15  'True:use FTP uploading mode, false:use common uploading mode
-    If (commUpload_OBJ.Get_Upload_Mode) Then
+    If (fe_object.IsFTPUploadMode) Then
         If FTP_OBJ.Init_FTP_Client = True Then       'FTP Object Initialize
             If Right(pRemotePath, 1) <> "\" Then
                 pRemotePath = pRemotePath & "\"
@@ -37,23 +37,23 @@ On Error GoTo ErrorHandler
         If Right(pRemotePath, 1) <> "\" Then
             pRemotePath = pRemotePath & "\"
         End If
-        If commUpload_OBJ.Check_Network = False Then
+        If fe_object.Check_Network = False Then
             Call Show_Message("Network is disconnected", "Remote server is not reachable, please check your network.")
-            Call commUpload_OBJ.Write_Local_Index(pFileName, pLocalPath, pRemotePath)
+            Call fe_object.Write_Local_Index(pFileName, pLocalPath, pRemotePath)
         Else
-            Call commUpload_OBJ.Write_Remote_Index(pFileName, pRemotePath)
-            bolResult = commUpload_OBJ.do_Upload(pFileName, pLocalPath, pRemotePath)
+            Call fe_object.Write_Remote_Index(pFileName, pRemotePath)
+            bolResult = fe_object.do_Upload(pFileName, pLocalPath, pRemotePath)
             
             If bolResult = False Then
                 Call SaveLog("Defect_File_Upload", pFileName & " upload fail. Remote path : " & pRemotePath)
-                Call commUpload_OBJ.Write_Local_Index(pFileName, pLocalPath, pRemotePath)
+                Call fe_object.Write_Local_Index(pFileName, pLocalPath, pRemotePath)
                 FTP_Upload = False
             Else
 
                 If MsgBox("Do you want to upload local existing offline files?", vbYesNo, "") = vbYes Then
                    ' upload last faild files
-                   If commUpload_OBJ.hasExistingLocalIndex = True Then
-                    Call commUpload_OBJ.do_upload_files
+                   If fe_object.hasExistingLocalIndex = True Then
+                    Call fe_object.do_upload_files
                    End If
                 End If
                 Call SaveLog("Defect_File_Upload", pFileName & " upload successful. Remote path : " & pRemotePath)

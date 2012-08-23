@@ -397,7 +397,7 @@ Public Sub Decode_PANEL_Information_Elements(ByVal pCommand As String, pPANEL_IN
         frmMain.flxMES_Data.TextMatrix(35, 1) = .X_TOTAL_PIXEL
         .Y_TOTAL_PIXEL = typPFCD_PID.Y_PIXEL_LENGTH
         frmMain.flxMES_Data.TextMatrix(36, 1) = .Y_TOTAL_PIXEL
-        .X_ONE_PIXEL_LENGTH = typPFCD_PID.DATA
+        .X_ONE_PIXEL_LENGTH = typPFCD_PID.Data
         frmMain.flxMES_Data.TextMatrix(37, 1) = .X_ONE_PIXEL_LENGTH
         .Y_ONE_PIXEL_LENGTH = typPFCD_PID.GATE
         frmMain.flxMES_Data.TextMatrix(38, 1) = .Y_ONE_PIXEL_LENGTH
@@ -483,7 +483,7 @@ Public Sub Decode_JOB_Information_Elements(ByVal pCommand As String, pJOB_DATA A
         .CUT_FLAG = Left(pCommand, cSIZE_CUT_FLAG_JOB)
         pCommand = Mid(pCommand, cSIZE_CUT_FLAG_JOB + 1)
         
-        .RESERVED = Left(pCommand, cSIZE_RESERVED_JOB)
+        .Reserved = Left(pCommand, cSIZE_RESERVED_JOB)
     End With
     
 End Sub
@@ -918,7 +918,7 @@ Public Sub Save_MES_Data(pCST_DATA As CST_INFO_ELEMENTS, pPANEL_DATA As PANEL_IN
         strTemp = strTemp & "LIGHT_ON_REASON_CODE=" & .LIGHT_ON_REASON_CODE & vbCrLf
         strTemp = strTemp & "PANEL_NG_FLAG=" & .PANEL_NG_FLAG & vbCrLf
         strTemp = strTemp & "CUT_FLAG=" & .CUT_FLAG & vbCrLf
-        strTemp = strTemp & "RESERVED=" & .RESERVED
+        strTemp = strTemp & "RESERVED=" & .Reserved
         Print #intFileNum, strTemp
     End With
     Close intFileNum
@@ -1198,7 +1198,7 @@ Public Sub Get_MES_Data(pCST_DATA As CST_INFO_ELEMENTS, pPANEL_DATA As PANEL_INF
                     Case "CUT_FLAG":
                         .CUT_FLAG = Mid(strTemp, intPosition + 1)
                     Case "RESERVED":
-                        .RESERVED = Mid(strTemp, intPosition + 1)
+                        .Reserved = Mid(strTemp, intPosition + 1)
                     End Select
                 End With
             End If
@@ -1368,7 +1368,7 @@ Public Sub Insert_Panel_MES_Data(pPANEL_DATA As PANEL_DATA, pCST_MES_DATA As CST
             strQuery = strQuery & "'" & .LIGHT_ON_REASON_CODE & "', "
             strQuery = strQuery & "'" & .PANEL_NG_FLAG & "', "
             strQuery = strQuery & "'" & .CUT_FLAG & "', "
-            strQuery = strQuery & "'" & .RESERVED & "')"
+            strQuery = strQuery & "'" & .Reserved & "')"
             
             dbMyDB.Execute strQuery
         End With
@@ -3587,6 +3587,7 @@ Public Function Make_CST_DATA_DB(ByVal pMonth As Integer, ByVal pDay As Integer,
     Dim strDB_FileName              As String
     Dim strQuery                    As String
     Dim FTP_OBJ                     As New clsFTP
+    Dim fe_obj                      As New clsFileExchanger
     Dim Sourcepath                  As String
     Dim SourceName                  As String
     Dim intFileNum                  As Integer
@@ -3684,23 +3685,39 @@ On Error GoTo ErrorHandler
 '==========================================================================================================
         strRemote_Path = "CATST\" & Left(pPANEL_INFO.PRODUCTID, 11) & "0" & "\" & Mid(pPANEL_INFO.PANELID, 1, 5) & "\"
         strRemote_Path = strRemote_Path & Mid(pPANEL_INFO.PANELID, 1, 8) & "\" & pPANEL_INFO.PANELID & "\" & "BACKUP\"
-    If FTP_OBJ.Init_FTP_Client = True Then
-            Call FTP_OBJ.Open_Session
-            strFileName = FTP_OBJ.FTP_Get_FileList("*.CSV", strRemote_Path)
-          If strFileName <> "" Then
-            Sourcepath = App.PATH & "\ENV\"
-            If Dir(Sourcepath & strFileName, vbNormal) <> "" Then
-                intFileNum = FreeFile
-                Open Sourcepath & strFileName For Input As intFileNum
-                While Not EOF(intFileNum)
-                Line Input #intFileNum, strTemp
-                SourceName = strTemp
-                Wend
-                Close #intFileNum
-            End If
+    If fe_obj.IsFTPUploadMode Then
+        If FTP_OBJ.Init_FTP_Client = True Then
+                Call FTP_OBJ.Open_Session
+                strFileName = FTP_OBJ.FTP_Get_FileList("*.CSV", strRemote_Path)
+              If strFileName <> "" Then
+                Sourcepath = App.PATH & "\ENV\"
+                If Dir(Sourcepath & strFileName, vbNormal) <> "" Then
+                    intFileNum = FreeFile
+                    Open Sourcepath & strFileName For Input As intFileNum
+                    While Not EOF(intFileNum)
+                    Line Input #intFileNum, strTemp
+                    SourceName = strTemp
+                    Wend
+                    Close #intFileNum
+                End If
+              End If
+               FTP_OBJ.Close_Session
+               FTP_OBJ.Disconnect_FTP_Client
+        End If
+    Else ' ex-ftp mode
+        strFileName = fe_obj.Get_Remote_FileList("*.CSV", strRemote_Path)
+        If strFileName <> "" Then
+          Sourcepath = App.PATH & "\ENV\"
+          If Dir(Sourcepath & strFileName, vbNormal) <> "" Then
+              intFileNum = FreeFile
+              Open Sourcepath & strFileName For Input As intFileNum
+              While Not EOF(intFileNum)
+              Line Input #intFileNum, strTemp
+              SourceName = strTemp
+              Wend
+              Close #intFileNum
           End If
-           FTP_OBJ.Close_Session
-           FTP_OBJ.Disconnect_FTP_Client
+        End If
     End If
         
 If SourceName <> "" Then
@@ -4414,8 +4431,8 @@ Public Sub Read_PFCD_DATA()
                         strTemp = Mid(strTemp, intPos + 1)
                         
                         intPos = InStr(strTemp, ",")
-                        .DATA = Left(strTemp, intPos - 1)
-                        pubPANEL_INFO.X_ONE_PIXEL_LENGTH = .DATA
+                        .Data = Left(strTemp, intPos - 1)
+                        pubPANEL_INFO.X_ONE_PIXEL_LENGTH = .Data
                         strTemp = Mid(strTemp, intPos + 1)
                         
                         intPos = InStr(strTemp, ",")
@@ -4467,7 +4484,7 @@ Public Sub Insert_PFCD_DATA(pPFCD_DATA As PFCD_DATA)
                 strQuery = "UPDATE PFCD_DATA SET "
                 strQuery = strQuery & "X_PIXEL_LENGTH = '" & pPFCD_DATA.X_PIXEL_LENGTH & "', "
                 strQuery = strQuery & "Y_PIXEL_LENGTH = '" & pPFCD_DATA.Y_PIXEL_LENGTH & "', "
-                strQuery = strQuery & "DATA = '" & pPFCD_DATA.DATA & "', "
+                strQuery = strQuery & "DATA = '" & pPFCD_DATA.Data & "', "
                 strQuery = strQuery & "GATE = '" & pPFCD_DATA.GATE & "', "
                 strQuery = strQuery & "CSTC = '" & pPFCD_DATA.CSTC & "', "
                 strQuery = strQuery & "MAX_PANEL = '" & pPFCD_DATA.MAX_PANEL & "', "
@@ -4482,7 +4499,7 @@ Public Sub Insert_PFCD_DATA(pPFCD_DATA As PFCD_DATA)
                     strQuery = strQuery & "'" & .PFCD & "', "
                     strQuery = strQuery & "'" & .X_PIXEL_LENGTH & "', "
                     strQuery = strQuery & "'" & .Y_PIXEL_LENGTH & "', "
-                    strQuery = strQuery & "'" & .DATA & "', "
+                    strQuery = strQuery & "'" & .Data & "', "
                     strQuery = strQuery & "'" & .GATE & "', "
                     strQuery = strQuery & "'" & .CSTC & "', "
                     strQuery = strQuery & "'" & .MAX_PANEL & "', "
@@ -4525,7 +4542,7 @@ Public Sub Get_PFCD_DATA(pPFCD_DATA As PFCD_DATA, ByVal pPFCD As String)
                 .PFCD = pPFCD
                 .X_PIXEL_LENGTH = lstRecord.Fields("X_PIXEL_LENGTH")
                 .Y_PIXEL_LENGTH = lstRecord.Fields("Y_PIXEL_LENGTH")
-                .DATA = lstRecord.Fields("DATA")
+                .Data = lstRecord.Fields("DATA")
                 .GATE = lstRecord.Fields("GATE")
                 .CSTC = lstRecord.Fields("CSTC")
                 .MAX_PANEL = lstRecord.Fields("MAX_PANEL")
@@ -4619,27 +4636,40 @@ End Function
 Public Sub Put_File_To_Host(ByVal pFileName As String, ByVal pSub_Path As String, ByVal pLocal_Path As String)
 
     Dim FTP_OBJECT              As New clsFTP
+    Dim fe_obj                  As New clsFileExchanger
     
     Dim strRemote_Path          As String
     
     Dim ErrMsg                  As String
     
 On Error GoTo ErrorHandler
-
-    If FTP_OBJECT.Init_FTP_Client = True Then
-        Call FTP_OBJECT.Open_Session
-        strRemote_Path = FTP_OBJECT.Get_Path(cFTP_HOST)
-        If Right(strRemote_Path, 1) <> "\" Then
-            strRemote_Path = strRemote_Path & "\"
-        End If
-        strRemote_Path = strRemote_Path & pSub_Path & "\"
-        If FTP_OBJECT.FTP_Put_File(pFileName, strRemote_Path, pLocal_Path) = True Then
-            Call SaveLog("Put_File_To_Host", pFileName & " upload success.")
+    If fe_obj.IsFTPUploadMode Then
+        If FTP_OBJECT.Init_FTP_Client = True Then
+            Call FTP_OBJECT.Open_Session
+            strRemote_Path = FTP_OBJECT.Get_Path(cFTP_HOST)
+            If Right(strRemote_Path, 1) <> "\" Then
+                strRemote_Path = strRemote_Path & "\"
+            End If
+            strRemote_Path = strRemote_Path & pSub_Path & "\"
+            If FTP_OBJECT.FTP_Put_File(pFileName, strRemote_Path, pLocal_Path) = True Then
+                Call SaveLog("Put_File_To_Host", pFileName & " upload success.")
+            Else
+                Call SaveLog("Put_File_To_Host", pFileName & " upload fail.")
+            End If
         Else
-            Call SaveLog("Put_File_To_Host", pFileName & " upload fail.")
+            Call SaveLog("Put_File_To_Host", "FTP initialize fail.")
         End If
     Else
-        Call SaveLog("Put_File_To_Host", "FTP initialize fail.")
+        strRemote_Path = FTP_OBJECT.Get_Path(cFTP_HOST)
+            If Right(strRemote_Path, 1) <> "\" Then
+                strRemote_Path = strRemote_Path & "\"
+            End If
+            strRemote_Path = strRemote_Path & pSub_Path & "\"
+            If fe_obj.do_Upload(pFileName, pLocal_Path, strRemote_Path) = True Then
+                Call SaveLog("Put_File_To_Host", pFileName & " upload success.")
+            Else
+                Call SaveLog("Put_File_To_Host", pFileName & " upload fail.")
+            End If
     End If
     
     Exit Sub
@@ -4654,6 +4684,7 @@ End Sub
 Public Sub Get_File_From_Host(ByVal pFileName As String, ByVal pSub_Path As String)
 
     Dim FTP_OBJECT              As New clsFTP
+    Dim fe_object          As New clsFileExchanger
 
     Dim strRemote_Path          As String
     Dim strLocal_Path           As String
@@ -4661,24 +4692,32 @@ Public Sub Get_File_From_Host(ByVal pFileName As String, ByVal pSub_Path As Stri
     Dim ErrMsg                  As String
     
 On Error GoTo ErrorHandler
-
-    If FTP_OBJECT.Init_FTP_Client = True Then
-        Call FTP_OBJECT.Open_Session
-        strRemote_Path = FTP_OBJECT.Get_Path(cFTP_HOST)
-        If Right(strRemote_Path, 1) <> "\" Then
-            strRemote_Path = strRemote_Path & "\"
-        End If
-        strRemote_Path = strRemote_Path & pSub_Path & "\"
-        strLocal_Path = App.PATH & "\Env\Standard_Info\"
-        If FTP_OBJECT.FTP_Get_File(pFileName, strRemote_Path, strLocal_Path) = True Then
-            Call SaveLog("Get_File_From_Host", pFileName & " download success.")
+    strRemote_Path = FTP_OBJECT.Get_Path(cFTP_HOST)
+    If Right(strRemote_Path, 1) <> "\" Then
+        strRemote_Path = strRemote_Path & "\"
+    End If
+    strRemote_Path = strRemote_Path & pSub_Path & "\"
+    strLocal_Path = App.PATH & "\Env\Standard_Info\"
+    If (fe_object.IsFTPUploadMode) Then
+        If FTP_OBJECT.Init_FTP_Client = True Then
+            Call FTP_OBJECT.Open_Session
+            
+            If FTP_OBJECT.FTP_Get_File(pFileName, strRemote_Path, strLocal_Path) = True Then
+                Call SaveLog("Get_File_From_Host", pFileName & " download success.")
+            Else
+                Call SaveLog("Get_File_From_Host", pFileName & " download fail.")
+            End If
+            Call FTP_OBJECT.Close_Session
+            Call FTP_OBJECT.Disconnect_FTP_Client
         Else
-            Call SaveLog("Get_File_From_Host", pFileName & " download fail.")
+            Call SaveLog("Get_File_From_Host", "FTP initialize fail.")
         End If
-        Call FTP_OBJECT.Close_Session
-        Call FTP_OBJECT.Disconnect_FTP_Client
-    Else
-        Call SaveLog("Get_File_From_Host", "FTP initialize fail.")
+    Else ' non-ftp mode download
+        If fe_object.Get_File_From_Remote(pFileName, strRemote_Path, strLocal_Path) Then
+             Call SaveLog("Get_File_From_Remote", pFileName & " download success.")
+        Else
+            Call SaveLog("Get_File_From_Remote", pFileName & " download fail.")
+        End If
     End If
     
     Exit Sub
@@ -4693,34 +4732,46 @@ End Sub
 Public Sub Get_File_From_Host_by_Path(ByVal pPath As String, ByVal pLocal_Path As String, ByVal pFileName As String)
 
     Dim FTP_OBJECT              As New clsFTP
+    Dim fe_object As New clsFileExchanger
 
     Dim strRemote_Path          As String
     Dim strLocal_Path           As String
 
     Dim ErrMsg                  As String
     
-On Error GoTo ErrorHandler
-
-    If FTP_OBJECT.Init_FTP_Client = True Then
-        Call FTP_OBJECT.Open_Session
-        strRemote_Path = pPath
-        If Right(strRemote_Path, 1) <> "\" Then
-            strRemote_Path = strRemote_Path & "\"
-        End If
-        strLocal_Path = pLocal_Path
-        If Right(strLocal_Path, 1) <> "\" Then
-            strLocal_Path = strLocal_Path & "\"
-        End If
-        If FTP_OBJECT.FTP_Get_File(pFileName, strRemote_Path, strLocal_Path) = True Then
-            Call SaveLog("Get_File_From_Host_by_Path", pFileName & " download success.")
-        Else
-            Call SaveLog("Get_File_From_Host", pFileName & " download fail.")
-        End If
-        Call FTP_OBJECT.Close_Session
-        Call FTP_OBJECT.Disconnect_FTP_Client
-    Else
-        Call SaveLog("Get_File_From_Host", "FTP initialize fail.")
+    strRemote_Path = pPath
+    If Right(strRemote_Path, 1) <> "\" Then
+        strRemote_Path = strRemote_Path & "\"
     End If
+    strLocal_Path = pLocal_Path
+    If Right(strLocal_Path, 1) <> "\" Then
+        strLocal_Path = strLocal_Path & "\"
+    End If
+    
+On Error GoTo ErrorHandler
+    If (fe_object.IsFTPUploadMode) Then
+        If FTP_OBJECT.Init_FTP_Client = True Then
+                Call FTP_OBJECT.Open_Session
+               
+                If FTP_OBJECT.FTP_Get_File(pFileName, strRemote_Path, strLocal_Path) = True Then
+                    Call SaveLog("Get_File_From_Host_by_Path", pFileName & " download success.")
+                Else
+                    Call SaveLog("Get_File_From_Host", pFileName & " download fail.")
+                End If
+                Call FTP_OBJECT.Close_Session
+                Call FTP_OBJECT.Disconnect_FTP_Client
+            Else
+                Call SaveLog("Get_File_From_Host", "FTP initialize fail.")
+            End If
+    Else
+        If fe_object.Get_File_From_Remote(pFileName, strRemote_Path, strLocal_Path) Then
+             Call SaveLog("Get_File_From_Host_by_Path", pFileName & " download success.")
+        Else
+            Call SaveLog("Get_File_From_Host_by_Path", pFileName & " download fail.")
+        End If
+    End If
+
+    
     
     Exit Sub
     
@@ -4745,6 +4796,7 @@ End Sub
 Public Sub Standard_Files_Download()
 
     Dim FTP_OBJ                             As New clsFTP
+    Dim pe_obj                              As New clsFileExchanger
     
     Dim strRemote_Path                      As String
     Dim strLocalPath                        As String
@@ -4757,44 +4809,80 @@ Public Sub Standard_Files_Download()
     strFilePath = App.PATH & "\Env\"
     strFileName = "File_List.txt"
     
-    If FTP_OBJ.Init_FTP_Client = True Then
-        strRemote_Path = FTP_OBJ.Get_Path(cFTP_HOST)
-        If Right(strRemote_Path, 1) <> "\" Then
-            strRemote_Path = strRemote_Path & "\"
-        End If
- 'Lucas Ver.0.9.16 2012.03.20===========================Change the Path of Get_File_From_List
-            strRemote_Path = strRemote_Path & "Table\"
-        bolResult = FTP_OBJ.FTP_Get_File_from_List(strRemote_Path, strLocalPath, strFilePath, strFileName)
-        strFilePath = App.PATH & "\DB\"
-        strFileName = "STANDARD_INFO.mdb"
-        If Dir(strFilePath & strFileName, vbNormal) <> "" Then
-            Kill strFilePath & strFileName
-        End If
-        FileCopy strFilePath & "STANDARD_INFO_Temp.mdb", strFilePath & strFileName
-        Call Read_Control
-        Call EQP.Set_Control_Data
-        Call Read_TFT_CF_PanelID
-        Call Read_Check_MES_DATA
-        Call Read_Assign_Grade
-        
-        Call Read_PreJudgeGradeChange1
-        Call Read_PreJudgeGradeChange2
-        Call Read_PreJudgeGradeChange3
-        Call Read_PostJudgeOtherRule1
-        Call Read_PostJudgeOtherRule2
-        Call Read_PostJudgeOtherRule3
-        Call Read_PostJudgeGradeChange1
-        Call Read_PostJudgeGradeChange2
-        Call Read_CheckPanelIDChangeGrade
-        Call Read_ChangeGrade
-        Call Read_ChangeGradeByDefectCode
-        Call Read_RepairPointTimes
-        Call Read_FlagChangeGrade
-        Call Read_SKChange
-        Call Decode_Auto_Alarm
-        Call RANK_OBJ.Reset_SK_SETTING
-        Call Read_Notice_File
+    strRemote_Path = FTP_OBJ.Get_Path(cFTP_HOST)
+    If Right(strRemote_Path, 1) <> "\" Then
+        strRemote_Path = strRemote_Path & "\"
     End If
+    'Lucas Ver.0.9.16 2012.03.20===========================Change the Path of Get_File_From_List
+    strRemote_Path = strRemote_Path & "Table\"
+               
+    If pe_obj.IsFTPUploadMode Then
+        If FTP_OBJ.Init_FTP_Client = True Then
+           
+           bolResult = FTP_OBJ.FTP_Get_File_from_List(strRemote_Path, strLocalPath, strFilePath, strFileName)
+           strFilePath = App.PATH & "\DB\"
+           strFileName = "STANDARD_INFO.mdb"
+           If Dir(strFilePath & strFileName, vbNormal) <> "" Then
+               Kill strFilePath & strFileName
+           End If
+           FileCopy strFilePath & "STANDARD_INFO_Temp.mdb", strFilePath & strFileName
+           Call Read_Control
+           Call EQP.Set_Control_Data
+           Call Read_TFT_CF_PanelID
+           Call Read_Check_MES_DATA
+           Call Read_Assign_Grade
+           
+           Call Read_PreJudgeGradeChange1
+           Call Read_PreJudgeGradeChange2
+           Call Read_PreJudgeGradeChange3
+           Call Read_PostJudgeOtherRule1
+           Call Read_PostJudgeOtherRule2
+           Call Read_PostJudgeOtherRule3
+           Call Read_PostJudgeGradeChange1
+           Call Read_PostJudgeGradeChange2
+           Call Read_CheckPanelIDChangeGrade
+           Call Read_ChangeGrade
+           Call Read_ChangeGradeByDefectCode
+           Call Read_RepairPointTimes
+           Call Read_FlagChangeGrade
+           Call Read_SKChange
+           Call Decode_Auto_Alarm
+           Call RANK_OBJ.Reset_SK_SETTING
+           Call Read_Notice_File
+        End If
+    Else
+           bolResult = pe_obj.Get_Remote_File_From_List(strRemote_Path, strLocalPath, strFilePath, strFileName)
+           strFilePath = App.PATH & "\DB\"
+           strFileName = "STANDARD_INFO.mdb"
+           If Dir(strFilePath & strFileName, vbNormal) <> "" Then
+               Kill strFilePath & strFileName
+           End If
+           FileCopy strFilePath & "STANDARD_INFO_Temp.mdb", strFilePath & strFileName
+           Call Read_Control
+           Call EQP.Set_Control_Data
+           Call Read_TFT_CF_PanelID
+           Call Read_Check_MES_DATA
+           Call Read_Assign_Grade
+           
+           Call Read_PreJudgeGradeChange1
+           Call Read_PreJudgeGradeChange2
+           Call Read_PreJudgeGradeChange3
+           Call Read_PostJudgeOtherRule1
+           Call Read_PostJudgeOtherRule2
+           Call Read_PostJudgeOtherRule3
+           Call Read_PostJudgeGradeChange1
+           Call Read_PostJudgeGradeChange2
+           Call Read_CheckPanelIDChangeGrade
+           Call Read_ChangeGrade
+           Call Read_ChangeGradeByDefectCode
+           Call Read_RepairPointTimes
+           Call Read_FlagChangeGrade
+           Call Read_SKChange
+           Call Decode_Auto_Alarm
+           Call RANK_OBJ.Reset_SK_SETTING
+           Call Read_Notice_File
+    End If
+    
     
 End Sub
 
@@ -4806,6 +4894,7 @@ Public Sub Set_Version_Data(pVERSION_DATA As VERSION_DATA)
     Dim strPath                             As String
     Dim strFileName                         As String
     Dim strTemp                             As String
+    Dim fe_object          As New clsFileExchanger
     
     Dim intFileNum                          As Integer
     
@@ -4833,21 +4922,41 @@ Public Sub Set_Version_Data(pVERSION_DATA As VERSION_DATA)
         Close intFileNum
     End With
     
-    If FTP_OBJ.Init_FTP_Client = True Then       'FTP Object Initialize
-        strRemotePath = FTP_OBJ.Get_Path(cFTP_DEFECT)
-        If Right(strRemotePath, 1) <> "\" Then
-        strRemotePath = strRemotePath & "\" & "EQ_Config\" & "JPS\" & "Version"
+    If (fe_object.IsFTPUploadMode) Then    ' ftp mode
+        If FTP_OBJ.Init_FTP_Client = True Then       'FTP Object Initialize
+            strRemotePath = FTP_OBJ.Get_Path(cFTP_DEFECT)
+            If Right(strRemotePath, 1) <> "\" Then
+            strRemotePath = strRemotePath & "\" & "EQ_Config\" & "JPS\" & "Version"
+            End If
+            Call FTP_OBJ.Open_Session                     'FTP Session Open
+            bolResult = FTP_OBJ.FTP_Put_File(strFileName, strRemotePath, strPath)
+            If bolResult = False Then
+                Call SaveLog("Defect_File_Upload", strFileName & " upload fail. Remote path : " & strRemotePath)
+            End If
+            FTP_OBJ.Close_Session
+            FTP_OBJ.Disconnect_FTP_Client
+        Else
+            Call SaveLog("Set_Version_Data", "FTP object initialize fail.")
         End If
-        Call FTP_OBJ.Open_Session                     'FTP Session Open
-        bolResult = FTP_OBJ.FTP_Put_File(strFileName, strRemotePath, strPath)
-        If bolResult = False Then
+    Else ' resume mode
+        strRemotePath = "EQ_Config\" & "JPS\" & "Version" & "\"
+            
+        If fe_object.Check_Network = False Then
+            Call Show_Message("Network is disconnected", "Remote server is not reachable, please check your network.")
             Call SaveLog("Defect_File_Upload", strFileName & " upload fail. Remote path : " & strRemotePath)
+        Else
+            bolResult = fe_object.do_Upload(strFileName, strPath, strRemotePath)
+            
+            If bolResult = False Then
+                Call SaveLog("Defect_File_Upload", strFileName & " upload fail. Remote path : " & strRemotePath)
+
+            Else
+                Call SaveLog("Defect_File_Upload", strFileName & " upload successful. Remote path : " & strRemotePath)
+               
+            End If
         End If
-        FTP_OBJ.Close_Session
-        FTP_OBJ.Disconnect_FTP_Client
-    Else
-        Call SaveLog("Set_Version_Data", "FTP object initialize fail.")
     End If
+    
 
 End Sub
 

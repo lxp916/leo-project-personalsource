@@ -2,16 +2,16 @@ VERSION 5.00
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
 Begin VB.Form frmVersion 
    Caption         =   "Version"
-   ClientHeight    =   11025
+   ClientHeight    =   11028
    ClientLeft      =   60
-   ClientTop       =   345
-   ClientWidth     =   20370
+   ClientTop       =   348
+   ClientWidth     =   20376
    LinkTopic       =   "Form1"
-   ScaleHeight     =   11025
-   ScaleWidth      =   20370
+   ScaleHeight     =   11028
+   ScaleWidth      =   20376
    StartUpPosition =   2  'ÆÁÄ»ÖÐÐÄ
    Begin VB.FileListBox fleFile 
-      Height          =   450
+      Height          =   432
       Left            =   16230
       TabIndex        =   4
       Top             =   10530
@@ -30,8 +30,8 @@ Begin VB.Form frmVersion
          TabIndex        =   3
          Top             =   180
          Width           =   20175
-         _ExtentX        =   35586
-         _ExtentY        =   17912
+         _ExtentX        =   35581
+         _ExtentY        =   17907
          _Version        =   393216
          Rows            =   1
          Cols            =   9
@@ -70,6 +70,7 @@ End Sub
 Private Sub cmdGet_Version_Click()
 
     Dim FTP_OBJ                         As New clsFTP
+    Dim fe_obj                          As New clsFileExchanger
     
     Dim typVERSION_DATA                 As VERSION_DATA
     
@@ -88,20 +89,29 @@ Private Sub cmdGet_Version_Click()
     'Download version files from DFS
     strRemote_Path = "EQ_Config\" & "JPS\" & "Version\"
     strLocal_Path = App.PATH & "\Env\"
-    If FTP_OBJ.Init_FTP_Client = True Then
-        Call FTP_OBJ.Open_Session
-        
-'        If Right(strRemote_Path, 1) <> "\" Then
-'            strRemote_Path = strRemote_Path & "\" & "EQ_Config\" & "JPS\" & "Version\"
-'        End If
-        strFileName = FTP_OBJ.FTP_Get_FileList("*.dat", strRemote_Path)
-        If FTP_OBJ.FTP_Get_File_from_List(strRemote_Path, strLocal_Path, strLocal_Path, strFileName) = True Then
+    If fe_obj.IsFTPUploadMode Then
+        If FTP_OBJ.Init_FTP_Client = True Then
+            Call FTP_OBJ.Open_Session
+            
+    '        If Right(strRemote_Path, 1) <> "\" Then
+    '            strRemote_Path = strRemote_Path & "\" & "EQ_Config\" & "JPS\" & "Version\"
+    '        End If
+            strFileName = FTP_OBJ.FTP_Get_FileList("*.dat", strRemote_Path)
+            If FTP_OBJ.FTP_Get_File_from_List(strRemote_Path, strLocal_Path, strLocal_Path, strFileName) = True Then
+                Call SaveLog("cmdGet_Version_Click", "Version files download complete.")
+            Else
+                Call SaveLog("cmdGet_Version_Click", "Version files download fail.")
+            End If
+            FTP_OBJ.Close_Session
+            FTP_OBJ.Disconnect_FTP_Client
+        End If
+    Else
+        strFileName = fe_obj.Get_Remote_FileList("*.dat", strRemote_Path)
+        If fe_obj.Get_Remote_File_From_List(strRemote_Path, strLocal_Path, strLocal_Path, strFileName) = True Then
             Call SaveLog("cmdGet_Version_Click", "Version files download complete.")
         Else
             Call SaveLog("cmdGet_Version_Click", "Version files download fail.")
         End If
-        FTP_OBJ.Close_Session
-        FTP_OBJ.Disconnect_FTP_Client
     End If
     
     Me.fleFile.PATH = strLocal_Path
