@@ -96,11 +96,47 @@ Public Function do_upload_files() As Boolean
 
 End Function
 
+Public Function hasExistingLocalIndex() As String
+    Dim dbMyDB                              As Database
+    Dim lstRecord                           As Recordset
+    Dim strDB_Path As String
+    Dim strDB_FileName As String
+    Dim strQuery                            As String
+ 
+    Dim hasRecord As Boolean
+
+    strDB_Path = App.PATH & "\DB\"
+    strDB_FileName = "Result.mdb"
+    
+    If Dir(strDB_Path & strDB_FileName, vbNormal) <> "" Then
+        Set dbMyDB = Workspaces(0).OpenDatabase(strDB_Path & strDB_FileName)
+    
+        strQuery = "SELECT * FROM LOCAL_INDEX"
+        
+        Set lstRecord = dbMyDB.OpenRecordset(strQuery)
+        If lstRecord.RecordCount = 0 Then
+            hasRecord = False
+        Else: hasRecord = True
+        End If
+        
+        dbMyDB.Close
+    End If
+    hasExistingLocalIndex = hasRecord
+End Function
+
 Public Function Write_Remote_Index(ByVal pFileName As String, ByVal pRemote_Folder As String)
     Dim strMessage As String
     Dim strPath  As String
+    Dim strType As String
+    Dim remoteFolder() As String
     
-    strPath = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_Folder & "\Index\"
+    remoteFolder = Split(pRemote_Folder, "\")
+    
+    strPath = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_Folder & "Index\"
+    If UBound(remoteFolder) > 0 Then
+        strType = remoteFolder(0)
+        strPath = strPath & strType & "\"
+    End If
     
     strMessage = Format(DATE, "YYYY/MM/DD") & " " & Format(TIME, "HH:MM:SS") & "," & pRemote_Folder & pFileName
     
@@ -152,7 +188,7 @@ Private Function WriteIndex(ByVal pFileName As String, ByVal pFolder As String, 
     Set fs = CreateObject("Scripting.FileSystemObject")
     intFileNum = FreeFile
     
-    If Dir(pFolder & pFileName, vbNormal) = "" Then
+    If Dir(pFolder & pFileName, vbDirectory) = "" Then
         MakeSureDirectoryPathExists pFolder & pFileName
         
         Open pFolder & pFileName For Output As intFileNum
