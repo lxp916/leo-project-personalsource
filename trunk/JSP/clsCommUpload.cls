@@ -6,7 +6,7 @@ BEGIN
   DataSourceBehavior  = 0  'vbNone
   MTSTransactionMode  = 0  'NotAnMTSObject
 END
-Attribute VB_Name = "clsCommUpload"
+Attribute VB_Name = "clsFileExchanger"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
@@ -15,6 +15,94 @@ Option Explicit
 ' class added by Leo 2012.08.19
 Private Declare Function MakeSureDirectoryPathExists Lib "imagehlp.dll" (ByVal dirPath As String) As Long
 Private Declare Function Sleep Lib "kernel32" (ByVal dwMilliseconds As Long) As Long
+Public Function Get_File_From_Remote(ByVal pFileName As String, ByVal pRemote_Path As String, ByVal pLocal_Path As String) As Boolean
+    If Right(pRemote_Path, 1) <> "\" Then
+        pRemote_Path = pRemote_Path & "\"
+    End If
+    If Right(pLocal_Path, 1) <> "\" Then
+        pLocal_Path = pLocal_Path & "\"
+    End If
+    
+On Error GoTo ErrorHandler
+    ' download files in file list
+    Call Get_Remote_FileList(pFileName, pRemote_Path)
+    'download file
+    Call do_DownLoad(pFileName, pRemote_Path, pLocal_Path)
+    Get_File_From_Remote = True
+Exit Function
+
+ErrorHandler:
+
+    Call SaveLog("Get_File_From_Remote", pFileName & " upload faild. Remote path : " & pRemote_Path)
+    Get_File_From_Remote = False
+End Function
+Public Function Get_Remote_FileList(ByVal pFileName As String, ByVal pRemote_Path As String) As String
+
+End Function
+Public Function Get_Remote_File_From_List(ByVal pRemotePath As String, ByVal pLocalPath As String, ByVal pPath As String, ByVal pFileName As String) As Boolean
+    Dim strRemote_Path                  As String
+    Dim strFileName                         As String
+    
+    Dim intFileNum                      As Integer
+    Dim intResult                       As Integer
+    Dim intLoopCount                    As Integer
+    
+    Dim lngIndex                        As Long
+    
+    Dim bolFind                         As Boolean
+    
+    If Dir(pPath & pFileName, vbNormal) <> "" Then
+        intFileNum = FreeFile
+        Open pPath & pFileName For Input As intFileNum
+        While Not EOF(intFileNum)
+            Line Input #intFileNum, strFileName
+            If strFileName <> "" Then
+                If do_DownLoad(strFileName, pRemotePath, pLocalPath) Then
+                    Get_Remote_File_From_List = True
+                    Call SaveLog("Get_Remote_File_From_List", strFileName & " download success")
+                Else
+                    Get_Remote_File_From_List = False
+                    Call SaveLog("Get_Remote_File_From_List", strFileName & " download fail...")
+                End If
+                
+            End If
+            DoEvents
+        Wend
+        
+        Close intFileNum
+    End If
+End Function
+
+Private Function do_DownLoad(ByVal pFileName As String, ByVal pRemote_Path As String, ByVal pLocal_Path As String) As Boolean
+    Dim fs As Object
+    Dim localFile As String
+    Dim remoteFile As String
+    Dim returnValue As Boolean
+    
+On Error GoTo ErrorHandler
+
+    remoteFile = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_RootFolder & get_Remote_Server_DataFolder & "\" & pRemote_Path & pFileName
+    remoteFile = Replace(remoteFile, "\\\", "\")
+    
+    localFile = pLocal_Path & pFileName
+    
+    If Dir(pLocal_Path, vbDirectory) = "" Then MakeSureDirectoryPathExists pLocal_Path
+    Set fs = CreateObject("Scripting.FileSystemObject")
+    If Dir(remoteFile, vbNormal) <> "" Then
+        fs.CopyFile remoteFile, localFile, True
+        returnValue = True
+    Else
+        returnValue = False
+    End If
+    do_DownLoad = returnValue
+    
+    Exit Function
+    
+ErrorHandler:
+
+    Call SaveLog("do_DownLoad", pFileName & " download faild. Remote path : " & pRemote_Path)
+    do_DownLoad = False
+End Function
 
 
 Public Function do_Upload(ByVal pFileName As String, ByVal pLocal_Folder As String, ByVal pRemote_Folder As String) As Boolean
@@ -23,8 +111,9 @@ Public Function do_Upload(ByVal pFileName As String, ByVal pLocal_Folder As Stri
     Dim destinationFile As String
     Dim remoteDisk As String
     Dim returnValue As Boolean
+On Error GoTo ErrorHandler
 
-    remoteDisk = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_Folder & "\"
+    remoteDisk = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_RootFolder & "\"
     
     sourceFile = pLocal_Folder & pFileName
     destinationFile = remoteDisk & pRemote_Folder & pFileName
@@ -38,7 +127,13 @@ Public Function do_Upload(ByVal pFileName As String, ByVal pLocal_Folder As Stri
         returnValue = False
     End If
     do_Upload = returnValue
+    
+      Exit Function
+    
+ErrorHandler:
 
+    Call SaveLog("do_Upload", pFileName & " upload faild. Remote path : " & pRemote_Folder)
+    do_Upload = False
 End Function
 
 Public Function do_upload_files() As Boolean
@@ -132,7 +227,7 @@ Public Function Write_Remote_Index(ByVal pFileName As String, ByVal pRemote_Fold
     
     remoteFolder = Split(pRemote_Folder, "\")
     
-    strPath = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_Folder & "Index\"
+    strPath = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_RootFolder & "Index\"
     If UBound(remoteFolder) > 0 Then
         strType = remoteFolder(0)
         strPath = strPath & strType & "\"
@@ -266,13 +361,22 @@ Private Function get_Remote_Server_IP() As String
 get_Remote_Server_IP = get_conf("Remote Server IP")
 End Function
 
-Private Function get_Remote_Server_Folder() As String
+Private Function get_Remote_Server_RootFolder() As String
     Dim pRemotePath As String
     pRemotePath = get_conf("Remote Server Folder")
     If Right(pRemotePath, 1) <> "\" Then
         pRemotePath = pRemotePath & "\"
     End If
-    get_Remote_Server_Folder = pRemotePath
+    get_Remote_Server_RootFolder = pRemotePath
+End Function
+
+Private Function get_Remote_Server_DataFolder() As String
+    Dim pRemotePath As String
+    pRemotePath = get_conf("HOST DATA PATH")
+    If Right(pRemotePath, 1) <> "\" Then
+        pRemotePath = pRemotePath & "\"
+    End If
+    get_Remote_Server_DataFolder = pRemotePath
 End Function
 
 
@@ -280,7 +384,7 @@ Private Function get_LocalFailIndexFolder() As String
 get_LocalFailIndexFolder = App.PATH & "\DB\Fail_Index\"
 End Function
 
-Public Function Get_Upload_Mode()
+Public Function IsFTPUploadMode()
     Dim Ftp_Mode As Boolean
     Dim strKeyValue  As String
     
@@ -292,7 +396,7 @@ Public Function Get_Upload_Mode()
         Ftp_Mode = False
     End If
                     
-    Get_Upload_Mode = Ftp_Mode 'True:use FTP uploading mode, false:use common uploading mode
+    IsFTPUploadMode = Ftp_Mode 'True:use FTP uploading mode, false:use common uploading mode
 End Function
 
 Private Function get_conf(ByVal strKey As String) As String
