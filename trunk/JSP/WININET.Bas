@@ -8,6 +8,9 @@ Declare Function HeapFree Lib "kernel32" (ByVal hHeap As Long, ByVal dwFlags As 
 Declare Sub CopyMemory1 Lib "kernel32" Alias "RtlMoveMemory" (hpvDest As Any, ByVal hpvSource As Long, ByVal cbCopy As Long)
 Declare Sub CopyMemory2 Lib "kernel32" Alias "RtlMoveMemory" (hpvDest As Long, hpvSource As Any, ByVal cbCopy As Long)
 
+Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Declare Function FindNextFile Lib "kernel32" Alias "FindNextFileA" (ByVal hFindFile As Long, lpFindFileData As WIN32_FIND_DATA) As Long
+
 Public Declare Function InternetFindNextFile Lib "wininet.dll" Alias _
                         "InternetFindNextFileA" (ByVal hFind As Long, lpvFindData As WIN32_FIND_DATA) As Long
 

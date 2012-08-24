@@ -316,9 +316,9 @@ Private Function Decode_Repeat_Address_Defect(ByVal pPortID As Integer, ByVal pC
             With frmManual_Judge
             '============Leo 2012.05.22 Add Rank Level Start
                 For intRankLevel = 0 To UBound(RankLevel)
-                    If (Trim(typRANK_DATA.Rank(intRankLevel)) <> "0") And (Trim(typRANK_DATA.Rank(intRankLevel)) <> "-") Then
+                    If (Trim(typRANK_DATA.RANK(intRankLevel)) <> "0") And (Trim(typRANK_DATA.RANK(intRankLevel)) <> "-") Then
                         .lblGrade(intRankLevel).Caption = RankLevel(intRankLevel)
-                        .optSpec_Value(intRankLevel).Caption = typRANK_DATA.Rank(intRankLevel)
+                        .optSpec_Value(intRankLevel).Caption = typRANK_DATA.RANK(intRankLevel)
                         .lblGrade(intRankLevel).Visible = True
                         .optSpec_Value(intRankLevel).Visible = True
                     End If

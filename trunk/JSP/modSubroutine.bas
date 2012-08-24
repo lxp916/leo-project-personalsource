@@ -4713,6 +4713,8 @@ On Error GoTo ErrorHandler
             Call SaveLog("Get_File_From_Host", "FTP initialize fail.")
         End If
     Else ' non-ftp mode download
+        strRemote_Path = fe_object.get_Remote_Server_ReadOnlyFolder & strRemote_Path & "\"
+        strRemote_Path = Replace(strRemote_Path, "\\", "\")
         If fe_object.Get_File_From_Remote(pFileName, strRemote_Path, strLocal_Path) Then
              Call SaveLog("Get_File_From_Remote", pFileName & " download success.")
         Else
@@ -4764,6 +4766,8 @@ On Error GoTo ErrorHandler
                 Call SaveLog("Get_File_From_Host", "FTP initialize fail.")
             End If
     Else
+        strRemote_Path = fe_object.get_Remote_Server_ReadOnlyFolder & strRemote_Path & "\"
+         strRemote_Path = Replace(strRemote_Path, "\\", "\")
         If fe_object.Get_File_From_Remote(pFileName, strRemote_Path, strLocal_Path) Then
              Call SaveLog("Get_File_From_Host_by_Path", pFileName & " download success.")
         Else
@@ -4851,6 +4855,8 @@ Public Sub Standard_Files_Download()
            Call Read_Notice_File
         End If
     Else
+            strRemote_Path = pe_obj.get_Remote_Server_ReadOnlyFolder & strRemote_Path & "\"
+            strRemote_Path = Replace(strRemote_Path, "\\", "\")
            bolResult = pe_obj.Get_Remote_File_From_List(strRemote_Path, strLocalPath, strFilePath, strFileName)
            strFilePath = App.PATH & "\DB\"
            strFileName = "STANDARD_INFO.mdb"
