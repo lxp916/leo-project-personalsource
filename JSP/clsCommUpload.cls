@@ -37,7 +37,82 @@ ErrorHandler:
     Get_File_From_Remote = False
 End Function
 Public Function Get_Remote_FileList(ByVal pFileName As String, ByVal pRemote_Path As String) As String
+    Dim strFileName         As String
+    Dim strData             As String
+    Dim strPath             As String
+    
+    Dim hFind               As Long
+    Dim lngLastError        As Long
+    Dim lngError            As Long
+    Dim lngResult           As Long
+    
+    Dim intResult           As Integer
+    Dim intFileNum          As Integer
+    
+    Dim bolEOF              As Boolean
+    
+    Dim typFile_Data        As WIN32_FIND_DATA
+    
+    If Len(pRemote_Path) > 0 Then
+        If Right(pRemote_Path, 1) <> "\" Then
+            pRemote_Path = pRemote_Path & "\"
+        End If
+        pRemote_Path = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_RootFolder & pRemote_Path & pFileName
+        pRemote_Path = Replace(pRemote_Path, "\\\", "\")
+        
+        typFile_Data.cFileName = String(MAX_PATH, 0)    'Initialize filename value in WIN32_FIND_DATA structure
+            hFind = FindFirstFile(pRemote_Path, typFile_Data)    'Find first file in the current directory
+            lngLastError = Err.LastDllError     'Get last DLL error
 
+            If hFind = 0 Then
+                If (lngLastError = ERROR_NO_MORE_FILES) Then        'Can not find and file in the current directory
+                    Call SaveLog("Get_Remote_FileList", pFileName & " does not exist.")
+                    Get_Remote_FileList = ""
+                Else                                                'Other error
+                    Call SaveLog("Get_Remote_FileList", lngLastError)
+                    Get_Remote_FileList = ""
+                End If
+            Else
+                lngError = NO_ERROR
+                strPath = App.PATH & "\Env\"
+                strFileName = "FTP_File_List.txt"
+                intFileNum = FreeFile
+                Open strPath & strFileName For Output As intFileNum
+
+                'Get filename in WIN32_FIND_DATA structure
+                strData = Left(typFile_Data.cFileName, InStr(1, typFile_Data.cFileName, String(1, 0), vbBinaryCompare) - 1)
+                Print #intFileNum, strData      'Print out in the result file
+                strData = ""
+
+                bolEOF = False
+                While bolEOF = False
+                    typFile_Data.cFileName = String(MAX_PATH, 0)    'Initialize filename value in WIN32_FIND_DATA structure
+                    lngResult = FindNextFile(hFind, typFile_Data)   'Find next correct file in the current directory
+                    If lngResult = 0 Then   'Error happen
+                        lngError = Err.LastDllError
+                        If lngError = ERROR_NO_MORE_FILES Then
+                            bolEOF = True
+                            Get_Remote_FileList = strFileName
+                        Else
+                            bolEOF = True
+                            Get_Remote_FileList = ""
+                            Call SaveLog("Get_Remote_FileList", lngLastError)
+                        End If
+                    Else
+                        strData = Left(typFile_Data.cFileName, InStr(1, typFile_Data.cFileName, String(1, 0), vbBinaryCompare) - 1)
+                        Print #intFileNum, strData
+                        strData = ""
+                    End If
+                Wend
+                Close intFileNum
+
+            End If
+
+        DoEvents
+
+        Call InternetCloseHandle(hFind)
+
+    End If
 End Function
 Public Function Get_Remote_File_From_List(ByVal pRemotePath As String, ByVal pLocalPath As String, ByVal pPath As String, ByVal pFileName As String) As Boolean
     Dim strRemote_Path                  As String
@@ -80,19 +155,20 @@ Private Function do_DownLoad(ByVal pFileName As String, ByVal pRemote_Path As St
     Dim returnValue As Boolean
     
 On Error GoTo ErrorHandler
-
-    remoteFile = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_RootFolder & get_Remote_Server_DataFolder & "\" & pRemote_Path & pFileName
-    remoteFile = Replace(remoteFile, "\\\", "\")
-    
-    localFile = pLocal_Path & pFileName
-    
-    If Dir(pLocal_Path, vbDirectory) = "" Then MakeSureDirectoryPathExists pLocal_Path
-    Set fs = CreateObject("Scripting.FileSystemObject")
-    If Dir(remoteFile, vbNormal) <> "" Then
-        fs.CopyFile remoteFile, localFile, True
-        returnValue = True
-    Else
-        returnValue = False
+    If Check_Network = True Then
+        remoteFile = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_RootFolder & pRemote_Path & pFileName
+        remoteFile = Replace(remoteFile, "\\\", "\")
+        
+        localFile = pLocal_Path & pFileName
+        
+        If Dir(pLocal_Path, vbDirectory) = "" Then MakeSureDirectoryPathExists pLocal_Path
+        Set fs = CreateObject("Scripting.FileSystemObject")
+        If Dir(remoteFile, vbNormal) <> "" Then
+            fs.CopyFile remoteFile, localFile, True
+            returnValue = True
+        Else
+            returnValue = False
+        End If
     End If
     do_DownLoad = returnValue
     
@@ -370,13 +446,14 @@ Private Function get_Remote_Server_RootFolder() As String
     get_Remote_Server_RootFolder = pRemotePath
 End Function
 
-Private Function get_Remote_Server_DataFolder() As String
+Public Function get_Remote_Server_ReadOnlyFolder() As String
     Dim pRemotePath As String
-    pRemotePath = get_conf("HOST DATA PATH")
+'    pRemotePath = get_conf("HOST DATA PATH")
+    pRemotePath = "EQ_Config\JPS\Readonly\"
     If Right(pRemotePath, 1) <> "\" Then
         pRemotePath = pRemotePath & "\"
     End If
-    get_Remote_Server_DataFolder = pRemotePath
+    get_Remote_Server_ReadOnlyFolder = pRemotePath
 End Function
 
 
