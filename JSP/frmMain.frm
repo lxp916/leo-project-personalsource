@@ -915,7 +915,7 @@ Begin VB.Form frmMain
             Alignment       =   1
             Object.Width           =   3598
             MinWidth        =   3598
-            TextSave        =   "16:40"
+            TextSave        =   "17:55"
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
@@ -1741,7 +1741,7 @@ Private Sub cmdJudge_Click()
     
 End Sub
 
-Private Sub flxMES_Data_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub flxMES_Data_MouseUp(Button As Integer, Shift As Integer, X As Single, y As Single)
 
     If Button = vbRightButton Then
         Me.PopupMenu Me.mnuMES_Command
@@ -1749,7 +1749,7 @@ Private Sub flxMES_Data_MouseUp(Button As Integer, Shift As Integer, x As Single
     
 End Sub
 
-Private Sub flxStatus_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub flxStatus_MouseUp(Button As Integer, Shift As Integer, X As Single, y As Single)
 
     Dim strTime                     As String
     
@@ -2189,7 +2189,7 @@ Private Sub Init_Form()
                     Case "CHANGE GRADE":
                         .NEW_GRADE = Mid(strTemp, intPos + 1)
                     Case "COUNT":
-                        .COUNT = CInt(Mid(strTemp, intPos + 1))
+                        .Count = CInt(Mid(strTemp, intPos + 1))
                     Case "CURRENT COUNT":
                         .CURRENT_COUNT = CInt(Mid(strTemp, intPos + 1))
                     End Select
@@ -3267,7 +3267,7 @@ Private Sub Reset_Auto_Alarm()
                     .DEFECT_CODE = lstRecord.Fields("DEFECT_CODE")
                     .RANK = lstRecord.Fields("RANK")
                     .COUNT_TIME = lstRecord.Fields("COUNT_TIME")
-                    .COUNT = lstRecord.Fields("COUNT")
+                    .Count = lstRecord.Fields("COUNT")
                     .ALARM_TEXT = lstRecord.Fields("ALARM_TEXT")
                     .CURRENT_COUNT = lstRecord.Fields("CURRENT_COUNT")
                     .EXPIRY_DATE = lstRecord.Fields("EXPIRY_DATE")

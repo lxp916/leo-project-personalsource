@@ -3684,7 +3684,7 @@ On Error GoTo ErrorHandler
 '
 '==========================================================================================================
         strRemote_Path = "CATST\" & Left(pPANEL_INFO.PRODUCTID, 11) & "0" & "\" & Mid(pPANEL_INFO.PANELID, 1, 5) & "\"
-        strRemote_Path = strRemote_Path & Mid(pPANEL_INFO.PANELID, 1, 8) & "\" & pPANEL_INFO.PANELID & "\" & "BACKUP\"
+        strRemote_Path = strRemote_Path & Mid(pPANEL_INFO.PANELID, 1, 8) & "\" & pPANEL_INFO.PANELID & "\" & "Backup\"
     If fe_obj.IsFTPUploadMode Then
         If FTP_OBJ.Init_FTP_Client = True Then
                 Call FTP_OBJ.Open_Session
@@ -4700,6 +4700,13 @@ On Error GoTo ErrorHandler
     strLocal_Path = App.PATH & "\Env\Standard_Info\"
     If (fe_object.IsFTPUploadMode) Then
         If FTP_OBJECT.Init_FTP_Client = True Then
+            
+            strRemote_Path = FTP_OBJECT.Get_Path(cFTP_HOST)
+            If Right(strRemote_Path, 1) <> "\" Then
+            strRemote_Path = strRemote_Path & "\"
+            End If
+            strRemote_Path = strRemote_Path & pSub_Path & "\"
+            strLocal_Path = App.PATH & "\Env\Standard_Info\"
             Call FTP_OBJECT.Open_Session
             
             If FTP_OBJECT.FTP_Get_File(pFileName, strRemote_Path, strLocal_Path) = True Then
@@ -4766,8 +4773,8 @@ On Error GoTo ErrorHandler
                 Call SaveLog("Get_File_From_Host", "FTP initialize fail.")
             End If
     Else
-        strRemote_Path = fe_object.get_Remote_Server_ReadOnlyFolder & strRemote_Path & "\"
-         strRemote_Path = Replace(strRemote_Path, "\\", "\")
+'        strRemote_Path = fe_object.get_Remote_Server_ReadOnlyFolder & strRemote_Path & "\"
+'         strRemote_Path = Replace(strRemote_Path, "\\", "\")
         If fe_object.Get_File_From_Remote(pFileName, strRemote_Path, strLocal_Path) Then
              Call SaveLog("Get_File_From_Host_by_Path", pFileName & " download success.")
         Else
@@ -4813,16 +4820,17 @@ Public Sub Standard_Files_Download()
     strFilePath = App.PATH & "\Env\"
     strFileName = "File_List.txt"
     
-    strRemote_Path = FTP_OBJ.Get_Path(cFTP_HOST)
-    If Right(strRemote_Path, 1) <> "\" Then
-        strRemote_Path = strRemote_Path & "\"
-    End If
-    'Lucas Ver.0.9.16 2012.03.20===========================Change the Path of Get_File_From_List
+   
     strRemote_Path = strRemote_Path & "Table\"
                
     If pe_obj.IsFTPUploadMode Then
         If FTP_OBJ.Init_FTP_Client = True Then
-           
+            strRemote_Path = FTP_OBJ.Get_Path(cFTP_HOST)
+            If Right(strRemote_Path, 1) <> "\" Then
+                strRemote_Path = strRemote_Path & "\"
+            End If
+            'Lucas Ver.0.9.16 2012.03.20===========================Change the Path of Get_File_From_List
+            strRemote_Path = strRemote_Path & "Table\"
            bolResult = FTP_OBJ.FTP_Get_File_from_List(strRemote_Path, strLocalPath, strFilePath, strFileName)
            strFilePath = App.PATH & "\DB\"
            strFileName = "STANDARD_INFO.mdb"

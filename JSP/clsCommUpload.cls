@@ -155,7 +155,7 @@ Private Function do_DownLoad(ByVal pFileName As String, ByVal pRemote_Path As St
     Dim returnValue As Boolean
     
 On Error GoTo ErrorHandler
-    If Check_Network = True Then
+'    If Check_Network = True Then
         remoteFile = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_RootFolder & pRemote_Path & pFileName
         remoteFile = Replace(remoteFile, "\\\", "\")
         
@@ -169,7 +169,7 @@ On Error GoTo ErrorHandler
         Else
             returnValue = False
         End If
-    End If
+'    End If
     do_DownLoad = returnValue
     
     Exit Function
@@ -245,6 +245,9 @@ Public Function do_upload_files() As Boolean
                 
                 If Dir(strlocalFolder & strFileName, vbNormal) <> "" Then
                     isUpload = do_Upload(strFileName, strlocalFolder, strRemoteFolder)
+                    Call Make_Remote_Folder(Replace(strRemoteFolder, "Source", "Error\"))
+                     Call Make_Remote_Folder(Replace(strRemoteFolder, "Source", "Image\"))
+                      Call Make_Remote_Folder(Replace(strRemoteFolder, "Source", "Backup\"))
                     If isUpload Then
                         Call Write_Remote_Index(strFileName, strRemoteFolder)
                         strRecordID = strRecordID & lstRecord.Fields("ID") & ","
@@ -397,28 +400,42 @@ Public Function Check_Network() As Boolean
   
   ' retry 3 times after every 10 seconds if network is not reachable
   
-  If isConnected = False Then
-    Sleep 10000
-    Shell strShellCMD
-    isConnected = networkChecker.IPValid(server_IP)
-  End If
-  
-    
-  If isConnected = False Then
-    Sleep 10000
-    Shell strShellCMD
-    isConnected = networkChecker.IPValid(server_IP)
-  End If
-  
-   
-  If isConnected = False Then
-    Sleep 10000
-    Shell strShellCMD
-    isConnected = networkChecker.IPValid(server_IP)
-  End If
+'  If isConnected = False Then
+'    Sleep 1000
+'    Shell strShellCMD
+'    isConnected = networkChecker.IPValid(server_IP)
+'  End If
+'
+'
+'  If isConnected = False Then
+'    Sleep 1000
+'    Shell strShellCMD
+'    isConnected = networkChecker.IPValid(server_IP)
+'  End If
+'
+'
+'  If isConnected = False Then
+'    Sleep 1000
+'    Shell strShellCMD
+'    isConnected = networkChecker.IPValid(server_IP)
+'  End If
   
   Check_Network = isConnected
   
+End Function
+
+Public Function Make_Remote_Folder(ByVal pRemotePath As String) As Boolean
+    pRemotePath = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_RootFolder & pRemotePath
+    pRemotePath = Replace(pRemotePath, "\\\", "\")
+    If Right(pRemotePath, 1) <> "\" Then
+            pRemotePath = pRemotePath & "\"
+        End If
+    If Check_Network = True Then
+        If Dir(pRemotePath, vbDirectory) = "" Then MakeSureDirectoryPathExists pRemotePath
+        Make_Remote_Folder = True
+    Else
+        Make_Remote_Folder = False
+    End If
 End Function
 
 Private Function generate_IndexFileName() As String

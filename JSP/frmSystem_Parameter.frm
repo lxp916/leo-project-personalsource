@@ -1,16 +1,16 @@
 VERSION 5.00
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
-Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "tabctl32.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Begin VB.Form frmSystem_Parameter 
    Caption         =   "System_Parameter"
-   ClientHeight    =   6648
+   ClientHeight    =   6645
    ClientLeft      =   60
-   ClientTop       =   348
-   ClientWidth     =   10356
+   ClientTop       =   345
+   ClientWidth     =   10350
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6648
-   ScaleWidth      =   10356
+   ScaleHeight     =   6645
+   ScaleWidth      =   10350
    StartUpPosition =   2  'ÆÁÄ»ÖÐÐÄ
    Begin VB.Frame Frame1 
       Height          =   6645
@@ -18,10 +18,18 @@ Begin VB.Form frmSystem_Parameter
       TabIndex        =   0
       Top             =   0
       Width           =   10335
+      Begin VB.CommandButton cmdFTP_Save 
+         Caption         =   "Save"
+         Height          =   525
+         Left            =   3360
+         TabIndex        =   80
+         Top             =   6000
+         Width           =   1245
+      End
       Begin VB.TextBox txtEdit 
          Height          =   264
          Left            =   240
-         TabIndex        =   63
+         TabIndex        =   62
          Top             =   6120
          Visible         =   0   'False
          Width           =   732
@@ -29,7 +37,7 @@ Begin VB.Form frmSystem_Parameter
       Begin VB.CommandButton cmdClose 
          Caption         =   "Close"
          Height          =   525
-         Left            =   4440
+         Left            =   4920
          TabIndex        =   5
          Top             =   6000
          Width           =   1245
@@ -40,8 +48,8 @@ Begin VB.Form frmSystem_Parameter
          TabIndex        =   1
          Top             =   120
          Width           =   10275
-         _ExtentX        =   18119
-         _ExtentY        =   9821
+         _ExtentX        =   18124
+         _ExtentY        =   9816
          _Version        =   393216
          Tabs            =   6
          Tab             =   2
@@ -85,7 +93,7 @@ Begin VB.Form frmSystem_Parameter
             Caption         =   "Delete"
             Height          =   585
             Left            =   -73200
-            TabIndex        =   66
+            TabIndex        =   65
             Top             =   4680
             Width           =   1455
          End
@@ -93,7 +101,7 @@ Begin VB.Form frmSystem_Parameter
             Caption         =   "Save"
             Height          =   585
             Left            =   -70200
-            TabIndex        =   65
+            TabIndex        =   64
             Top             =   4680
             Width           =   1455
          End
@@ -101,24 +109,24 @@ Begin VB.Form frmSystem_Parameter
             Height          =   5112
             Index           =   0
             Left            =   -74910
-            TabIndex        =   61
+            TabIndex        =   60
             Top             =   628
             Width           =   10095
             Begin VB.CommandButton cmdAdd 
                Caption         =   "Add"
                Height          =   585
                Left            =   3200
-               TabIndex        =   64
+               TabIndex        =   63
                Top             =   4080
                Width           =   1455
             End
             Begin MSFlexGridLib.MSFlexGrid flxRankLevel 
                Height          =   3725
                Left            =   120
-               TabIndex        =   62
+               TabIndex        =   61
                Top             =   240
                Width           =   9885
-               _ExtentX        =   17441
+               _ExtentX        =   17436
                _ExtentY        =   6562
                _Version        =   393216
                Rows            =   1
@@ -127,17 +135,17 @@ Begin VB.Form frmSystem_Parameter
          Begin VB.Frame Frame6 
             Height          =   3705
             Left            =   -74910
-            TabIndex        =   58
+            TabIndex        =   57
             Top             =   2058
             Width           =   10095
             Begin MSFlexGridLib.MSFlexGrid flxAuto_Alarm 
                Height          =   2775
                Left            =   150
-               TabIndex        =   59
+               TabIndex        =   58
                Top             =   840
                Width           =   9795
-               _ExtentX        =   17272
-               _ExtentY        =   4890
+               _ExtentX        =   17277
+               _ExtentY        =   4895
                _Version        =   393216
                Rows            =   1
                Cols            =   10
@@ -148,7 +156,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "Common defect occurred "
                Height          =   180
                Left            =   570
-               TabIndex        =   60
+               TabIndex        =   59
                Top             =   330
                Width           =   2220
             End
@@ -156,13 +164,13 @@ Begin VB.Form frmSystem_Parameter
          Begin VB.Frame Frame4 
             Height          =   1395
             Left            =   -74910
-            TabIndex        =   50
+            TabIndex        =   49
             Top             =   648
             Width           =   10095
             Begin VB.ComboBox cmbChange_Rank 
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -171,7 +179,7 @@ Begin VB.Form frmSystem_Parameter
                EndProperty
                Height          =   465
                Left            =   7080
-               TabIndex        =   56
+               TabIndex        =   55
                Top             =   270
                Width           =   885
             End
@@ -179,7 +187,7 @@ Begin VB.Form frmSystem_Parameter
                Alignment       =   1  'Right Justify
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -188,14 +196,14 @@ Begin VB.Form frmSystem_Parameter
                EndProperty
                Height          =   405
                Left            =   2850
-               TabIndex        =   55
+               TabIndex        =   54
                Top             =   810
                Width           =   885
             End
             Begin VB.ComboBox cmbFinal_Rank 
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -204,7 +212,7 @@ Begin VB.Form frmSystem_Parameter
                EndProperty
                Height          =   465
                Left            =   2610
-               TabIndex        =   54
+               TabIndex        =   53
                Top             =   270
                Width           =   885
             End
@@ -213,7 +221,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "(If input 0, not change the panel grade)"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -222,7 +230,7 @@ Begin VB.Form frmSystem_Parameter
                EndProperty
                Height          =   285
                Left            =   3960
-               TabIndex        =   57
+               TabIndex        =   56
                Top             =   840
                Width           =   5340
             End
@@ -231,7 +239,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "change panel grade to"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -240,7 +248,7 @@ Begin VB.Form frmSystem_Parameter
                EndProperty
                Height          =   285
                Left            =   3750
-               TabIndex        =   53
+               TabIndex        =   52
                Top             =   300
                Width           =   3060
             End
@@ -249,7 +257,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "until panel count"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -258,7 +266,7 @@ Begin VB.Form frmSystem_Parameter
                EndProperty
                Height          =   285
                Left            =   300
-               TabIndex        =   52
+               TabIndex        =   51
                Top             =   840
                Width           =   2235
             End
@@ -267,7 +275,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "If final Grade is"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -276,7 +284,7 @@ Begin VB.Form frmSystem_Parameter
                EndProperty
                Height          =   285
                Left            =   270
-               TabIndex        =   51
+               TabIndex        =   50
                Top             =   300
                Width           =   2025
             End
@@ -453,7 +461,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "1st"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -472,7 +480,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "2nd"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -491,7 +499,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "3rd"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -510,7 +518,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "4th"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -529,7 +537,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "5th"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -548,7 +556,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "6th"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -567,7 +575,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "7th"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -586,7 +594,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "8th"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -605,7 +613,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "9th"
                BeginProperty Font 
                   Name            =   "Tahoma"
-                  Size            =   14.4
+                  Size            =   14.25
                   Charset         =   0
                   Weight          =   700
                   Underline       =   0   'False
@@ -622,37 +630,37 @@ Begin VB.Form frmSystem_Parameter
          End
          Begin VB.Frame Frame3 
             Height          =   5115
-            Left            =   90
+            Left            =   0
             TabIndex        =   7
-            Top             =   628
-            Width           =   10095
+            Top             =   480
+            Width           =   10335
             Begin VB.TextBox txtRemotePwd 
                Height          =   264
                IMEMode         =   3  'DISABLE
                Left            =   6960
                PasswordChar    =   "*"
-               TabIndex        =   80
+               TabIndex        =   79
                Top             =   3720
                Width           =   1452
             End
             Begin VB.TextBox txtRemoteLogin 
                Height          =   264
                Left            =   6960
-               TabIndex        =   79
+               TabIndex        =   78
                Top             =   3360
                Width           =   1452
             End
             Begin VB.TextBox txtRemoteFolder 
                Height          =   264
-               Left            =   2400
-               TabIndex        =   75
-               Top             =   3720
-               Width           =   1452
+               Left            =   2520
+               TabIndex        =   74
+               Top             =   4200
+               Width           =   5895
             End
             Begin VB.TextBox txtRemote 
                Height          =   264
                Left            =   2400
-               TabIndex        =   71
+               TabIndex        =   70
                Text            =   "0.0.0.0"
                Top             =   3360
                Width           =   1452
@@ -661,7 +669,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "Resume Mode"
                Height          =   372
                Left            =   2400
-               TabIndex        =   68
+               TabIndex        =   67
                Top             =   3000
                Width           =   1692
             End
@@ -669,7 +677,7 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "FTP Mode"
                Height          =   252
                Left            =   720
-               TabIndex        =   67
+               TabIndex        =   66
                Top             =   3000
                Width           =   1212
             End
@@ -677,17 +685,9 @@ Begin VB.Form frmSystem_Parameter
                Caption         =   "Use FTP Function"
                Height          =   225
                Left            =   1050
-               TabIndex        =   49
+               TabIndex        =   48
                Top             =   2580
                Width           =   1935
-            End
-            Begin VB.CommandButton cmdFTP_Save 
-               Caption         =   "Save"
-               Height          =   525
-               Left            =   4260
-               TabIndex        =   48
-               Top             =   4410
-               Width           =   1245
             End
             Begin VB.TextBox txtDefect_Path 
                BeginProperty Font 
@@ -798,8 +798,8 @@ Begin VB.Form frmSystem_Parameter
                TabIndex        =   14
                Top             =   2070
                Width           =   240
-               _ExtentX        =   445
-               _ExtentY        =   550
+               _ExtentX        =   450
+               _ExtentY        =   556
                _Version        =   393216
                Enabled         =   -1  'True
             End
@@ -818,8 +818,8 @@ Begin VB.Form frmSystem_Parameter
                TabIndex        =   10
                Top             =   2070
                Width           =   240
-               _ExtentX        =   445
-               _ExtentY        =   550
+               _ExtentX        =   450
+               _ExtentY        =   556
                _Version        =   393216
                Max             =   60
                Enabled         =   -1  'True
@@ -848,7 +848,7 @@ Begin VB.Form frmSystem_Parameter
                Height          =   204
                Index           =   11
                Left            =   4200
-               TabIndex        =   78
+               TabIndex        =   77
                Top             =   3720
                Width           =   2496
             End
@@ -867,7 +867,7 @@ Begin VB.Form frmSystem_Parameter
                Height          =   204
                Index           =   10
                Left            =   4200
-               TabIndex        =   77
+               TabIndex        =   76
                Top             =   3360
                Width           =   1872
             End
@@ -883,12 +883,12 @@ Begin VB.Form frmSystem_Parameter
                   Italic          =   0   'False
                   Strikethrough   =   0   'False
                EndProperty
-               Height          =   204
+               Height          =   210
                Index           =   8
                Left            =   240
-               TabIndex        =   74
-               Top             =   3720
-               Width           =   2148
+               TabIndex        =   73
+               Top             =   4200
+               Width           =   2145
             End
             Begin VB.Label Label1 
                AutoSize        =   -1  'True
@@ -905,7 +905,7 @@ Begin VB.Form frmSystem_Parameter
                Height          =   204
                Index           =   1
                Left            =   240
-               TabIndex        =   70
+               TabIndex        =   69
                Top             =   3360
                Width           =   2088
             End
@@ -1073,8 +1073,8 @@ Begin VB.Form frmSystem_Parameter
                TabIndex        =   6
                Top             =   240
                Width           =   9825
-               _ExtentX        =   17336
-               _ExtentY        =   8340
+               _ExtentX        =   17330
+               _ExtentY        =   8334
                _Version        =   393216
                Rows            =   9
                Cols            =   4
@@ -1093,8 +1093,8 @@ Begin VB.Form frmSystem_Parameter
                TabIndex        =   4
                Top             =   240
                Width           =   9855
-               _ExtentX        =   17378
-               _ExtentY        =   8340
+               _ExtentX        =   17383
+               _ExtentY        =   8334
                _Version        =   393216
                Rows            =   8
             End
@@ -1116,7 +1116,7 @@ Begin VB.Form frmSystem_Parameter
       Height          =   204
       Index           =   9
       Left            =   0
-      TabIndex        =   76
+      TabIndex        =   75
       Top             =   0
       Width           =   2148
    End
@@ -1135,7 +1135,7 @@ Begin VB.Form frmSystem_Parameter
       Height          =   180
       Index           =   3
       Left            =   0
-      TabIndex        =   73
+      TabIndex        =   72
       Top             =   0
       Width           =   1260
    End
@@ -1154,7 +1154,7 @@ Begin VB.Form frmSystem_Parameter
       Height          =   180
       Index           =   2
       Left            =   0
-      TabIndex        =   72
+      TabIndex        =   71
       Top             =   0
       Width           =   1260
    End
@@ -1173,7 +1173,7 @@ Begin VB.Form frmSystem_Parameter
       Height          =   204
       Index           =   0
       Left            =   0
-      TabIndex        =   69
+      TabIndex        =   68
       Top             =   0
       Width           =   1800
    End
@@ -1594,7 +1594,7 @@ Private Sub txtEdit_LostFocus()
 End Sub
 
 
-Private Sub flxRS232_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub flxRS232_MouseUp(Button As Integer, Shift As Integer, X As Single, y As Single)
 
     Dim intRow                              As Integer
     

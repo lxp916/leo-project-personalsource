@@ -140,12 +140,12 @@ End Function
 Private Function Make_FTP_Folder(ByVal pRemotePath As String) As Boolean
 
     Dim FTP_OBJ                 As New clsFTP
-    
+    Dim fe_obj                  As New clsFileExchanger
     Dim intResult               As Integer
     Dim ErrMsg                  As String
     
 On Error GoTo ErrorHandler
-
+If fe_obj.IsFTPUploadMode = True Then
     If FTP_OBJ.Init_FTP_Client = True Then       'FTP Object Initialize
         If Right(pRemotePath, 1) <> "\" Then
             pRemotePath = pRemotePath & "\"
@@ -162,6 +162,10 @@ On Error GoTo ErrorHandler
     Else
         Make_FTP_Folder = False
     End If
+Else
+       Make_FTP_Folder = fe_obj.Make_Remote_Folder(pRemotePath)
+       
+End If
     
     Exit Function
     

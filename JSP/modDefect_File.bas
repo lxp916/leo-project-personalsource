@@ -38,7 +38,7 @@ On Error GoTo ErrorHandler
             pRemotePath = pRemotePath & "\"
         End If
         If fe_object.Check_Network = False Then
-            Call Show_Message("Network is disconnected", "Remote server is not reachable, please check your network.")
+            Call Show_Message("网络连接错误", "网络连接中断,请与CIM联系.")
             Call fe_object.Write_Local_Index(pFileName, pLocalPath, pRemotePath)
         Else
             Call fe_object.Write_Remote_Index(pFileName, pRemotePath)
@@ -49,12 +49,12 @@ On Error GoTo ErrorHandler
                 Call fe_object.Write_Local_Index(pFileName, pLocalPath, pRemotePath)
                 FTP_Upload = False
             Else
-
-                If MsgBox("Do you want to upload local existing offline files?", vbYesNo, "") = vbYes Then
-                   ' upload last faild files
-                   If fe_object.hasExistingLocalIndex = True Then
-                    Call fe_object.do_upload_files
-                   End If
+                If fe_object.hasExistingLocalIndex = True Then
+                    If MsgBox("Do you want to upload local existing offline files?", vbYesNo, "") = vbYes Then
+                       ' upload last faild files
+                      
+                        Call fe_object.do_upload_files
+                    End If
                 End If
                 Call SaveLog("Defect_File_Upload", pFileName & " upload successful. Remote path : " & pRemotePath)
                 FTP_Upload = True
@@ -77,12 +77,13 @@ End Function
 Private Function Make_FTP_Folder(ByVal pRemotePath As String) As Boolean
 
     Dim FTP_OBJ                 As New clsFTP
-    
+    Dim fe_obj                  As New clsFileExchanger
     Dim intResult               As Integer
     Dim ErrMsg                  As String
     
 On Error GoTo ErrorHandler
 
+If fe_obj.IsFTPUploadMode = True Then
     If FTP_OBJ.Init_FTP_Client = True Then       'FTP Object Initialize
         If Right(pRemotePath, 1) <> "\" Then
             pRemotePath = pRemotePath & "\"
@@ -99,6 +100,10 @@ On Error GoTo ErrorHandler
     Else
         Make_FTP_Folder = False
     End If
+Else
+       Make_FTP_Folder = fe_obj.Make_Remote_Folder(pRemotePath)
+       
+End If
     
     Exit Function
     
