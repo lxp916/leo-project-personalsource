@@ -40,7 +40,9 @@ Public Function Get_Remote_FileList(ByVal pFileName As String, ByVal pRemote_Pat
     Dim strFileName         As String
     Dim strData             As String
     Dim strPath             As String
-    
+    Dim fs, f, fc, file
+    Dim ext As String
+    Dim pExt As String
     Dim hFind               As Long
     Dim lngLastError        As Long
     Dim lngError            As Long
@@ -57,56 +59,74 @@ Public Function Get_Remote_FileList(ByVal pFileName As String, ByVal pRemote_Pat
         If Right(pRemote_Path, 1) <> "\" Then
             pRemote_Path = pRemote_Path & "\"
         End If
-        pRemote_Path = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_RootFolder & pRemote_Path & pFileName
+        pRemote_Path = "\\" & get_Remote_Server_IP & "\" & get_Remote_Server_RootFolder & pRemote_Path
         pRemote_Path = Replace(pRemote_Path, "\\\", "\")
+        pExt = Replace(pFileName, "*", "")
         
-        typFile_Data.cFileName = String(MAX_PATH, 0)    'Initialize filename value in WIN32_FIND_DATA structure
-            hFind = FindFirstFile(pRemote_Path, typFile_Data)    'Find first file in the current directory
-            lngLastError = Err.LastDllError     'Get last DLL error
-
-            If hFind = 0 Then
-                If (lngLastError = ERROR_NO_MORE_FILES) Then        'Can not find and file in the current directory
-                    Call SaveLog("Get_Remote_FileList", pFileName & " does not exist.")
-                    Get_Remote_FileList = ""
-                Else                                                'Other error
-                    Call SaveLog("Get_Remote_FileList", lngLastError)
-                    Get_Remote_FileList = ""
-                End If
-            Else
-                lngError = NO_ERROR
+        Set fs = CreateObject("Scripting.FileSystemObject")
+        Set f = fs.GetFolder(pRemote_Path)
+        Set fc = f.Files
+        For Each file In fc
+            ext = fs.GetExtensionName(file.PATH)
+            If LCase(ext) = LCase(pExt) Then
                 strPath = App.PATH & "\Env\"
                 strFileName = "FTP_File_List.txt"
                 intFileNum = FreeFile
                 Open strPath & strFileName For Output As intFileNum
-
-                'Get filename in WIN32_FIND_DATA structure
-                strData = Left(typFile_Data.cFileName, InStr(1, typFile_Data.cFileName, String(1, 0), vbBinaryCompare) - 1)
-                Print #intFileNum, strData      'Print out in the result file
-                strData = ""
-
-                bolEOF = False
-                While bolEOF = False
-                    typFile_Data.cFileName = String(MAX_PATH, 0)    'Initialize filename value in WIN32_FIND_DATA structure
-                    lngResult = FindNextFile(hFind, typFile_Data)   'Find next correct file in the current directory
-                    If lngResult = 0 Then   'Error happen
-                        lngError = Err.LastDllError
-                        If lngError = ERROR_NO_MORE_FILES Then
-                            bolEOF = True
-                            Get_Remote_FileList = strFileName
-                        Else
-                            bolEOF = True
-                            Get_Remote_FileList = ""
-                            Call SaveLog("Get_Remote_FileList", lngLastError)
-                        End If
-                    Else
-                        strData = Left(typFile_Data.cFileName, InStr(1, typFile_Data.cFileName, String(1, 0), vbBinaryCompare) - 1)
-                        Print #intFileNum, strData
-                        strData = ""
-                    End If
-                Wend
+                    strData = file.Name
+                    Print #intFileNum, strData      'Print out in the result file
+                    strData = ""
                 Close intFileNum
-
+                Get_Remote_FileList = strFileName
             End If
+        Next
+'        typFile_Data.cFileName = String(MAX_PATH, 0)    'Initialize filename value in WIN32_FIND_DATA structure
+'            hFind = FindFirstFile(pRemote_Path, typFile_Data)    'Find first file in the current directory
+'            lngLastError = Err.LastDllError     'Get last DLL error
+'
+'            If hFind = 0 Then
+'                If (lngLastError = ERROR_NO_MORE_FILES) Then        'Can not find and file in the current directory
+'                    Call SaveLog("Get_Remote_FileList", pFileName & " does not exist.")
+'                    Get_Remote_FileList = ""
+'                Else                                                'Other error
+'                    Call SaveLog("Get_Remote_FileList", lngLastError)
+'                    Get_Remote_FileList = ""
+'                End If
+'            Else
+'                lngError = NO_ERROR
+'                strPath = App.PATH & "\Env\"
+'                strFileName = "FTP_File_List.txt"
+'                intFileNum = FreeFile
+'                Open strPath & strFileName For Output As intFileNum
+'
+'                'Get filename in WIN32_FIND_DATA structure
+'                strData = Left(typFile_Data.cFileName, InStr(1, typFile_Data.cFileName, String(1, 0), vbBinaryCompare) - 1)
+'                Print #intFileNum, strData      'Print out in the result file
+'                strData = ""
+'
+'                bolEOF = False
+'                While bolEOF = False
+'                    typFile_Data.cFileName = String(MAX_PATH, 0)    'Initialize filename value in WIN32_FIND_DATA structure
+'                    lngResult = FindNextFile(hFind, typFile_Data)   'Find next correct file in the current directory
+'                    If lngResult = 0 Then   'Error happen
+'                        lngError = Err.LastDllError
+'                        If lngError = ERROR_NO_MORE_FILES Then
+'                            bolEOF = True
+'                            Get_Remote_FileList = strFileName
+'                        Else
+'                            bolEOF = True
+'                            Get_Remote_FileList = ""
+'                            Call SaveLog("Get_Remote_FileList", lngLastError)
+'                        End If
+'                    Else
+'                        strData = Left(typFile_Data.cFileName, InStr(1, typFile_Data.cFileName, String(1, 0), vbBinaryCompare) - 1)
+'                        Print #intFileNum, strData
+'                        strData = ""
+'                    End If
+'                Wend
+'                Close intFileNum
+'
+'            End If
 
         DoEvents
 
