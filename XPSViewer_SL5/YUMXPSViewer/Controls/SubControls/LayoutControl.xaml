@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="YUMXPSViewer.Controls.LayoutControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d"
+    d:DesignHeight="33" d:DesignWidth="400">
+    
+    <Grid x:Name="LayoutRoot" >
+			<Button Margin="0" x:Name="LayoutButton" Click="LayoutButton_Click" >
+			<StackPanel Orientation="Horizontal">
+				<Image x:Name="LayoutIcon" Source="/ReaderControl;component/Images/page_cont.png" Stretch="None" />
+				<Path Data="M 0,4 L 6,4 L 3,7 Z" Stroke="#FF312D2D" Margin="3,2,1,0" Fill="#FF312D2D">
+				</Path>
+					<ToolTipService.ToolTip>
+					<ToolTip Placement="Bottom">
+					<TextBlock Text="Use the drop-down menu to select a page presentation mode" />
+					</ToolTip>
+				</ToolTipService.ToolTip>
+			</StackPanel>
+		</Button>
+    </Grid>
+</UserControl>

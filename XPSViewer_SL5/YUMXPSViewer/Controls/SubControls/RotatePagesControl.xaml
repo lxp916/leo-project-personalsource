@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="YUMXPSViewer.Controls.SubControls.RotatePagesControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50" d:DesignWidth="69">
+    
+    <Grid x:Name="LayoutRoot">
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="RotateCounterClockwise" Visibility="Collapsed" Margin="0,0,0,0" Click="RotateCounterClockwise_Click">
+				<Image Source="/ReaderControl;component/Images/arrow_rotate_anticlockwise.png" Stretch="None" />
+				<ToolTipService.ToolTip>
+                    <ToolTip Placement="Bottom">
+                        <TextBlock Text="Rotate Pages CounterClockwise"/>
+                    </ToolTip>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button x:Name="RotateClockwise" Margin="0" Click="RotateClockwise_Click">
+				<Image Source="/ReaderControl;component/Images/arrow_rotate_clockwise.png" Stretch="None" />
+				<ToolTipService.ToolTip>
+                <ToolTip Placement="Bottom">
+                    <TextBlock Text="Rotate Pages Clockwise"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
+        </Button>
+
+        </StackPanel>
+    </Grid>
+</UserControl>
