@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0D12E3C4-19C8-49E0-9ADE-E2F0FDCAD120}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YUMXPSViewer</RootNamespace>
+    <AssemblyName>YUMXPSViewer</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>YUMXPSViewer.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>YUMXPSViewer.App</SilverlightAppEntry>
+    <TestPageFileName>YUMXPSViewerTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Behavior\Turn180.cs" />
+    <Compile Include="Behavior\TurnAnimaBase.cs" />
+    <Compile Include="Controls\ReaderControl.xaml.cs">
+      <DependentUpon>ReaderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\DividerControl.xaml.cs">
+      <DependentUpon>DividerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\FitModeControl.xaml.cs">
+      <DependentUpon>FitModeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\FullScreenButtonControl.xaml.cs">
+      <DependentUpon>FullScreenButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\LayoutControl.xaml.cs">
+      <DependentUpon>LayoutControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\OpenLocalFileButtonControl.xaml.cs">
+      <DependentUpon>OpenLocalFileButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\OutlineToggleButtonControl.xaml.cs">
+      <DependentUpon>OutlineToggleButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\OutlineTreeControl.xaml.cs">
+      <DependentUpon>OutlineTreeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\PageNavigationControl.xaml.cs">
+      <DependentUpon>PageNavigationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\PageNumberControl.xaml.cs">
+      <DependentUpon>PageNumberControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\PrintButtonControl.xaml.cs">
+      <DependentUpon>PrintButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\RotatePagesControl.xaml.cs">
+      <DependentUpon>RotatePagesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\SearchControl.xaml.cs">
+      <DependentUpon>SearchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\ToolModeControl.xaml.cs">
+      <DependentUpon>ToolModeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\ZoomSliderControl.xaml.cs">
+      <DependentUpon>ZoomSliderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubControls\ZoomTextBoxControl.xaml.cs">
+      <DependentUpon>ZoomTextBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolbarControl.xaml.cs">
+      <DependentUpon>ToolbarControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\XPSReaderPage.xaml.cs">
+      <DependentUpon>XPSReaderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\FacingPanel.cs" />
+    <Compile Include="Utility\ModeConverter.cs" />
+    <Compile Include="Utility\RadialPanel.cs" />
+    <Compile Include="Utility\XPSDocument\DocumentReference.cs" />
+    <Compile Include="Utility\XPSDocument\FixedDocument.cs" />
+    <Compile Include="Utility\XPSDocument\FixedDocumentSequence.cs" />
+    <Compile Include="Utility\XPSDocument\FixedPage.cs" />
+    <Compile Include="Utility\XPSDocument\FontUrlSource.cs" />
+    <Compile Include="Utility\XPSDocument\ImageBrushSource.cs" />
+    <Compile Include="Utility\XPSDocument\IXpsPage.cs" />
+    <Compile Include="Utility\XPSDocument\LinkTarget.cs" />
+    <Compile Include="Utility\XPSDocument\PageContent.cs" />
+    <Compile Include="Utility\XPSDocument\Resource.cs" />
+    <Compile Include="Utility\XPSDocument\XpsDocument.cs" />
+    <Compile Include="Utility\XPSDocument\XpsReaderSetting.cs" />
+    <Compile Include="Utility\XPSDocument\XpsToSilverlightXamlReader.cs" />
+    <Compile Include="Utility\ZoomLevelConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Assets\Resources\XPS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Resources\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ReaderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SubControls\DividerControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\FitModeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\FullScreenButtonControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\LayoutControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\OpenLocalFileButtonControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\OutlineToggleButtonControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\OutlineTreeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\PageNavigationControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\PageNumberControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\PrintButtonControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\RotatePagesControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\SearchControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\ToolModeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\ZoomSliderControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubControls\ZoomTextBoxControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ToolbarControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ErrorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\XPSReaderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utility\ErrorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\Dependencies\System.Windows.Controls.Input.Toolkit.dll" />
+    <Resource Include="Assets\Images\application_osx_double.png" />
+    <Resource Include="Assets\Images\arrow_ew.png" />
+    <Resource Include="Assets\Images\arrow_nsew.png" />
+    <Resource Include="Assets\Images\arrow_rotate_anticlockwise.png" />
+    <Resource Include="Assets\Images\arrow_rotate_clockwise.png" />
+    <Resource Include="Assets\Images\bullet_magnify.png" />
+    <Resource Include="Assets\Images\find.png" />
+    <Resource Include="Assets\Images\folder_up.png" />
+    <Resource Include="Assets\Images\hand.png" />
+    <Content Include="Assets\Dependencies\System.Windows.Interactivity.dll" />
+    <Content Include="Assets\Resources\icon_credits.txt" />
+    <Resource Include="Assets\Images\next_green.png" />
+    <Resource Include="Assets\Images\outline.png" />
+    <Resource Include="Assets\Images\page_cont.png" />
+    <Resource Include="Assets\Images\page_cover_facing.png" />
+    <Resource Include="Assets\Images\page_cover_facing_cont.png" />
+    <Resource Include="Assets\Images\page_facing.png" />
+    <Resource Include="Assets\Images\page_facing_cont.png" />
+    <Resource Include="Assets\Images\page_single.png" />
+    <Resource Include="Assets\Images\pictures_thumbs.png" />
+    <Resource Include="Assets\Images\play_green.png" />
+    <Resource Include="Assets\Images\previous-green.png" />
+    <Resource Include="Assets\Images\printer_color.png" />
+    <Resource Include="Assets\Images\reverse_green.png" />
+    <Resource Include="Assets\Images\section_collapsed.png" />
+    <Resource Include="Assets\Images\section_expanded.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
