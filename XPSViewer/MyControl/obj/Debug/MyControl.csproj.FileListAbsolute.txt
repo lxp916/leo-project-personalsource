@@ -1,0 +1,326 @@
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\MyControl.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\MyControl.pdb
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\System.Windows.Controls.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\System.Xml.Linq.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\System.Windows.Controls.xml
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\System.Windows.Interactivity.xml
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\System.Xml.Linq.xml
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\ar\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\bg\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\ca\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\cs\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\da\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\de\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\el\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\es\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\et\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\eu\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\fi\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\fr\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\he\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\hr\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\hu\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\id\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\it\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\ja\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\ko\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\lt\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\lv\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\ms\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\nl\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\no\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\pl\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\pt\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\pt-BR\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\ro\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\ru\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\sk\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\sl\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\sr-Cyrl-CS\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\sr-Latn-CS\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\sv\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\th\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\tr\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\uk\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\vi\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\zh-Hans\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\zh-Hant\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\de\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\es\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\fr\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\it\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\ja\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\ko\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\ru\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Test\Test\MyControl\obj\Debug\Windows\Controls\SilverlightControl1.g.i.cs
+C:\Users\Administrator\Desktop\Test\Test\MyControl\obj\Debug\XpsDocument\XpsControl.g.i.cs
+C:\Users\Administrator\Desktop\Test\Test\MyControl\obj\Debug\MyControl.g.resources
+C:\Users\Administrator\Desktop\Test\Test\MyControl\obj\Debug\MyControl.Resource.resources
+C:\Users\Administrator\Desktop\Test\Test\MyControl\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Administrator\Desktop\Test\Test\MyControl\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Administrator\Desktop\Test\Test\MyControl\obj\Debug\MyControl.dll
+C:\Users\Administrator\Desktop\Test\Test\MyControl\obj\Debug\MyControl.pdb
+I:\Other\Test\Test\MyControl\Bin\Debug\MyControl.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\MyControl.pdb
+I:\Other\Test\Test\MyControl\Bin\Debug\System.Windows.Controls.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\System.Windows.Interactivity.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\System.Xml.Linq.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\System.Windows.Controls.xml
+I:\Other\Test\Test\MyControl\Bin\Debug\System.Windows.Interactivity.xml
+I:\Other\Test\Test\MyControl\Bin\Debug\System.Xml.Linq.xml
+I:\Other\Test\Test\MyControl\Bin\Debug\ar\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\bg\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\ca\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\cs\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\da\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\de\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\el\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\es\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\et\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\eu\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\fi\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\fr\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\he\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\hr\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\hu\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\id\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\it\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\ja\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\ko\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\lt\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\lv\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\ms\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\nl\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\no\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\pl\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\pt\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\pt-BR\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\ro\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\ru\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\sk\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\sl\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\sr-Cyrl-CS\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\sr-Latn-CS\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\sv\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\th\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\tr\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\uk\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\vi\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\zh-Hans\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\zh-Hant\System.Windows.Controls.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\de\System.Xml.Linq.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\es\System.Xml.Linq.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\fr\System.Xml.Linq.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\it\System.Xml.Linq.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\ja\System.Xml.Linq.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\ko\System.Xml.Linq.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\ru\System.Xml.Linq.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
+I:\Other\Test\Test\MyControl\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
+I:\Other\Test\Test\MyControl\obj\Debug\ResolveAssemblyReference.cache
+I:\Other\Test\Test\MyControl\obj\Debug\Windows\Controls\SilverlightControl1.g.i.cs
+I:\Other\Test\Test\MyControl\obj\Debug\XpsDocument\XpsControl.g.i.cs
+I:\Other\Test\Test\MyControl\obj\Debug\MyControl.g.resources
+I:\Other\Test\Test\MyControl\obj\Debug\MyControl.Resource.resources
+I:\Other\Test\Test\MyControl\obj\Debug\GenerateResource.read.1.tlog
+I:\Other\Test\Test\MyControl\obj\Debug\GenerateResource.write.1.tlog
+I:\Other\Test\Test\MyControl\obj\Debug\MyControl.dll
+I:\Other\Test\Test\MyControl\obj\Debug\MyControl.pdb
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\MyControl.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\MyControl.pdb
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\System.Windows.Controls.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\System.Xml.Linq.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\System.Windows.Controls.xml
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\System.Windows.Interactivity.xml
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\System.Xml.Linq.xml
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\ar\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\bg\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\ca\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\cs\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\da\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\de\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\el\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\es\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\et\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\eu\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\fi\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\fr\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\he\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\hr\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\hu\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\id\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\it\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\ja\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\ko\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\lt\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\lv\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\ms\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\nl\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\no\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\pl\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\pt\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\pt-BR\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\ro\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\ru\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\sk\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\sl\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\sr-Cyrl-CS\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\sr-Latn-CS\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\sv\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\th\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\tr\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\uk\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\vi\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\zh-Hans\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\zh-Hant\System.Windows.Controls.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\de\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\es\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\fr\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\it\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\ja\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\ko\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\ru\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
+C:\Users\Administrator\Desktop\Test\MyControl\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Test\MyControl\obj\Debug\XpsDocument\XpsControl.g.i.cs
+C:\Users\Administrator\Desktop\Test\MyControl\obj\Debug\MyControl.g.resources
+C:\Users\Administrator\Desktop\Test\MyControl\obj\Debug\MyControl.dll
+C:\Users\Administrator\Desktop\Test\MyControl\obj\Debug\MyControl.pdb
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\MyControl.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\MyControl.pdb
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\System.Windows.Controls.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\System.Windows.Interactivity.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\System.Xml.Linq.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\System.Windows.Controls.xml
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\System.Windows.Interactivity.xml
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\System.Xml.Linq.xml
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\ar\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\bg\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\ca\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\cs\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\da\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\de\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\el\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\es\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\et\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\eu\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\fi\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\fr\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\he\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\hr\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\hu\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\id\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\it\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\ja\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\ko\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\lt\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\lv\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\ms\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\nl\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\no\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\pl\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\pt\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\pt-BR\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\ro\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\ru\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\sk\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\sl\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\sr-Cyrl-CS\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\sr-Latn-CS\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\sv\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\th\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\tr\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\uk\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\vi\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\zh-Hans\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\zh-Hant\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\de\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\es\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\fr\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\it\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\ja\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\ko\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\ru\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\obj\Debug\XpsDocument\XpsControl.g.i.cs
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\obj\Debug\MyControl.g.resources
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\obj\Debug\MyControl.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\MyControl\obj\Debug\MyControl.pdb
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\MyControl.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\MyControl.pdb
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Interactivity.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Xml.Linq.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.xml
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Interactivity.xml
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Xml.Linq.xml
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\ar\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\bg\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\ca\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\cs\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\da\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\de\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\el\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\es\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\et\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\eu\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\fi\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\fr\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\he\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\hr\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\hu\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\id\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\it\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\ja\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\ko\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\lt\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\lv\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\ms\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\nl\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\no\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\pl\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\pt\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\pt-BR\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\ro\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\ru\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\sk\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\sl\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\sr-Cyrl-CS\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\sr-Latn-CS\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\sv\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\th\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\tr\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\uk\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\vi\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\zh-Hans\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\zh-Hant\System.Windows.Controls.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\de\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\es\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\fr\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\it\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\ja\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\ko\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\ru\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\obj\Debug\XpsDocument\XpsControl.g.i.cs
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\obj\Debug\MyControl.g.resources
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\obj\Debug\MyControl.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\obj\Debug\MyControl.pdb
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\obj\Debug\XpsDocument\SubControls\LayoutControl.g.i.cs
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.Toolkit.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.Toolkit.Internals.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.Toolkit.pdb
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.Toolkit.xml
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.Input.Toolkit.pdb
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.Input.Toolkit.xml
