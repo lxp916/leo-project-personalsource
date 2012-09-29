@@ -20,7 +20,7 @@ using System.IO;
 
 namespace MyControl.XpsDocument
 {
-    public class XpsDocument :Canvas
+    public class XpsDocument : Canvas
     {
         #region DependencyProperty
         public static readonly DependencyProperty TrunAnimaProperty = DependencyProperty.Register("TrunAnima", typeof(TurnAnimaBase), typeof(XpsDocument), new PropertyMetadata(new Turn180()));
@@ -69,56 +69,23 @@ namespace MyControl.XpsDocument
 
         //public static readonly DependencyProperty DisplayLayoutModeProperty = DependencyProperty.Register("DisplayLayoutMode", typeof(LayoutMode), typeof(XpsDocument), new PropertyMetadata(false));
 
-        private LayoutMode displayLayout = LayoutMode.SinglePage;
-        /// <summary>
-        /// display single page/ double page/.....
-        /// </summary>
-        public LayoutMode DisplayLayoutMode
-        {
-            //get
-            //{
-            //    return (bool)this.GetValue(XpsDocument.DisplayLayoutModeProperty);
-            //}
-            //set
-            //{
-            //    this.SetValue(XpsDocument.DisplayLayoutModeProperty, value);
-            //}
-
-            get { return this.displayLayout; }
-
-            set
-            {
-                this.displayLayout = value;
-                if (PageLayoutChanged != null)
-                    PageLayoutChanged(this, null);
-                this.CurrentPageNum = 1;
-                //if (ReadFixedPage(this.currentPageNum))
-                //{
-                //    this.displayLayout = value;
-                //    if (PageLayoutChanged != null)
-                //        PageLayoutChanged(this, null);
-                //}
-            }
-        }
         #endregion
 
         internal List<FixedPage> FixedPages;
         /// <summary>
         /// 翻页的时候触发
         /// </summary>
-        public  event EventHandler FixedPageChanged;
-        public event EventHandler PageLayoutChanged;
+        public event EventHandler FixedPageChanged;
         ///// <summary>
         ///// 流初始化完毕
         ///// </summary>
         //public  event EventHandler DocumentLoaded;
 
-        private int displaynumber = 1;
-        public XpsDocument(): base()
+        public XpsDocument()
+            : base()
         {
             FixedPages = new List<FixedPage>();
             this.TrunAnima = new Turn180();
-            displaynumber = 1;
         }
 
         #region Property
@@ -182,7 +149,7 @@ namespace MyControl.XpsDocument
         /// </summary>
         public int CurrentPageNum
         {
-            get { return this.currentPageNum ; }
+            get { return this.currentPageNum; }
 
             set
             {
@@ -194,6 +161,21 @@ namespace MyControl.XpsDocument
                 }
             }
 
+        }
+
+        private LayoutMode displayLayout = LayoutMode.SinglePage;
+        /// <summary>
+        /// display single page/ double page/.....
+        /// </summary>
+        public LayoutMode DisplayLayoutMode
+        {
+            get { return this.displayLayout; }
+
+            set
+            {
+                this.displayLayout = value;
+                this.CurrentPageNum = 1;
+            }
         }
 
         #endregion
@@ -278,41 +260,39 @@ namespace MyControl.XpsDocument
                 this.Children.Clear();
                 this.FixedPages.Clear();
                 int mode = (int)this.displayLayout == 0 ? XpsDocument.FixedDocument.Count : (int)this.displayLayout;
-                double width= 0;
-                double height = 0;
+                double maxWidth = 0;
+                double maxHeight = 0;
+                double totalWidth = 0;
+                double totalHeight = 0;
                 for (var i = 0; i < mode; i++)
-                { 
+                {
                     FixedPage page = new FixedPage();
                     int realPage = mode * (pageNum - 1) + i;
                     if (realPage >= XpsDocument.FixedDocument.Count) continue;
                     page.LoadPage(FixedDocument[realPage].Source);
-                    width = Math.Max(width, page.Width);
-                    height = Math.Max(height, page.Height);
-                    
+                    maxWidth = Math.Max(maxWidth, page.Width);
+                    maxHeight = Math.Max(maxHeight, page.Height);
+                    totalWidth += maxWidth;
+                    totalHeight = maxHeight;
                     this.Children.Add(page);
                     this.FixedPages.Add(page);
                 }
                 for (var i = 0; i < FixedPages.Count; i++)
                 {
                     var item = FixedPages[i];
-                    item.Width = width;
-                    if (i > 0)
-                    {
-                        Canvas.SetLeft(item, (width + 1) * (1.0 / mode));
-
-                    }
-                    //else Canvas.SetLeft(item, 0);
-                    //Canvas.SetTop(item, 0);
-                    //(item.RenderTransform as MatrixTransform).Matrix.OffsetX
+                    item.Width = maxWidth;
+                    item.Height = maxHeight;
+                    Canvas.SetLeft(item, (maxWidth * i / mode + 1));
+                    Canvas.SetTop(item, 0);
                     ScaleTransform scaleTransform = new ScaleTransform();
-                    scaleTransform.CenterX = width / 2;
-                    scaleTransform.CenterY = height / 2;
+                    scaleTransform.CenterX =  0;
+                    scaleTransform.CenterY = 0;// item.Height / 2;
                     scaleTransform.ScaleX = scaleTransform.ScaleY = 1.0 / mode;
                     item.RenderTransform = scaleTransform;
-                    
                 }
-                this.Width = width;
-                this.Height = height;
+                this.Width = maxWidth;
+                this.Height = maxHeight;
+                Canvas.SetTop(this, 0);
                 return true;
             }
             else
@@ -337,7 +317,7 @@ namespace MyControl.XpsDocument
             resource = new Resource();
             DocumentStream = stream;
         }
-        
+
         public void Print()
         {
 
@@ -376,6 +356,14 @@ namespace MyControl.XpsDocument
                 }
             }
         }
+
+        //public void Search(string key)
+        //{
+        //    foreach (var page in this.FixedPages)
+        //    { 
+        //        page.
+        //    }
+        //}
         #endregion
 
         #endregion

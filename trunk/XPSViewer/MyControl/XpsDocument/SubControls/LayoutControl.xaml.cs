@@ -38,7 +38,7 @@ namespace MyControl.XpsDocument.SubControls
             images = new Dictionary<LayoutMode, string>();
             images.Add(LayoutMode.SinglePage, "/Test;component/Assets/Images/page_single.png");
             images.Add(LayoutMode.DoublePage, "/Test;component/Assets/Images/page_facing.png");
-            images.Add(LayoutMode.Thumbnail, "/Test;component/Assets/Images/pictures_thumbs.png");
+            //images.Add(LayoutMode.Thumbnail, "/Test;component/Assets/Images/pictures_thumbs.png");
         }
 
        
@@ -76,7 +76,7 @@ namespace MyControl.XpsDocument.SubControls
         void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.Value = (LayoutMode)(sender as MenuItem).Tag;
-                PageLayoutChanged(sender, null);
+            PageLayoutChanged(sender, e);
             
         }
     }

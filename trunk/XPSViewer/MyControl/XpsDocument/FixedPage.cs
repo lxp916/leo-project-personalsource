@@ -147,14 +147,8 @@ namespace MyControl.XpsDocument
                 //ImageBrush ib = new ImageBrush();
                 //ib.ImageSource = image.Source;
                 //this.Background = ib;
-
-                this.SetValue(Canvas.LeftProperty, (double)0);
-                this.SetValue(Canvas.TopProperty, (double)0);
-                //Canvas.SetLeft(this, 0);
-                //Canvas.SetTop(this, 0);
                 this.Height = el.Height;
                 this.Width = el.Width;
-
                 this.Children.Clear();
                 this.Children.Add(el);
             }

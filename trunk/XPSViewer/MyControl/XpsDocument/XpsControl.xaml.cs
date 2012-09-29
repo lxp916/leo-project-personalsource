@@ -49,7 +49,7 @@ namespace MyControl.XpsDocument
         public XpsControl()
         {
             InitializeComponent();
-            this.btnLayout.PageLayoutChanged+=new SubControls.LayoutControl.EventHandler(btnLayout_PageLayoutChanged);
+            this.btnLayout.PageLayoutChanged += new SubControls.LayoutControl.EventHandler(btnLayout_PageLayoutChanged);
         }
 
         #region Events
@@ -242,7 +242,10 @@ namespace MyControl.XpsDocument
 
         private void btnThumb_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Document != null)
+            {
+                Document.DisplayLayoutMode = Document.DisplayLayoutMode == LayoutMode.Thumbnail ? this.btnLayout.Value : LayoutMode.Thumbnail;
+            }
         }
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
@@ -259,7 +262,7 @@ namespace MyControl.XpsDocument
             {
                 RotateTransform transform = Document.RenderTransform as RotateTransform;
                 if (transform == null) transform = new RotateTransform();
-                transform.Angle = transform.Angle >=360 ? 0 : transform.Angle;
+                transform.Angle = transform.Angle >= 360 ? 0 : transform.Angle;
                 double oldWidth = Document.Width;
                 double oldHeight = Document.Height;
                 double cavansLeft = Canvas.GetLeft(Document);

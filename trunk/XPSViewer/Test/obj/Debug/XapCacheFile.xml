@@ -1,6 +1,6 @@
-﻿<xapCache source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test\Bin\Debug\Test.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2012/9/29 11:46:41">
-  <file source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test\obj\Debug\Test.dll" archivePath="Test.dll" lastWriteTime="2012/9/29 11:46:40" />
-  <file source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\MyControl.dll" archivePath="MyControl.dll" lastWriteTime="2012/9/29 11:46:39" />
+﻿<xapCache source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test\Bin\Debug\Test.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2012/9/29 15:30:00">
+  <file source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test\obj\Debug\Test.dll" archivePath="Test.dll" lastWriteTime="2012/9/29 15:29:59" />
+  <file source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\MyControl.dll" archivePath="MyControl.dll" lastWriteTime="2012/9/29 15:29:57" />
   <file source="c:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Windows.Controls.dll" archivePath="System.Windows.Controls.dll" lastWriteTime="2010/8/26 2:17:48" />
   <file source="c:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Windows.Controls.Navigation.dll" archivePath="System.Windows.Controls.Navigation.dll" lastWriteTime="2010/8/26 2:17:48" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Toolkit\Apr10\Themes\System.Windows.Controls.Theming.BubbleCreme.dll" archivePath="System.Windows.Controls.Theming.BubbleCreme.dll" lastWriteTime="2010/4/13 20:14:58" />
@@ -11,5 +11,5 @@
   <file source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.Toolkit.dll" archivePath="System.Windows.Controls.Toolkit.dll" lastWriteTime="2010/4/13 20:15:14" />
   <file source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\MyControl\Bin\Debug\System.Windows.Controls.Toolkit.Internals.dll" archivePath="System.Windows.Controls.Toolkit.Internals.dll" lastWriteTime="2010/4/13 19:59:48" />
   <file source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test\Assets\Dependencies\System.Printing.dll" archivePath="Assets\Dependencies\System.Printing.dll" lastWriteTime="2012/9/21 17:42:22" />
-  <file source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2012/9/29 11:38:22" />
+  <file source="C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2012/9/29 15:30:00" />
 </xapCache>
