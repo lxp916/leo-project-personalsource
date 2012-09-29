@@ -285,13 +285,21 @@ namespace MyControl.XpsDocument
                     Canvas.SetLeft(item, (maxWidth * i / mode + 1));
                     Canvas.SetTop(item, 0);
                     ScaleTransform scaleTransform = new ScaleTransform();
-                    scaleTransform.CenterX =  0;
-                    scaleTransform.CenterY = 0;// item.Height / 2;
+                    scaleTransform.CenterX = 0;
+                    scaleTransform.CenterY = item.Height / 4;//0;// 
                     scaleTransform.ScaleX = scaleTransform.ScaleY = 1.0 / mode;
                     item.RenderTransform = scaleTransform;
                 }
                 this.Width = maxWidth;
                 this.Height = maxHeight;
+                if (mode > 1)
+                {
+                    ScaleTransform st = new ScaleTransform();
+                    st.CenterX = this.Width/2;
+                    st.CenterY = this.Height/2;
+                    st.ScaleX = st.ScaleY = 1.0 / mode + 1;
+                    this.RenderTransform = st;
+                }
                 Canvas.SetTop(this, 0);
                 return true;
             }
