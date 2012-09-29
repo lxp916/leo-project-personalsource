@@ -47,10 +47,10 @@
                 </Grid.ColumnDefinitions>
                 <!--<sdk:GridSplitter x:Name="SideWindowSplitter" ShowsPreview="True" Width="5" Grid.Column="1" Visibility="Collapsed" HorizontalAlignment="Left" IsTabStop="False" />-->
                 <Border x:Name="DocViewerBorder" Grid.Column="1" BorderThickness="0" Background="LightGray" Margin="0" Canvas.Left="0" Canvas.Top="0">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto"  HorizontalContentAlignment="Center" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Center" Margin="0">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="0" Canvas.Top="0">
-                            <xps:XpsDocument Canvas.Left="0" Canvas.Top="0" IsEnableAnima="True" x:Name="xpsDocument" IsEnableNavigate="True" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" />
-                        </StackPanel>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"   VerticalScrollBarVisibility="Auto"  Margin="0">
+                        <!--<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="0" Canvas.Top="0">-->
+                            <xps:XpsDocument HorizontalAlignment="Center"  VerticalAlignment="Center" Canvas.Left="0" Canvas.Top="0" IsEnableAnima="True" x:Name="xpsDocument" IsEnableNavigate="True"  Margin="0" />
+                        <!--</StackPanel>-->
                     </ScrollViewer>
                 </Border>
             </Grid>
