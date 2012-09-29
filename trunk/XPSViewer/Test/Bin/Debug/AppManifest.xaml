@@ -1,0 +1,15 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="Test" EntryPointType="Test.App" RuntimeVersion="4.0.50826.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="Test" Source="Test.dll" />
+    <AssemblyPart x:Name="MyControl" Source="MyControl.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls" Source="System.Windows.Controls.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Navigation" Source="System.Windows.Controls.Navigation.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Theming.BubbleCreme" Source="System.Windows.Controls.Theming.BubbleCreme.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Theming.Toolkit" Source="System.Windows.Controls.Theming.Toolkit.dll" />
+    <AssemblyPart x:Name="System.Windows.Interactivity" Source="System.Windows.Interactivity.dll" />
+    <AssemblyPart x:Name="System.Xml.Linq" Source="System.Xml.Linq.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Input.Toolkit" Source="System.Windows.Controls.Input.Toolkit.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Toolkit" Source="System.Windows.Controls.Toolkit.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Toolkit.Internals" Source="System.Windows.Controls.Toolkit.Internals.dll" />
+  </Deployment.Parts>
+</Deployment>

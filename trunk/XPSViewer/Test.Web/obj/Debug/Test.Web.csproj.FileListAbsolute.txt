@@ -1,0 +1,20 @@
+C:\Users\Administrator\Desktop\Test\Test\Test.Web\bin\Test.Web.dll
+C:\Users\Administrator\Desktop\Test\Test\Test.Web\bin\Test.Web.pdb
+C:\Users\Administrator\Desktop\Test\Test\Test.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Test\Test\Test.Web\obj\Debug\Test.Web.dll
+C:\Users\Administrator\Desktop\Test\Test\Test.Web\obj\Debug\Test.Web.pdb
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\Test.Web\bin\Test.Web.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\Test.Web\bin\Test.Web.pdb
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\Test.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\Test.Web\obj\Debug\Test.Web.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器\Test.Web\obj\Debug\Test.Web.pdb
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器Test\Test.Web\bin\Test.Web.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器Test\Test.Web\bin\Test.Web.pdb
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器Test\Test.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器Test\Test.Web\obj\Debug\Test.Web.dll
+C:\Users\liaxiaop\Desktop\D\silverlight 环境\Silverlight 在线阅读器\XPS文档阅读器Test\Test.Web\obj\Debug\Test.Web.pdb
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test.Web\bin\Test.Web.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test.Web\bin\Test.Web.pdb
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test.Web\obj\Debug\Test.Web.dll
+C:\Users\liaxiaop\Desktop\D\Work\SVN Work Space\GoogleSVN\XPSViewer\Test.Web\obj\Debug\Test.Web.pdb
